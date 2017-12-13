@@ -1,7 +1,5 @@
 #include "Connector.h"
 
-#include "Door.h"
-
 
 Connector::Connector(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation, long iDMotionLess, bool status)
 	: MotionLess(world, iDIsland, iDDimension, point, permeability, sprite, orientation, iDMotionLess), status(status)

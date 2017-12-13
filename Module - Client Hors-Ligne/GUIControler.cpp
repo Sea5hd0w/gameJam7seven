@@ -188,7 +188,7 @@ void GUIControler::executeActions(string action)
 	string p_action = action.substr(0, action.size() - 1);
 
 	//Loading or not
-	switch (p_action[1])
+	switch (p_action[0])
 	{
 	case '1':
 		this->loading(p_action);
