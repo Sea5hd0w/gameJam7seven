@@ -19,8 +19,8 @@ View::View(World* world)
 	this->pWindow = NULL;
 	this->pWindow = SDL_CreateWindow("Tale of Crysias - V 0.0.1", SDL_WINDOWPOS_UNDEFINED,
 		SDL_WINDOWPOS_UNDEFINED,
-		800,
-		600, SDL_WINDOW_RESIZABLE
+		1600,
+		1000, SDL_WINDOW_RESIZABLE
 		/*SDL_WINDOW_MAXIMIZED*/);
 	//Create a static renderer : Every object can create SDL_Texture
 	View::renderer = SDL_CreateRenderer(this->pWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);

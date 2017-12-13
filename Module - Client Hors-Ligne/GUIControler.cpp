@@ -174,13 +174,17 @@ void GUIControler::runGUIControler()
 
 void GUIControler::loadTXT(string path)
 {
-	debug("Load");
 	std::ifstream file(path);
 	std::string str;
+	string back;
+	int i = 0;
 	while (std::getline(file, str))
 	{
-		this->executeActions(str);
+		if (i == 0) back = str;
+		else this->executeActions(str);
+		i++;
 	}
+	this->world->getIsland()->getDimension(0)->addBackground(back);
 }
 
 void GUIControler::executeActions(string action)
@@ -188,7 +192,7 @@ void GUIControler::executeActions(string action)
 	string p_action = action.substr(0, action.size() - 1);
 
 	//Loading or not
-	switch (p_action[1])
+	switch (p_action[0])
 	{
 	case '1':
 		this->loading(p_action);
@@ -204,8 +208,8 @@ void GUIControler::information(string rowData)
 
 	if (data[1] == "MainLoadEnd") //End of the main load : Heros, Stuff, Map of the dimension of the MainHero
 	{
-		this->world->getIsland()->getDimension(stol(data[3]))->loadElementsToView();
 		this->world->setLoading(false);
+		this->world->getIsland()->getDimension(stol(data[3]))->loadElementsToView();
 	}
 }
 

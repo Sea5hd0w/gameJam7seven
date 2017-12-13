@@ -12,6 +12,8 @@ Element::Element(World* world, long iDIsland, long iDDimension, tuple<long, long
 {
 	this->p_sprite = Sprites::addSprite(sprite);
 	this->sprite = {0,0, 128,128};
+	this->xSize = 128;
+	this->ySize = 128;
 	gen("[(" + to_string(get<0>(point)) + "," + to_string(get<1>(point)) + "," + to_string(get<2>(point)) + ")] : " + __func__ + " : Create");
 }
 
@@ -36,11 +38,7 @@ const int Element::getOrientation() {
 
 void Element::printSprite(int xPosition, int yPosition)
 {
-	int xSize = 128;
-	int ySize = 128;
-
-	SDL_Rect dest = { xPosition, yPosition, xSize, ySize};
-
+	SDL_Rect dest = { xPosition, yPosition, this->xSize, this->ySize};
 	try {
 		SDL_RenderCopy(View::renderer, this->p_sprite, &this->sprite, &dest);
 	}

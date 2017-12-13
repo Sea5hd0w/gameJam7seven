@@ -47,6 +47,9 @@ protected:
 	tuple<long, long, long> point;
 	SDL_Rect sprite;
 
+	int xSize;
+	int ySize;
+
 private:
 	long iDDimension;
 	long iDIsland;
@@ -57,7 +60,5 @@ private:
 	SDL_Texture* p_sprite;
 	string pathSprite;
 	int orientation;
-
-	
 };
 

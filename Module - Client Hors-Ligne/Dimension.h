@@ -52,6 +52,9 @@ public:
 	map<long, NPC*> &getNPCs(); // Get NPC's list
 	*/
 
+	SDL_Texture* getBackground();
+	void addBackground(string background);
+
 private:
 	World* world; //Pointer to access to world
 	long iDIsland; //ID of the island
@@ -69,5 +72,7 @@ private:
 	tuple<long, long> getIDArea(long x, long y); // Calculate ID area by coordinate of an Element
 
 	list<pair<tuple<long*, long, long*, long*>, Element*>> elementsToView; // List of all element to view (MotionLess, Mobiles)
+
+	SDL_Texture* background;
 };
 
