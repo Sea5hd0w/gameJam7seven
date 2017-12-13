@@ -40,6 +40,7 @@ int ViewMap::getScreen()
 		int yWindow;
 		SDL_GetWindowSize(this->pWindow, &xWindow, &yWindow);
 
+		element.second->move();
 		//Ask to element to print itself, give it the coordinate to print
 		element.second->printSprite(convertXHero(x, y, z, wighthCase, heightCase, xSize, ySize, xWindow, yWindow), convertYHero(x, y, z, wighthCase, heightCase, xSize, ySize, xWindow, yWindow));
 		i++;

@@ -19,3 +19,13 @@ long Hero::getIDHero()
 {
 	return this->iDHero;
 }
+
+void Hero::addX(double v)
+{
+	VX = v;
+}
+
+void Hero::addY(double v)
+{
+	VY = v;
+}

@@ -9,6 +9,8 @@ public:
 	~Hero();
 
 	long getIDHero();
+	void addX(double v);
+	void addY(double v);
 
 private:
 	long iDHero;
