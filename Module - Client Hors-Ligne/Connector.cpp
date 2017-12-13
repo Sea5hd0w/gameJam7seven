@@ -1,7 +1,5 @@
 #include "Connector.h"
 
-#include "PressureSensor.h"
-#include "ContinuousPressureSensor.h"
 #include "Door.h"
 
 
