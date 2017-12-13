@@ -13,6 +13,8 @@ Element::Element(World* world, long iDIsland, long iDDimension, tuple<long, long
 	this->p_sprite = Sprites::addSprite(sprite);
 	this->sprite = {0,0, 128,128};
 	gen("[(" + to_string(get<0>(point)) + "," + to_string(get<1>(point)) + "," + to_string(get<2>(point)) + ")] : " + __func__ + " : Create");
+
+	this->t = clock();
 }
 
 
@@ -107,4 +109,9 @@ void Element::setOrientation(int new_orientation) {
 void Element::setIDDimension(long new_IDDImension)
 {
 	this->iDDimension = new_IDDImension;
+}
+
+void Element::move()
+{
+	//do nothing
 }

@@ -29,101 +29,49 @@ bool Mobile::isMovePossible(long iDDimension_parameter, tuple<long, long, long> 
 	}
 }
 
-bool Mobile::isMoveOutOfDimension(long iDDimension_parameter, tuple<long, long, long> element, int orientation)
-{
-	return false;
-}
-
-void Mobile::moveAStar(long xDestination, long yDestination)
-{
-}
-
 void Mobile::moveDirection(bool run, int distance, int direction)
 {
+	int vitesseRun = 10;
+	int vitesseJump = 10;
 	switch (direction)
 	{
 	case 0:
-		this->moveTop(run, distance);
+		//this->moveTop(run, distance);
+		VY -= vitesseJump;
 		break;
 	case 1:
-		this->moveTopRight(run, distance);
+		//this->moveTopRight(run, distance);
+		VY -= vitesseJump;
+		VX += vitesseRun;
 		break;
 	case 2:
-		this->moveRight(run, distance);
+		//this->moveRight(run, distance);
+		VX += vitesseRun;
 		break;
 	case 3:
-		this->moveDownRight(run, distance);
+		//this->moveDownRight(run, distance);
+		//VY += vitesseJump;
+		VX += vitesseRun;
 		break;
 	case 4:
-		this->moveDown(run, distance);
+		//this->moveDown(run, distance);
+		//VY -= vitesseJump;
 		break;
 	case 5:
-		this->moveDownLeft(run, distance);
+		VX -= vitesseRun;
+		//this->moveDownLeft(run, distance);
 		break;
 	case 6:
-		this->moveLeft(run, distance);
+		VX -= vitesseRun;
+		//this->moveLeft(run, distance);
 		break;
 	case 7:
-		this->moveTopLeft(run, distance);
+		VX -= vitesseRun;
+		VY -= vitesseJump;
+		//this->moveTopLeft(run, distance);
 		break;
 	default:
 		break;
-	}
-}
-
-void Mobile::moveTop(bool run, int distance)
-{
-	for (int i = 0; i < distance; i++) {
-		if (move(run, -100, -100, 0, 0)) mov("[ ? ] : [ TOP ]  \t-\t[(" + to_string(get<0>(this->getPoint())) + ", " + to_string(get<1>(getPoint())) + ", " + to_string(get<2>(getPoint())) + ")]");
-	}
-}
-
-void Mobile::moveTopRight(bool run, int distance)
-{
-	for (int i = 0; i < distance; i++) {
-		if (move(run, 0, -100, 0, 1)) mov( "[ ? ] : [ TOPRIGHT ]\t-\t[(" + to_string(get<0>(this->getPoint())) + ", " + to_string(get<1>(getPoint())) + ", " + to_string(get<2>(getPoint())) + ")]");
-	}
-}
-
-void Mobile::moveTopLeft(bool run, int distance)
-{
-	for (int i = 0; i < distance; i++) {
-		if (move(run, -100, 0, 0, 7)) mov( "[ ? ] : [ TOPLEFT ]\t-\t[(" + to_string(get<0>(this->getPoint())) + ", " + to_string(get<1>(getPoint())) + ", " + to_string(get<2>(getPoint())) + ")]");
-	}
-}
-
-void Mobile::moveRight(bool run, int distance)
-{
-	for (int i = 0; i < distance; i++) {
-		if (move(run, 100, -100, 0, 2)) mov( "[ ? ] : [ RIGHT ]\t-\t[(" + to_string(get<0>(this->getPoint())) + ", " + to_string(get<1>(getPoint())) + ", " + to_string(get<2>(getPoint())) + ")]");
-	}
-}
-
-void Mobile::moveLeft(bool run, int distance)
-{
-	for (int i = 0; i < distance; i++) {
-		if (move(run, -100, 100, 0, 6)) mov( "[ ? ] : [ LEFT ]\t-\t[(" + to_string(get<0>(this->getPoint())) + ", " + to_string(get<1>(getPoint())) + ", " + to_string(get<2>(getPoint())) + ")]");
-	}
-}
-
-void Mobile::moveDownRight(bool run, int distance)
-{
-	for (int i = 0; i < distance; i++) {
-		if (move(run, 100, 0, 0, 3)) mov( "[ ? ] : [ DOWNRIGHT ]\t-\t[(" + to_string(get<0>(this->getPoint())) + ", " + to_string(get<1>(getPoint())) + ", " + to_string(get<2>(getPoint())) + ")]");
-	}
-}
-
-void Mobile::moveDownLeft(bool run, int distance)
-{
-	for (int i = 0; i < distance; i++) {
-		if (move(run, 0, 100, 0, 5)) mov( "[ ? ] : [ DOWNLEFT ]\t-\t[(" + to_string(get<0>(this->getPoint())) + ", " + to_string(get<1>(getPoint())) + ", " + to_string(get<2>(getPoint())) + ")]");
-	}
-}
-
-void Mobile::moveDown(bool run, int distance)
-{
-	for (int i = 0; i < distance; i++) {
-		if (move(run, 100, 100, 0, 4)) mov( "[ ? ] : [ DOWN ]\t-\t[(" + to_string(get<0>(this->getPoint())) + ", " + to_string(get<1>(getPoint())) + ", " + to_string(get<2>(getPoint())) + ")]");
 	}
 }
 
@@ -138,11 +86,6 @@ void Mobile::teleportHere(long iDDimension, tuple<long, long, long> point_finish
 	this->setIDDimension(iDDimension);
 
 	this->getWorld()->getIsland()->getDimension(this->getIDDimension())->loadElementsToView();
-}
-
-bool Mobile::middleMove(tuple<long, long, long> point_start, tuple<long, long, long> point_finish)
-{
-	return false;
 }
 
 bool Mobile::move(bool run, int x_move, int y_move, int z_move, int direction)
@@ -178,7 +121,6 @@ void Mobile::moveUnsafe(bool run, int x_move, int y_move, int z_move, bool walkO
 		if (i == split / 2)
 		{
 			if(walkOff) this->getWorld()->getIsland()->getDimension(this->getIDDimension())->getElement(point_start)->walkOff(this);
-			if (this->middleMove(point_start, make_tuple(get<0>(point_start) + x_move, get<1>(point_start) + y_move, get<2>(point_start) + z_move))) i = split;
 		}
 	}
 
@@ -189,150 +131,36 @@ void Mobile::moveUnsafe(bool run, int x_move, int y_move, int z_move, bool walkO
 	this->getWorld()->getIsland()->getDimension(this->getIDDimension())->sortElementsToView();
 }
 
-bool Mobile::moveSlope(bool run, int x_move, int y_move, int z_move, int direction)
+void Mobile::move()
 {
-	MotionLess* element;
-
-	if (this->getWorld()->getIsland()->getDimension(this->getIDDimension())->isElement(make_tuple(this->getX() + x_move, this->getY() + y_move, this->getZ() + z_move)))
-	{
-		element = this->getWorld()->getIsland()->getDimension(this->getIDDimension())->getElement(make_tuple(this->getX() + x_move, this->getY() + y_move, this->getZ() + z_move));
-		if (element->getIDMotionLess() >= 4 && element->getIDMotionLess() <= 7)
-		{
-			if (element->getOrientation() == ((direction + 4) % 8))
-			{
-				moveUnsafe(run, x_move, y_move, z_move+50, false, true, direction, 1);
-				return true;
-			}
-		}
-	}
-	else if (this->getWorld()->getIsland()->getDimension(this->getIDDimension())->isElement(make_tuple(this->getX() + x_move, this->getY() + y_move, this->getZ() + z_move + 50)))
-	{
-		element = this->getWorld()->getIsland()->getDimension(this->getIDDimension())->getElement(make_tuple(this->getX() + x_move, this->getY() + y_move, this->getZ() + z_move+50));
-		if (element->getIDMotionLess() >= 4 && element->getIDMotionLess() <= 7)
-		{
-			if (element->getOrientation() == ((direction + 4) % 8))
-			{
-				moveUnsafe(run, x_move, y_move, z_move + 100, false, false, direction, 1);
-				return true;
-			}
-		}
-		else if (element->getPermeability())
-		{
-			moveUnsafe(run, x_move, y_move, z_move + 50, true, false, direction, 1);
-			return true;
-		}
-	}
-	else if (this->getWorld()->getIsland()->getDimension(this->getIDDimension())->isElement(make_tuple(this->getX() + x_move, this->getY() + y_move, this->getZ() + z_move-100)))
-	{
-		element = this->getWorld()->getIsland()->getDimension(this->getIDDimension())->getElement(make_tuple(this->getX() + x_move, this->getY() + y_move, this->getZ() + z_move-100));
-		if (element->getIDMotionLess() >= 4 && element->getIDMotionLess() <= 7)
-		{
-			if (element->getOrientation() == direction)
-			{
-				moveUnsafe(run, x_move, y_move, z_move - 50, false, true, direction, 1);
-				return true;
-			}
-		}
-	}
-	else if (this->getWorld()->getIsland()->getDimension(this->getIDDimension())->isElement(make_tuple(this->getX() + x_move, this->getY() + y_move, this->getZ() + z_move - 150)))
-	{
-		element = this->getWorld()->getIsland()->getDimension(this->getIDDimension())->getElement(make_tuple(this->getX() + x_move, this->getY() + y_move, this->getZ() + z_move - 150));
-		if (element->getIDMotionLess() >= 4 && element->getIDMotionLess() <= 7)
-		{
-			if (element->getOrientation() == direction)
-			{
-				moveUnsafe(run, x_move, y_move, z_move - 100, false, false, direction, 1);
-				return true;
-			}
-		}
-		else if (this->getWorld()->getIsland()->getDimension(this->getIDDimension())->getElement(make_tuple(this->getX() + x_move, this->getY() + y_move, this->getZ() + z_move - 50))->getPermeability())
-		{
-			moveUnsafe(run, x_move, y_move, z_move - 50, true, false, direction, 1);
-			return true;
-		}
-	}
-	else if (this->getWorld()->getIsland()->getDimension(this->getIDDimension())->isElement(make_tuple(this->getX() + x_move, this->getY() + y_move, this->getZ() + z_move - 50)))
-	{
-		element = this->getWorld()->getIsland()->getDimension(this->getIDDimension())->getElement(make_tuple(this->getX() + x_move, this->getY() + y_move, this->getZ() + z_move - 50));
-		if (element->getPermeability())
-		{
-			moveUnsafe(run, x_move, y_move, z_move - 50, true, false, direction, 1);
-			return true;
-		}
-	}
-	return false;
+	set_gravity_vecteurAcceleration();
+	calc_vecteurVitesse();
+	calc_position();
 }
 
-bool Mobile::moveLadder(bool run, int x_move, int y_move, int z_move, int direction)
+void Mobile::set_gravity_vecteurAcceleration()
 {
-	MotionLess* element;
+	clock_t time = clock();
+	double accelerationGravitationnel = 9.0 * (clock() - this->t) / 1000.0;
 
-	if (this->getWorld()->getIsland()->getDimension(this->getIDDimension())->isElement(make_tuple(this->getX() + x_move, this->getY() + y_move, this->getZ() + z_move)))
+	AY = accelerationGravitationnel;
+}
+
+void Mobile::calc_vecteurVitesse()
+{
+	int vitMax = 32;
+	VX += (VX+AX) < vitMax ? AX : 0;
+	VY += (VY + AY) < vitMax ? AY : 0;
+
+
+	if (POSY >= 600)
 	{
-		element = this->getWorld()->getIsland()->getDimension(this->getIDDimension())->getElement(make_tuple(this->getX() + x_move, this->getY() + y_move, this->getZ() + z_move));
-		if (element->getIDMotionLess() >= 8 && element->getIDMotionLess() <= 11)
-		{
-			if (element->getOrientation() == ((direction + 4) % 8))
-			{
-				moveUnsafe(run, 0, 0, z_move + 50, false, true, direction, 2);
-				return true;
-			}
-		}
+		VY = 0;
 	}
-	else if (this->getWorld()->getIsland()->getDimension(this->getIDDimension())->isElement(make_tuple(this->getX() + x_move, this->getY() + y_move, this->getZ() + z_move + 50)))
-	{
-		element = this->getWorld()->getIsland()->getDimension(this->getIDDimension())->getElement(make_tuple(this->getX() + x_move, this->getY() + y_move, this->getZ() + z_move + 50));
-		if (element->getIDMotionLess() >= 8 && element->getIDMotionLess() <= 11)
-		{
-			if (element->getOrientation() == ((direction + 4) % 8))
-			{
-				moveUnsafe(run, 0, 0, z_move + 100, false, false, direction, 2);
-				return true;
-			}
-		}
-		else if (element->getPermeability())
-		{
-			moveUnsafe(run, x_move, y_move, z_move + 50, true, false, direction, 2);
-			return true;
-		}
-	}
-	else if (this->getWorld()->getIsland()->getDimension(this->getIDDimension())->isElement(make_tuple(this->getX() + 0, this->getY() + 0, this->getZ() + z_move - 100)))
-	{
-		element = this->getWorld()->getIsland()->getDimension(this->getIDDimension())->getElement(make_tuple(this->getX() + 0, this->getY() + 0, this->getZ() + z_move - 100));
-		if (element->getIDMotionLess() >= 8 && element->getIDMotionLess() <= 11)
-		{
-			if (element->getOrientation() == direction)
-			{
-				moveUnsafe(run, x_move, y_move, z_move - 50, false, true, direction, 2);
-				return true;
-			}
-		}
-	}
-	else if (this->getWorld()->getIsland()->getDimension(this->getIDDimension())->isElement(make_tuple(this->getX() - x_move, this->getY() - y_move, this->getZ() + z_move - 150)))
-	{
-		element = this->getWorld()->getIsland()->getDimension(this->getIDDimension())->getElement(make_tuple(this->getX() - x_move, this->getY() - y_move, this->getZ() + z_move - 150));
-		if (element->getIDMotionLess() >= 8 && element->getIDMotionLess() <= 11)
-		{
-			if (element->getOrientation() == direction)
-			{
-				moveUnsafe(run, 0, 0, z_move - 100, false, false, direction, 2);
-				return true;
-			}
-		}
-		else if (this->getWorld()->getIsland()->getDimension(this->getIDDimension())->getElement(make_tuple(this->getX() + 0, this->getY() + 0, this->getZ() + z_move - 50))->getPermeability())
-		{
-			moveUnsafe(run, 0, 0, z_move - 50, true, false, direction, 2);
-			return true;
-		}
-	}
-	else if (this->getWorld()->getIsland()->getDimension(this->getIDDimension())->isElement(make_tuple(this->getX() + 0, this->getY() + 0, this->getZ() + z_move - 50)))
-	{
-		element = this->getWorld()->getIsland()->getDimension(this->getIDDimension())->getElement(make_tuple(this->getX() + 0, this->getY() + 0, this->getZ() + z_move - 50));
-		if (element->getPermeability())
-		{
-			moveUnsafe(run, 0, 0, z_move - 50, true, false, direction, 2);
-			return true;
-		}
-	}
-	return false;
+}
+
+void Mobile::calc_position()
+{
+	POSX += VX;
+	POSY += VY;
 }

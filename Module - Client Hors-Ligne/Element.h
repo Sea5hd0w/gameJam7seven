@@ -7,9 +7,13 @@
 #include <map>
 #include <string>
 #include <vector>
+#include <time.h>
 
 #include "SDL.h"
 #include "Sprites.h"
+
+#define POSX get<0>(point)
+#define POSY get<1>(point)
 
 using namespace std;
 
@@ -38,6 +42,8 @@ public:
 	pair<tuple<long*, long, long*, long*>, Element*> getElementToView();
 	tuple<long*, long, long*, long*> getIDElementToView();
 
+	virtual void move();
+
 protected:
 	void setPoint(tuple<long, long, long> new_point);
 	void setPermeability(bool new_permeability);
@@ -45,6 +51,7 @@ protected:
 	void setIDDimension(long new_IDDImension);
 
 	tuple<long, long, long> point;
+	
 	SDL_Rect sprite;
 
 private:
@@ -57,7 +64,5 @@ private:
 	SDL_Texture* p_sprite;
 	string pathSprite;
 	int orientation;
-
-	
 };
 
