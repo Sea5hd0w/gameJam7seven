@@ -1,0 +1,6 @@
+<1:1:0:0:0:0:0:0:ressources/graphics/motionless/Hero_Debug_Type2.bmp:0>
+<1:0:0:0:0:0:0:2:ressources/graphics/motionless/Floor_Debug_Type1.bmp>
+<1:0:0:0:0:1:0:2:ressources/graphics/motionless/Floor_Debug_Type1.bmp>
+<1:0:0:0:0:2:0:2:ressources/graphics/motionless/Floor_Debug_Type1.bmp>
+<1:0:0:0:0:3:0:2:ressources/graphics/motionless/Floor_Debug_Type1.bmp>
+<3:MainLoadEnd:0:0>

@@ -21,6 +21,21 @@ private:
 	View* view; // Object view to acccess to mainWindow dimension
 	bool run; //Bool control the GUI loop (while(run))
 
+	void loadTXT(string path);
+
+	void executeActions(string action);
+	
+	void information(string rowData);
+
+	void loading(string rowData); //Treat loading information from server : split into : MotionLess, Hero, Monster, NPC
+	void loadingMotionLess(string rowData); //Create MotionLess from server string
+	void loadingHero(string rowData); //Create Hero from server string
+	void loadingMonster(string rowData); //Create Monster from server string
+	void loadingNPC(string rowData); //Create NPC from server string
+
+	vector<string> split_1(const string& str, const char& ch);
+
+
 	int heightCase = 40; //Size of height classic case
 	int wighthCase = 80; //Size of width classic case
 	int positionCaseHeight1 = 68; //Distance from image's top and case's top

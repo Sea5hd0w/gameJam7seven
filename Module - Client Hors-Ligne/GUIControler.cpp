@@ -2,10 +2,14 @@
 
 #include "LibraryCommunication.h"
 
+#include <iostream>
+#include <fstream>
 
 GUIControler::GUIControler(World* world, View* view)
 	: world(world), view(view), run(true)
 {
+	this->loadTXT("ressources/levels/test.txt");
+
 	gen("GUIControler created : starting Listen & Process instruction");
 }
 
@@ -165,4 +169,172 @@ void GUIControler::runGUIControler()
 			}
 		}
 	}
+}
+
+
+void GUIControler::loadTXT(string path)
+{
+	debug("Load");
+	std::ifstream file(path);
+	std::string str;
+	while (std::getline(file, str))
+	{
+		this->executeActions(str);
+	}
+}
+
+void GUIControler::executeActions(string action)
+{
+	string p_action = action.substr(0, action.size() - 1);
+
+	//Loading or not
+	switch (p_action[1])
+	{
+	case '1':
+		this->loading(p_action);
+		break;
+	case '3':
+		this->information(p_action);
+		break;
+	}
+}
+void GUIControler::information(string rowData)
+{
+	vector<string> data = (this->split_1(rowData, ':'));
+
+	if (data[1] == "MainLoadEnd") //End of the main load : Heros, Stuff, Map of the dimension of the MainHero
+	{
+		this->world->getIsland()->getDimension(stol(data[3]))->loadElementsToView();
+		this->world->setLoading(false);
+	}
+}
+
+void GUIControler::loading(string rowData)
+{
+	switch (rowData[2]) //Check what object is loading
+	{
+	case '0':
+		this->loadingMotionLess(rowData);
+		break;
+	case '1':
+		this->loadingHero(rowData);
+		break;
+	case '2':
+		this->loadingMonster(rowData);
+		break;
+	case '3':
+		this->loadingNPC(rowData);
+		break;
+	}
+}
+
+void GUIControler::loadingMotionLess(string rowData)
+{
+	Area* areaBuffer = NULL;
+
+	vector<string> data = (this->split_1(rowData, ':'));
+
+	//Check if Island exist : else create it
+	if (this->world->getIsland() == NULL /* || Recive data of an other island*/)
+	{
+		this->world->setIsland(new Island(this->world, stol(data[2])));
+	}
+
+	//Check if Dimension exist : else create it
+	if (!this->world->getIsland()->isDimension(stol(data[3])))
+	{
+		this->world->getIsland()->addDimension(stol(data[3]), new Dimension(this->world, stol(data[2]), stol(data[3])));
+	}
+
+	//Check if Area exist : else create it
+	if (!this->world->getIsland()->getDimension(stol(data[3]))->isArea(stol(data[4]), stol(data[5])))
+	{
+		areaBuffer = new Area(this->world, stol(data[2]), stol(data[3]));
+		this->world->getIsland()->getDimension(stol(data[3]))->addArea(stol(data[4]), stol(data[5]), areaBuffer);
+	}
+	else
+	{
+		areaBuffer = this->world->getIsland()->getDimension(stol(data[3]))->getArea(stol(data[4]), stol(data[5]));
+	}
+
+	//Create element : ID 0 to 12 : basic, 13 & 14 Connector, 15 : Gate
+	if ((stol(data[7])) < 12) //If motionLess is a basic
+	{
+		areaBuffer->addElement(make_tuple(stol(data[4]), stol(data[5]), stol(data[6])), MotionLess::getMotionLess(stol(data[7]), this->world, stol(data[2]), stol(data[3]), make_tuple(stol(data[4]), stol(data[5]), stol(data[6])), data[8]));
+	}
+	else if ((stol(data[7])) < 15)
+	{
+		//areaBuffer->addElement(make_tuple(stol(data[4]), stol(data[5]), stol(data[6])), Connector::getConnector(stol(data[7]), this->world, stol(data[2]), stol(data[3]), make_tuple(stol(data[4]), stol(data[5]), stol(data[6])), data[8], data[9].at(0) == '1'));
+	}
+	else
+	{
+		//areaBuffer->addElement(make_tuple(stol(data[4]), stol(data[5]), stol(data[6])), Gate::getGate(stol(data[7]), this->world, stol(data[2]), stol(data[3]), make_tuple(stol(data[4]), stol(data[5]), stol(data[6])), data[8], (data[9].at(0) == '1'), stol(data[10]), stol(data[11]), make_tuple(stol(data[12]), stol(data[13]), stol(data[14]))));
+	}
+}
+
+void GUIControler::loadingHero(string rowData)
+{
+	Area* areaBuffer = NULL;
+
+	vector<string> data = (this->split_1(rowData, ':'));
+
+	if (this->world->getMainHero()) debug("Loading hero");
+	Hero* hero = new Hero(this->world, stol(data[2]), stol(data[3]), make_tuple(stol(data[4]), stol(data[5]), stol(data[6])), false, data[8], stoi(data[7]), stol(data[9]));
+
+	//Check if MainHero exist : else create it
+	if (this->world->getMainHero() == NULL)
+	{
+		this->world->setMainHero(hero);
+	}
+
+	//Check if Island exist : else create it
+	if (this->world->getIsland() == NULL /* || Recive data of an other island*/)
+	{
+		this->world->setIsland(new Island(this->world, stol(data[2])));
+	}
+
+	//Check if Dimension exist : else create it
+	if (!this->world->getIsland()->isDimension(stol(data[3])))
+	{
+		this->world->getIsland()->addDimension(stol(data[3]), new Dimension(this->world, stol(data[2]), stol(data[3])));
+	}
+
+	//Add Hero to the dimension
+	this->world->getIsland()->getDimension(stol(data[3]))->addHero(hero, stol(data[9]));
+	debug("AddHEro");
+}
+
+void GUIControler::loadingMonster(string rowData)
+{
+
+}
+
+void GUIControler::loadingNPC(string rowData)
+{
+
+}
+
+vector<string> GUIControler::split_1(const string& str, const char& ch) {
+	string next;
+	vector<string> result;
+
+	// For each character in the string
+	for (string::const_iterator it = str.begin(); it != str.end(); it++) {
+		// If we've hit the terminal character
+		if (*it == ch) {
+			// If we have some characters accumulated
+			if (!next.empty()) {
+				// Add them to the result vector
+				result.push_back(next);
+				next.clear();
+			}
+		}
+		else {
+			// Accumulate the next character into the sequence
+			next += *it;
+		}
+	}
+	if (!next.empty())
+		result.push_back(next);
+	return result;
 }
