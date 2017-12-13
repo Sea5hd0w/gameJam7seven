@@ -61,29 +61,11 @@
     <Filter Include="Fichiers d%27en-tête\Library">
       <UniqueIdentifier>{e2781440-e1af-4df9-8ce0-d892d7d0fee8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\Controler\SOCKControler">
-      <UniqueIdentifier>{05d08c66-dcea-446a-aa16-7b594ed701b1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers sources\Model\Elements\MotionLess\Connector">
       <UniqueIdentifier>{c62c57a3-53be-4ac6-b25e-f7e9e59242c4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\Model\Elements\MotionLess\Connector\Sensor">
-      <UniqueIdentifier>{995d90d2-e0d2-4314-8d8f-1e10346b9732}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Model\Elements\MotionLess\Connector\Actuator">
-      <UniqueIdentifier>{b0db13bc-89d9-42bf-98a6-cef330ff1b8c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\Model\Elements\Sensor">
-      <UniqueIdentifier>{e338c196-bd8e-4035-a7bb-f1c9478d5d9b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\Model\Elements\Actuator">
-      <UniqueIdentifier>{1759e605-f24d-4fb4-8e34-6518bc1c5899}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Model\Elements\MotionLess\Connector\Gate">
-      <UniqueIdentifier>{d2961dfe-78cf-4794-9a7a-2d5291b1bd4b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\Model\Elements\Gate">
-      <UniqueIdentifier>{3ebbf010-a7d9-461f-99e0-870c85e5a1ce}</UniqueIdentifier>
+    <Filter Include="levels">
+      <UniqueIdentifier>{5b261679-3c38-4166-959a-92257a0378e6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -129,47 +111,14 @@
     <ClCompile Include="LoadingScreen.cpp">
       <Filter>Fichiers sources\View</Filter>
     </ClCompile>
-    <ClCompile Include="ViewStatistics.cpp">
-      <Filter>Fichiers sources\View</Filter>
-    </ClCompile>
-    <ClCompile Include="SOCKControler.cpp">
-      <Filter>Fichiers sources\Controler\SOCKControler</Filter>
-    </ClCompile>
-    <ClCompile Include="SOCKControlerLoading.cpp">
-      <Filter>Fichiers sources\Controler\SOCKControler</Filter>
-    </ClCompile>
-    <ClCompile Include="SOCKControlerAction.cpp">
-      <Filter>Fichiers sources\Controler\SOCKControler</Filter>
-    </ClCompile>
-    <ClCompile Include="SOCKControlerInformation.cpp">
-      <Filter>Fichiers sources\Controler\SOCKControler</Filter>
-    </ClCompile>
     <ClCompile Include="ViewMap.cpp">
       <Filter>Fichiers sources\View</Filter>
     </ClCompile>
     <ClCompile Include="Sprites.cpp">
       <Filter>Fichiers sources\Model\Elements</Filter>
     </ClCompile>
-    <ClCompile Include="PressureSensor.cpp">
-      <Filter>Fichiers sources\Model\Elements\MotionLess\Connector\Sensor</Filter>
-    </ClCompile>
-    <ClCompile Include="ContinuousPressureSensor.cpp">
-      <Filter>Fichiers sources\Model\Elements\MotionLess\Connector\Sensor</Filter>
-    </ClCompile>
     <ClCompile Include="Connector.cpp">
       <Filter>Fichiers sources\Model\Elements\MotionLess\Connector</Filter>
-    </ClCompile>
-    <ClCompile Include="Door.cpp">
-      <Filter>Fichiers sources\Model\Elements\MotionLess\Connector\Actuator</Filter>
-    </ClCompile>
-    <ClCompile Include="GateDimension.cpp">
-      <Filter>Fichiers sources\Model\Elements\MotionLess\Connector\Gate</Filter>
-    </ClCompile>
-    <ClCompile Include="Gate.cpp">
-      <Filter>Fichiers sources\Model\Elements\MotionLess\Connector\Gate</Filter>
-    </ClCompile>
-    <ClCompile Include="AStar.cpp">
-      <Filter>Fichiers sources\Controler</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -183,9 +132,6 @@
       <Filter>Fichiers d%27en-tête\Controler</Filter>
     </ClInclude>
     <ClInclude Include="GUIControler.h">
-      <Filter>Fichiers d%27en-tête\Controler</Filter>
-    </ClInclude>
-    <ClInclude Include="SOCKControler.h">
       <Filter>Fichiers d%27en-tête\Controler</Filter>
     </ClInclude>
     <ClInclude Include="World.h">
@@ -212,9 +158,6 @@
     <ClInclude Include="LoadingScreen.h">
       <Filter>Fichiers d%27en-tête\View</Filter>
     </ClInclude>
-    <ClInclude Include="ViewStatistics.h">
-      <Filter>Fichiers d%27en-tête\View</Filter>
-    </ClInclude>
     <ClInclude Include="LibraryCommunication.h">
       <Filter>Fichiers d%27en-tête\Library</Filter>
     </ClInclude>
@@ -227,26 +170,8 @@
     <ClInclude Include="Sprites.h">
       <Filter>Fichiers d%27en-tête\Model\Elements</Filter>
     </ClInclude>
-    <ClInclude Include="PressureSensor.h">
-      <Filter>Fichiers d%27en-tête\Model\Elements\Sensor</Filter>
-    </ClInclude>
-    <ClInclude Include="ContinuousPressureSensor.h">
-      <Filter>Fichiers d%27en-tête\Model\Elements\Sensor</Filter>
-    </ClInclude>
     <ClInclude Include="Connector.h">
       <Filter>Fichiers d%27en-tête\Model\Elements</Filter>
-    </ClInclude>
-    <ClInclude Include="Door.h">
-      <Filter>Fichiers d%27en-tête\Model\Elements\Actuator</Filter>
-    </ClInclude>
-    <ClInclude Include="GateDimension.h">
-      <Filter>Fichiers d%27en-tête\Model\Elements\Gate</Filter>
-    </ClInclude>
-    <ClInclude Include="Gate.h">
-      <Filter>Fichiers d%27en-tête\Model\Elements\Gate</Filter>
-    </ClInclude>
-    <ClInclude Include="AStar.h">
-      <Filter>Fichiers d%27en-tête\Controler</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
