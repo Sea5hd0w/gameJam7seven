@@ -25,14 +25,14 @@ public:
 
 	void moveDirection(bool run, int distance, int direction);
 
-	/*void moveTop(bool run, int distance);
+	void moveTop(bool run, int distance);
 	void moveTopRight(bool run, int distance);
 	void moveTopLeft(bool run, int distance);
 	void moveRight(bool run, int distance);
 	void moveLeft(bool run, int distance);
 	void moveDownRight(bool run, int distance);
 	void moveDownLeft(bool run, int distance);
-	void moveDown(bool run, int distance);*/
+	void moveDown(bool run, int distance);
 
 	void teleportHere(long iDDimension, tuple<long, long, long> point_finish);
 
@@ -50,9 +50,6 @@ private:
 
 	bool move(bool run, int x_move, int y_move, int z_move, int direction);
 	void moveUnsafe(bool run, int x_move, int y_move, int z_move, bool walkOn, bool walkOff, int direction, int iDMove);
-	
-	bool moveSlope(bool run, int x_move, int y_move, int z_move, int direction);
-	bool moveLadder(bool run, int x_move, int y_move, int z_move, int direction);
 
 	tuple<long, long> vecteurVitesse;
 	tuple<long, long> vecteurAcceleration;

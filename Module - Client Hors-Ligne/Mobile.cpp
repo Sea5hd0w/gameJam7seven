@@ -32,7 +32,7 @@ bool Mobile::isMovePossible(long iDDimension_parameter, tuple<long, long, long> 
 void Mobile::moveDirection(bool run, int distance, int direction)
 {
 	int vitesseRun = 10;
-	int vitesseJump = 10;
+	int vitesseJump = 32*2;
 	switch (direction)
 	{
 	case 0:
@@ -97,8 +97,6 @@ bool Mobile::move(bool run, int x_move, int y_move, int z_move, int direction)
 	}
 	else
 	{
-		if (moveLadder(run, x_move, y_move, z_move, direction)) return true;
-		else return moveSlope(run, x_move, y_move, z_move, direction);
 	}
 }
 
@@ -149,9 +147,10 @@ void Mobile::set_gravity_vecteurAcceleration()
 void Mobile::calc_vecteurVitesse()
 {
 	int vitMax = 32;
-	VX += (VX+AX) < vitMax ? AX : 0;
-	VY += (VY + AY) < vitMax ? AY : 0;
-
+	VX += AX;
+	VY += AY;
+	VX = VX > 32 ? 32 : VX;
+	VY = VY > 32 ? 32 : VY;
 
 	if (POSY >= 600)
 	{

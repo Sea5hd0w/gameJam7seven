@@ -15,8 +15,6 @@ Element::Element(World* world, long iDIsland, long iDDimension, tuple<long, long
 	this->xSize = 128;
 	this->ySize = 128;
 	gen("[(" + to_string(get<0>(point)) + "," + to_string(get<1>(point)) + "," + to_string(get<2>(point)) + ")] : " + __func__ + " : Create");
-
-	this->t = clock();
 }
 
 
