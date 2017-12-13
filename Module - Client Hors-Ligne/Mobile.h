@@ -13,7 +13,7 @@ class AStar;
 class Mobile : public Element {
 
 public:
-	Mobile(World* world, SOCKControler* controler, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation);
+	Mobile(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation);
 	~Mobile();
 
 	bool isMovePossible(long iDDimension_parameter, tuple<long, long, long> element, int orientation);

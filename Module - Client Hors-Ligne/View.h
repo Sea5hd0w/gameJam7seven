@@ -6,7 +6,6 @@
 
 #include "World.h"
 #include "LoadingScreen.h"
-#include "ViewStatistics.h"
 #include "ViewMap.h"
 
 using namespace std;
@@ -25,7 +24,6 @@ public:
 
 private:
 	LoadingScreen* loadingScreen; //Object loading, print loading screen when map can not be print
-	ViewStatistics* statScreen; //Object statistic, print information about the program
 	ViewMap* mapScreen; //Object map : print the curent map
 
 	World* world; //Object world to acccess to map & mobiles

@@ -3,12 +3,12 @@
 #include "LibraryCommunication.h"
 #include "GlobalVariable.h"
 
+#include "View.h"
 
-#include "SOCKControler.h"
 
 
-Element::Element(World* world, SOCKControler* controler, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation, int priority)
-	: world(world), controler(controler), iDIsland(iDIsland), iDDimension(iDDimension), point(point), permeability(permeability), orientation(orientation), priority(priority), pathSprite(sprite)
+Element::Element(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation, int priority)
+	: world(world), iDIsland(iDIsland), iDDimension(iDDimension), point(point), permeability(permeability), orientation(orientation), priority(priority), pathSprite(sprite)
 {
 	this->p_sprite = Sprites::addSprite(sprite);
 	this->sprite = {0,0, 128,128};

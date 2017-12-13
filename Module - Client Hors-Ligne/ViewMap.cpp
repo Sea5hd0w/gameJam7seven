@@ -19,7 +19,7 @@ int ViewMap::getScreen()
 {
 	//i = number of spirte print by the loop. Initialise to 0
 	int i = 0;
-
+/*
 	//Loop for each element to print in list of the curent mainHero's dimension
 	for (pair<tuple<long*, long, long*, long*>, Element*> element : this->world->getIsland()->getDimension(this->world->getMainHero()->getIDDimension())->getElementsToView())
 	{
@@ -40,7 +40,7 @@ int ViewMap::getScreen()
 		//Ask to element to print itself, give it the coordinate to print
 		element.second->printSprite(convertXHero(x, y, z, wighthCase, heightCase, xSize, ySize, xWindow, yWindow), convertYHero(x, y, z, wighthCase, heightCase, xSize, ySize, xWindow, yWindow));
 		i++;
-	}
+	}*/
 	return i;
 }
 

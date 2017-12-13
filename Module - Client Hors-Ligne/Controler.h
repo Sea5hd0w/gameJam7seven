@@ -1,7 +1,6 @@
 #pragma once
 
 #include "World.h"
-#include "SOCKControler.h"
 #include "GUIControler.h"
 #include "View.h"
 
@@ -14,7 +13,6 @@ public:
 private:
 	//Every object created by the controler are stored
 	World* world; 
-	SOCKControler* sockControler;
 	GUIControler* guiControler;
 	View* view;
 };

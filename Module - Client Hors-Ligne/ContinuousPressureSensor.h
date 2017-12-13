@@ -5,7 +5,7 @@
 class ContinuousPressureSensor : public Connector
 {
 public:
-	ContinuousPressureSensor(World* world, SOCKControler* controler, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation, long iDMotionLess, bool status);
+	ContinuousPressureSensor(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation, long iDMotionLess, bool status);
 	~ContinuousPressureSensor();
 
 	void walkOn(Mobile* mobile);

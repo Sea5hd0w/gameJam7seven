@@ -25,9 +25,6 @@ View::View(World* world)
 	//Create a static renderer : Every object can create SDL_Texture
 	View::renderer = SDL_CreateRenderer(this->pWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
-	// Create statistic screen (Print FPS, number of object, number of sprites,...)
-	this->statScreen = new ViewStatistics(world);
-
 	//Create loading screen, wait 
 	this->loadingScreen = new LoadingScreen(this->pWindow);
 
@@ -83,9 +80,6 @@ void View::refresh()
 	{
 		nbrObjectPrint = this->mapScreen->getScreen();
 	}
-
-	//Print calculates statistics
-	this->statScreen->drawStatistics(nbrObjectPrint);
 
 	//Print the renderer
 	SDL_RenderPresent(View::renderer);

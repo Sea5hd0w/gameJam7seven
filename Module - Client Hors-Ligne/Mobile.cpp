@@ -2,14 +2,12 @@
 
 #include "World.h"
 #include "Dimension.h"
-#include "AStar.h"
 
 #include "LibraryCommunication.h"
 
-Mobile::Mobile(World* world, SOCKControler* controler, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation)
-	: Element(world, controler, iDIsland, iDDimension, point, permeability, sprite, orientation, 1)
+Mobile::Mobile(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation)
+	: Element(world, iDIsland, iDDimension, point, permeability, sprite, orientation, 1)
 {
-	this->path = new AStar(world, this);
 	this->speed_run = 200;
 	this->split = 10;
 }
@@ -38,7 +36,6 @@ bool Mobile::isMoveOutOfDimension(long iDDimension_parameter, tuple<long, long, 
 
 void Mobile::moveAStar(long xDestination, long yDestination)
 {
-	if(this->getX() != xDestination && this->getY() != yDestination) this->path->calculateShortWay(xDestination, yDestination);
 }
 
 void Mobile::moveDirection(bool run, int distance, int direction)

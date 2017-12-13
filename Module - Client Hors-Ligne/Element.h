@@ -11,8 +11,6 @@
 #include "SDL.h"
 #include "Sprites.h"
 
-class SOCKControler;
-
 using namespace std;
 
 class World;
@@ -20,7 +18,7 @@ class World;
 class Element
 {
 public:
-	Element(World* world, SOCKControler* controler, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation, int priority);
+	Element(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation, int priority);
 	~Element();
 	
 	const tuple<long, long, long> getPoint();
@@ -54,7 +52,6 @@ private:
 	long iDIsland;
 	int priority;
 	World* world;
-	SOCKControler* controler;
 
 	bool permeability;
 	SDL_Texture* p_sprite;

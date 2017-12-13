@@ -10,12 +10,12 @@ class Mobile;
 
 class MotionLess : public Element {
 public:
-	MotionLess(World* world, SOCKControler* controler, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation, long iDMotionLess);
+	MotionLess(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation, long iDMotionLess);
 	~MotionLess();
 
 	const long getIDMotionLess();
 
-	static MotionLess* getMotionLess(long iDMotionLess, World* world, SOCKControler* controler, long iDIsland, long iDDimension, tuple<long, long, long> point, string sprite);
+	static MotionLess* getMotionLess(long iDMotionLess, World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, string sprite);
 
 	virtual void enable(); 
 	virtual void disable();
@@ -31,16 +31,16 @@ protected:
 private:
 	long iDMotionLess;
 
-	static MotionLess* GetHole(World* world, SOCKControler* controler, long iDIsland, long iDDimension, tuple<long, long, long> point, string sprite); //ID_MotionLess Hole = 1
-	static MotionLess* GetFloor(World* world, SOCKControler* controler, long iDIsland, long iDDimension, tuple<long, long, long> point, string sprite); //ID_MotionLess Floor = 2
-	static MotionLess* GetBlock(World* world, SOCKControler* controler, long iDIsland, long iDDimension, tuple<long, long, long> point, string sprite); //ID_MotionLess Block = 3
-	static MotionLess* GetSlopeUpRight(World* world, SOCKControler* controler, long iDIsland, long iDDimension, tuple<long, long, long> point, string sprite); //ID_MotionLess SlopeUpRight = 4
-	static MotionLess* GetSlopeUpLeft(World* world, SOCKControler* controler, long iDIsland, long iDDimension, tuple<long, long, long> point, string sprite); //ID_MotionLess SlopeUpLeft = 5
-	static MotionLess* GetSlopeDownRight(World* world, SOCKControler* controler, long iDIsland, long iDDimension, tuple<long, long, long> point, string sprite); //ID_MotionLess SlopeDownRight = 6
-	static MotionLess* GetSlopeDownLeft(World* world, SOCKControler* controler, long iDIsland, long iDDimension, tuple<long, long, long> point, string sprite); //ID_MotionLess SlopeDownLeft = 7
-	static MotionLess* GetLadderUpRight(World* world, SOCKControler* controler, long iDIsland, long iDDimension, tuple<long, long, long> point, string sprite); //ID_MotionLess LadderUpRight = 8	
-	static MotionLess* GetLadderUpLeft(World* world, SOCKControler* controler, long iDIsland, long iDDimension, tuple<long, long, long> point, string sprite); //ID_MotionLess SlopeUpLeft = 9
-	static MotionLess* GeLadderDownRight(World* world, SOCKControler* controler, long iDIsland, long iDDimension, tuple<long, long, long> point, string sprite); //ID_MotionLess SlopeDownRight = 10
-	static MotionLess* GetLadderDownLeft(World* world, SOCKControler* controler, long iDIsland, long iDDimension, tuple<long, long, long> point, string sprite); //ID_MotionLess SlopeDownLeft = 11
+	static MotionLess* GetHole(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, string sprite); //ID_MotionLess Hole = 1
+	static MotionLess* GetFloor(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, string sprite); //ID_MotionLess Floor = 2
+	static MotionLess* GetBlock(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, string sprite); //ID_MotionLess Block = 3
+	static MotionLess* GetSlopeUpRight(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, string sprite); //ID_MotionLess SlopeUpRight = 4
+	static MotionLess* GetSlopeUpLeft(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, string sprite); //ID_MotionLess SlopeUpLeft = 5
+	static MotionLess* GetSlopeDownRight(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, string sprite); //ID_MotionLess SlopeDownRight = 6
+	static MotionLess* GetSlopeDownLeft(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, string sprite); //ID_MotionLess SlopeDownLeft = 7
+	static MotionLess* GetLadderUpRight(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, string sprite); //ID_MotionLess LadderUpRight = 8	
+	static MotionLess* GetLadderUpLeft(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, string sprite); //ID_MotionLess SlopeUpLeft = 9
+	static MotionLess* GeLadderDownRight(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, string sprite); //ID_MotionLess SlopeDownRight = 10
+	static MotionLess* GetLadderDownLeft(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, string sprite); //ID_MotionLess SlopeDownLeft = 11
 };
 

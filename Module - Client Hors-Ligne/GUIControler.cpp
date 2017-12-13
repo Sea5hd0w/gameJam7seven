@@ -3,8 +3,8 @@
 #include "LibraryCommunication.h"
 
 
-GUIControler::GUIControler(World* world, SOCKControler* controler, View* view)
-	: world(world), controler(controler), view(view), run(true)
+GUIControler::GUIControler(World* world, View* view)
+	: world(world), view(view), run(true)
 {
 	gen("GUIControler created : starting Listen & Process instruction");
 }
@@ -44,45 +44,37 @@ void GUIControler::runGUIControler()
 				{
 					case 89:
 						sdl(to_string(event.key.keysym.scancode) + " : Move DownLeft");
-						this->world->getMainHero()->moveDownLeft(false, 1);
-
+						//this->world->getMainHero()->moveDownLeft(false, 1);
 						break;
 					case 90:
 						sdl(to_string(event.key.keysym.scancode) + " : Move Down");
-						this->world->getMainHero()->moveDown(false, 1);
-
+						//this->world->getMainHero()->moveDown(false, 1);
 						break;
 					case 91:
 						sdl(to_string(event.key.keysym.scancode) + " : Move DownRight");
-						this->world->getMainHero()->moveDownRight(false, 1);
-
+						//this->world->getMainHero()->moveDownRight(false, 1);
 						break;
 					case 92:
 						sdl(to_string(event.key.keysym.scancode) + " : Move Left");
-						this->world->getMainHero()->moveLeft(false, 1);
-
+						//this->world->getMainHero()->moveLeft(false, 1);
 						break;
 					case 93:
-						this->controler->testSendOrders(askOrder());
 						break;
 					case 94:
 						sdl(to_string(event.key.keysym.scancode) + " : Move Right");
-						this->world->getMainHero()->moveRight(false, 1);
-
+						//this->world->getMainHero()->moveRight(false, 1);
 						break;
 					case 95:
 						sdl(to_string(event.key.keysym.scancode) + " : Move TopLeft");
-						this->world->getMainHero()->moveTopLeft(false, 1);
-
+						//this->world->getMainHero()->moveTopLeft(false, 1);
 						break;
 					case 96:
 						sdl(to_string(event.key.keysym.scancode) + " : Move Top");
-						this->world->getMainHero()->moveTop(false, 1);
-
+						//this->world->getMainHero()->moveTop(false, 1);
 						break;
 					case 97:
 						sdl(to_string(event.key.keysym.scancode) + " : Move TopRight");
-						this->world->getMainHero()->moveTopRight(false, 1);
+						//this->world->getMainHero()->moveTopRight(false, 1);
 						break;
 				}
 				break;
@@ -106,13 +98,6 @@ void GUIControler::runGUIControler()
 					fprintf(stdout, "\tposition : %d;%d\n", event.button.x, event.button.y);*/
 				break;
 				case SDL_MOUSEBUTTONDOWN:
-					x = convertX(event.button.x, event.button.y);
-					y = convertY(event.button.x, event.button.y);
-					if (x >= 0 && y >= 0)
-					{
-						sdl("KeyDown [" + to_string(event.button.x) + ":" + to_string(event.button.y) + "] - [" + to_string(x - (x%100)) + ":" + to_string(y - (y % 100)) + "]");
-						this->world->getMainHero()->moveAStar(x - (x % 100), y - (y % 100));
-					}
 					/*fprintf(stdout, "Mouse button down\n");
 					fprintf(stdout, "\twindow : %d\n", event.button.windowID);
 					fprintf(stdout, "\tmouse : %d\n", event.button.which);
@@ -180,86 +165,4 @@ void GUIControler::runGUIControler()
 			}
 		}
 	}
-}
-
-long GUIControler::convertX(long x, long y)
-{
-	//Initialize
-	int x1 = 0;
-	int x2 = 0;
-	int y1 = 0;
-	int y2 = 0;
-
-	//Get current window size
-	int xW = this->view->getWindowSize().first;
-	int yW = this->view->getWindowSize().second;
-
-	//Get hero postion (Can be the curent position or an other to fix camera)
-	int xH = this->world->getMainHero()->getX();
-	int yH = this->world->getMainHero()->getY();
-	int zH = this->world->getMainHero()->getZ();
-
-	//Calculate coordinate of the start of the hero case sprite in X
-	x1 = xW / 2 - (128 / 2 - positionCasesSide);
-	//Calculate coordinate of the end of the hero case sprite in X
-	x2 = x1 + wighthCase;
-
-	//Calculate coordinate of the start of the hero case sprite in Y
-	y1 = yW / 2;
-	//Calculate coordinate of the end of the hero case sprite in Y
-	y2 = y1 + heightCase;
-
-
-	int b = (x1 + (wighthCase / 2)) / 2 + y1;
-
-	//Try to frame coordinate between the isometric lines : function f(x) = ax + b
-	for (int i = -25; i <= 25; i++)
-	{
-		if (((((b - (x / 2))) + (i*heightCase)) < y) && (((b - (x / 2)) + heightCase + (i*heightCase)) > y))
-		{
-			return xH + i * 100;
-		}
-	}
-	return -1;
-}
-
-long GUIControler::convertY(long x, long y)
-{
-	//Initialize
-	int x1 = 0;
-	int x2 = 0;
-	int y1 = 0;
-	int y2 = 0;
-
-	//Get current window size
-	int xW = this->view->getWindowSize().first;
-	int yW = this->view->getWindowSize().second;
-
-	//Get hero postion (Can be the curent position or an other to fix camera)
-	int xH = this->world->getMainHero()->getX();
-	int yH = this->world->getMainHero()->getY();
-	int zH = this->world->getMainHero()->getZ();
-
-	//Calculate coordinate of the start of the hero case sprite in X
-	x1 = xW / 2 - (128 / 2 - positionCasesSide);
-	//Calculate coordinate of the end of the hero case sprite in X
-	x2 = x1 + wighthCase;
-
-	//Calculate coordinate of the start of the hero case sprite in Y
-	y1 = yW / 2;
-	//Calculate coordinate of the end of the hero case sprite in Y
-	y2 = y1 + heightCase;
-
-
-	int b = b = y1 - ((x1 + (wighthCase / 2)) / 2);
-
-	//Try to frame coordinate between the isometric lines : function f(x) = ax + b
-	for (int i = -25; i <= 25; i++)
-	{
-		if (((((b + (x / 2))) + (i*heightCase)) < y) && ((((b + (x / 2)) + heightCase) + (i*heightCase)) > y))
-		{ 
-			return yH + i*100;
-		}
-	}
-	return -1;
 }
