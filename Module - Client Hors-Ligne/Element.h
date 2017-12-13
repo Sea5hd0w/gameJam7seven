@@ -54,6 +54,9 @@ protected:
 	
 	SDL_Rect sprite;
 
+	int xSize;
+	int ySize;
+
 private:
 	long iDDimension;
 	long iDIsland;

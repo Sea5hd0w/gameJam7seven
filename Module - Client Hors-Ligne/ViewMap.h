@@ -34,8 +34,8 @@ private:
 	long convertXHero(long x, long y, long z, int xS, int yS, int xSize, int ySize, long xW, long yW); //Convert the position of an element in Y position on the window : centered on the position given by MainHero
 	long convertYHero(long x, long y, long z, int xS, int yS, int xSize, int ySize, long xW, long yW); //Convert the position of an element in Y position on the window : centered on the position given by MainHero
 
-	int sizeSprite_L = 128; //Size of width classic sprite
-	int sizeSprite_H = 128; //Size of height classic sprite
+	int sizeSprite_L = 64; //Size of width classic sprite
+	int sizeSprite_H = 64; //Size of height classic sprite
 
 
 	int heightCase = 40; //Size of height classic case

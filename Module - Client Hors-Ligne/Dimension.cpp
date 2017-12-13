@@ -6,6 +6,7 @@
 Dimension::Dimension(World* world, long iDIsland, long iDDimension)
 	: world(world), iDIsland(iDIsland), iDDimension(iDDimension)
 {
+	this->background = NULL;
 	gen("Dimension created");
 }
 
@@ -171,6 +172,16 @@ Hero * Dimension::getHero(long iDHero)
 map<long, Hero*>& Dimension::getHeroes()
 {
 	return this->heroes;
+}
+
+SDL_Texture* Dimension::getBackground()
+{
+	return this->background;
+}
+
+void Dimension::addBackground(string background)
+{
+	this->background = Sprites::addSprite(background);
 }
 
 tuple<long, long> Dimension::getIDArea(long x, long y)
