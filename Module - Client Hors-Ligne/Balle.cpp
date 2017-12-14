@@ -8,6 +8,7 @@ Balle::Balle(World* world, long iDIsland, long iDDimension, tuple<long, long, lo
 	: Monster(world, iDIsland, iDDimension, point, permeability, sprite, orientation, iDHero)
 {
 	VX = vitesse;
+	this->affectedByGravity = false;
 }
 
 
