@@ -38,7 +38,7 @@ void Balle::work()
 	long x = this->world->getMainHero()->getX() - this->getX();
 	long y = this->world->getMainHero()->getY() - this->getY();
 
-	if (x > 700 || x < -700 || y > 700 || y < -700)
+	if (x > 700 || x < -700 || y > 700 || y < -700 || VX == 0)
 	{
 		this->world->getIsland()->getDimension(0)->deleteMonster(this->getIDMonster());
 	}
