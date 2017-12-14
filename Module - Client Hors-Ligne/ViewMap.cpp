@@ -75,6 +75,8 @@ long ViewMap::convertXHero(long x, long y, long z, int xS, int yS, int xSize, in
 
 
 	long t = ((x - this->world->getMainHero()->getX()) / 100)*xSize + xW / 2 - xSize/2 ;
+	t = ((x - this->world->getMainHero()->getX()))*xSize + xW / 2 - xSize / 2;
+	t = x - this->world->getMainHero()->getX() + xF / 2;
 	return t;
 	//return (0.5 * xF) - (0.5 * xS) + (0.5 * xS * (x - this->world->getMainHero()->getX()) / 100) - (0.5 * xS * (y - this->world->getMainHero()->getY()) / 100) - ((xSize - 128) / 2) - positionCasesSide;
 }
@@ -87,6 +89,7 @@ long ViewMap::convertYHero(long x, long y, long z, int xS, int yS, int xSize, in
 	SDL_GetWindowSize(this->pWindow, &xF, &yF);
 	
 	long t = (y / 100) * xSize;
+	t = y;
 	return t;
 	//return 0.5 * yS * (x - this->world->getMainHero()->getX()) / 100 + 0.5 * yS * (y - this->world->getMainHero()->getY()) / 100 - z / 100.0 * 30 - (ySize - 128) + ((yW/2) - ySize/2);
 }
