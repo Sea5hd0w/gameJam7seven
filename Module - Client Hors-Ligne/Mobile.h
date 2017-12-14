@@ -49,6 +49,7 @@ protected:
 
 	virtual void anim_sprite();
 	virtual void work();
+	virtual void attack();
 
 	int size_sprite_x;
 	int size_sprite_y;
@@ -59,6 +60,8 @@ protected:
 	int sizeY; //en unité de block
 
 	virtual bool isMovePossible();
+
+	bool attack_b;
 
 private:
 	AStar* path;

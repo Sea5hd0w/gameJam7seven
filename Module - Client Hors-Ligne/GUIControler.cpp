@@ -6,6 +6,10 @@
 #include <fstream>
 
 #include "HellWolf.h"
+#include "Nazi.h"
+#include "Boss1.h"
+#include "Boss2.h"
+
 
 #include "variable_static.h"
 
@@ -305,9 +309,16 @@ void GUIControler::loadingMonster(string rowData)
 	}
 	else if (stol(data[10]) == 2)
 	{
-		monster = new Monster(this->world, stol(data[2]), stol(data[3]), make_tuple(stol(data[4])*variable::SIZE_CASE_X, stol(data[5])*variable::SIZE_CASE_Y, stol(data[6])), false, data[8], stoi(data[7]), stol(data[9]));
+		monster = new Nazi(this->world, stol(data[2]), stol(data[3]), make_tuple(stol(data[4])*variable::SIZE_CASE_X, stol(data[5])*variable::SIZE_CASE_Y, stol(data[6])), false, "ressources/graphics/motionless/Enemi_Debug_Type2.bmp", stoi(data[7]), stol(data[9]));
 	}
-
+	else if (stol(data[10]) == 3)
+	{
+		monster = new Boss1(this->world, stol(data[2]), stol(data[3]), make_tuple(stol(data[4])*variable::SIZE_CASE_X, stol(data[5])*variable::SIZE_CASE_Y, stol(data[6])), false, "ressources/graphics/motionless/Boss_Debug_Type1.bmp", stoi(data[7]), stol(data[9]));
+	}
+	else if (stol(data[10]) == 4)
+	{
+		monster = new Boss2(this->world, stol(data[2]), stol(data[3]), make_tuple(stol(data[4])*variable::SIZE_CASE_X, stol(data[5])*variable::SIZE_CASE_Y, stol(data[6])), false, "ressources/graphics/motionless/Boss_Debug_Type2.bmp", stoi(data[7]), stol(data[9]));
+	}
 
 
 	//Check if Island exist : else create it

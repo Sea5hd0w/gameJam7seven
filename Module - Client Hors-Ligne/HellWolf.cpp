@@ -14,7 +14,7 @@ HellWolf::HellWolf(World* world, long iDIsland, long iDDimension, tuple<long, lo
 	size_sprite_x = 48;
 	size_sprite_y = 48;
 
-	VX = -10;
+	VX = -8;
 }
 
 
