@@ -54,7 +54,7 @@ public:
 
 	SDL_Texture* getBackground();
 	void addBackground(string background);
-
+	tuple<long, long> getIDArea(long x, long y); // Calculate ID area by coordinate of an Element
 private:
 	World* world; //Pointer to access to world
 	long iDIsland; //ID of the island
@@ -69,7 +69,7 @@ private:
 
 	map<tuple<long, long>, Area*> area; // Area's of the Dimension
 
-	tuple<long, long> getIDArea(long x, long y); // Calculate ID area by coordinate of an Element
+	
 
 	list<pair<tuple<long*, long, long*, long*>, Element*>> elementsToView; // List of all element to view (MotionLess, Mobiles)
 

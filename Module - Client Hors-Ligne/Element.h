@@ -57,6 +57,8 @@ protected:
 	int xSize;
 	int ySize;
 
+	
+
 private:
 	long iDDimension;
 	long iDIsland;

@@ -1,5 +1,5 @@
 #include "Hero.h"
-
+#include "variable_static.h"
 
 
 Hero::Hero(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation, long iDHero)
@@ -8,6 +8,12 @@ Hero::Hero(World* world, long iDIsland, long iDDimension, tuple<long, long, long
 	this->sprite = { 0,0, 16, 28 };
 	this->xSize = 64;
 	this->ySize = 112;
+
+	this->vitesse = variable::VITESSE_HERO_X;
+	this->vitesseJump = variable::VITESSE_HERO_JUMP;
+
+	this->sizeX = 1;
+	this->sizeY = 2;
 }
 
 

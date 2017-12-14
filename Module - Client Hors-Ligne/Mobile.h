@@ -46,6 +46,13 @@ protected:
 	int size_sprite_x;
 	int size_sprite_y;
 
+	int vitesse;
+	int vitesseJump;
+	int sizeX; //en unité de block
+	int sizeY; //en unité de block
+
+	virtual bool isMovePossible();
+
 private:
 	AStar* path;
 	clock_t t = 0;
@@ -62,9 +69,6 @@ private:
 	void set_gravity_vecteurAcceleration();
 	void calc_vecteurVitesse();
 	void calc_position();
-
-	int vitesse = 3;
-	int vitesseJump = 10;
 	
 	long anim;
 	int anim2;
