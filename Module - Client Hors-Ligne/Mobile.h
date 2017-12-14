@@ -50,6 +50,7 @@ protected:
 	tuple<double, double> vecteurAcceleration;
 
 	virtual void anim_sprite();
+	virtual void work();
 
 	int size_sprite_x;
 	int size_sprite_y;

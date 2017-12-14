@@ -201,7 +201,8 @@ void Dimension::deleteMonster(long iDMonster)
 {
 	if (this->monsters.find(iDMonster) != this->monsters.end())
 	{
-		//delete this->heroes.find(iDHero)->second;
+		//is->elementsToView.erase()
+		//lete this->heroes.find(iDMonster)->second;
 		this->monsters.erase(iDMonster);
 	}
 }
