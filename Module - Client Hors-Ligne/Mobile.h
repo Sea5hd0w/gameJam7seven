@@ -42,6 +42,7 @@ protected:
 	tuple<double, double> vecteurVitesse;
 	tuple<double, double> vecteurAcceleration;
 
+	void anim_sprite();
 
 	int size_sprite_x;
 	int size_sprite_y;
