@@ -15,6 +15,10 @@ Hero::~Hero()
 {
 }
 
+void Hero::setAmmo(Ammo* Arme) {
+	this->Arme = Arme;
+}
+
 long Hero::getIDHero()
 {
 	return this->iDHero;
