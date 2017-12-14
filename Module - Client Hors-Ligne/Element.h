@@ -56,16 +56,18 @@ protected:
 
 	int xSize;
 	int ySize;
-
-private:
 	long iDDimension;
 	long iDIsland;
 	int priority;
 	World* world;
-
 	bool permeability;
 	SDL_Texture* p_sprite;
 	string pathSprite;
 	int orientation;
+private:
+	
+
+	
+	
 };
 

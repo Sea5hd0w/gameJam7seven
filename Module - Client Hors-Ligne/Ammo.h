@@ -9,12 +9,10 @@ public:
 	Ammo();
 	Ammo(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation, int priority, int vitesse, int degat);
 	~Ammo();
-	void shoot(long yHero);
+	void shoot(tuple<long, long, long> pointH);
 	void printSprite(int xPosition, int yPosition);
 
 protected: 
-
-	SDL_Rect sprite;
 	int degat;
 	int vitesse;
 private:
