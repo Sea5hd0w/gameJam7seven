@@ -131,7 +131,7 @@ void Mobile::moveUnsafe(bool run, int x_move, int y_move, int z_move, bool walkO
 
 void Mobile::move()
 {
-	set_gravity_vecteurAcceleration();
+	//set_gravity_vecteurAcceleration();
 	calc_vecteurVitesse();
 	calc_position();
 }
@@ -151,15 +151,50 @@ void Mobile::calc_vecteurVitesse()
 	VY += AY;
 	VX = VX > 32 ? 32 : VX;
 	VY = VY > 32 ? 32 : VY;
-
-	if (POSY >= 600)
-	{
-		VY = 0;
-	}
 }
 
 void Mobile::calc_position()
 {
 	POSX += VX;
 	POSY += VY;
+
+	debug("x : " + to_string(POSX) + " || y : " + to_string(POSY));
+
+}
+
+void Mobile::moveTop(bool run, int distance)
+{
+	VY = -vitesse;
+}
+void Mobile::moveTopRight(bool run, int distance)
+{
+	VX = vitesse;
+	VY = -vitesse;
+}
+void Mobile::moveTopLeft(bool run, int distance)
+{
+	VX = -vitesse;
+	VY = -vitesse;
+}
+void Mobile::moveRight(bool run, int distance)
+{
+	VX = vitesse;
+}
+void Mobile::moveLeft(bool run, int distance)
+{
+	VX = -vitesse;
+}
+void Mobile::moveDownRight(bool run, int distance)
+{
+	VX = vitesse;
+	VY = vitesse;
+}
+void Mobile::moveDownLeft(bool run, int distance)
+{
+	VX = -vitesse;
+	VY = vitesse;
+}
+void Mobile::moveDown(bool run, int distance)
+{
+	VY = vitesse;
 }

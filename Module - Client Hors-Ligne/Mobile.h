@@ -39,6 +39,8 @@ public:
 	void move() override;
 
 protected:
+	tuple<double, double> vecteurVitesse;
+	tuple<double, double> vecteurAcceleration;
 
 private:
 	AStar* path;
@@ -51,12 +53,14 @@ private:
 	bool move(bool run, int x_move, int y_move, int z_move, int direction);
 	void moveUnsafe(bool run, int x_move, int y_move, int z_move, bool walkOn, bool walkOff, int direction, int iDMove);
 
-	tuple<long, long> vecteurVitesse;
-	tuple<long, long> vecteurAcceleration;
+	
 
 	void set_gravity_vecteurAcceleration();
 	void calc_vecteurVitesse();
 	void calc_position();
+
+	int vitesse = 3;
+	int vitesseJump = 10;
 	
 };
 
