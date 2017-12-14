@@ -58,6 +58,9 @@ private:
 	void set_gravity_vecteurAcceleration();
 	void calc_vecteurVitesse();
 	void calc_position();
+
+	int vitesse = 3;
+	int vitesseJump = 10;
 	
 };
 

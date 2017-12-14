@@ -161,3 +161,40 @@ void Mobile::calc_position()
 	debug("x : " + to_string(POSX) + " || y : " + to_string(POSY));
 
 }
+
+void Mobile::moveTop(bool run, int distance)
+{
+	VY = -vitesse;
+}
+void Mobile::moveTopRight(bool run, int distance)
+{
+	VX = vitesse;
+	VY = -vitesse;
+}
+void Mobile::moveTopLeft(bool run, int distance)
+{
+	VX = -vitesse;
+	VY = -vitesse;
+}
+void Mobile::moveRight(bool run, int distance)
+{
+	VX = vitesse;
+}
+void Mobile::moveLeft(bool run, int distance)
+{
+	VX = -vitesse;
+}
+void Mobile::moveDownRight(bool run, int distance)
+{
+	VX = vitesse;
+	VY = vitesse;
+}
+void Mobile::moveDownLeft(bool run, int distance)
+{
+	VX = -vitesse;
+	VY = vitesse;
+}
+void Mobile::moveDown(bool run, int distance)
+{
+	VY = vitesse;
+}
