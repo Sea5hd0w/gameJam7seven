@@ -36,10 +36,18 @@ public:
 
 	void move() override;
 
+	bool getOrient();
+
+
+	long anim;
+	int anim2;
+	bool orient;
+
 protected:
 	tuple<double, double> vecteurVitesse;
 	tuple<double, double> vecteurAcceleration;
 
+	virtual void anim_sprite();
 
 	int size_sprite_x;
 	int size_sprite_y;

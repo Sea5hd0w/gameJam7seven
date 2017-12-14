@@ -19,6 +19,7 @@ Mobile::Mobile(World* world, long iDIsland, long iDDimension, tuple<long, long, 
 
 	this->sizeX = 1;
 	this->sizeY = 1;
+	orient = true;
 }
 
 
@@ -53,45 +54,73 @@ void Mobile::teleportHere(long iDDimension, tuple<long, long, long> point_finish
 
 void Mobile::move()
 {
+	anim_sprite();
+	//work();
+
+	//set_gravity_vecteurAcceleration();
+	calc_vecteurVitesse();
+	calc_position();
+}
+
+bool Mobile::getOrient()
+{
+	return orient;
+}
+
+void Mobile::anim_sprite()
+{
 	if (VY > 0 && VX >= 0)
 	{
-		this->sprite = { size_sprite_x*2, size_sprite_y, size_sprite_x, size_sprite_y };
-		//debug(to_string(size_sprite_y));
+		this->sprite = { size_sprite_x * 2, size_sprite_y, size_sprite_x, size_sprite_y };
+		this->orient = true;
 	}
 	else if (VY < 0 && VX >= 0)
 	{
 		this->sprite = { size_sprite_x, size_sprite_y, size_sprite_x, size_sprite_y };
+		this->orient = true;
 	}
 	else if (VY > 0 && VX < 0)
 	{
-		this->sprite = { size_sprite_x*2, size_sprite_y*4, size_sprite_x, size_sprite_y };
+		this->sprite = { size_sprite_x * 2, size_sprite_y * 4, size_sprite_x, size_sprite_y };
+		this->orient = false;
 	}
 	else if (VY < 0 && VX < 0)
 	{
-		this->sprite = { size_sprite_x, size_sprite_y*4, size_sprite_x, size_sprite_y };
+		this->sprite = { size_sprite_x, size_sprite_y * 4, size_sprite_x, size_sprite_y };
+		this->orient = false;
 	}
 	else if (VX > 0)
 	{
 		anim2 = (anim2 + 1) % 5;
 		if (anim2 == 0) anim = (anim + 1) % 9;
-		this->sprite = { size_sprite_x * anim, size_sprite_y*2, size_sprite_x, size_sprite_y };
+		this->sprite = { size_sprite_x * anim, size_sprite_y * 2, size_sprite_x, size_sprite_y };
+		this->orient = true;
 	}
 	else if (VX < 0)
 	{
 		anim2 = (anim2 + 1) % 5;
 		if (anim2 == 0) anim = (anim + 1) % 9;
-		this->sprite = { size_sprite_x * anim, size_sprite_y*5, size_sprite_x, size_sprite_y };
+		this->sprite = { size_sprite_x * anim, size_sprite_y * 5, size_sprite_x, size_sprite_y };
+		this->orient = false;
 	}
 	else
 	{
-		anim2 = (anim2 + 1) % 5;
-		if (anim2 == 0) anim = (anim + 1) % 9;
-		this->sprite = { size_sprite_x * anim, size_sprite_y*0, size_sprite_x, size_sprite_y };
+		if (this->orient)
+		{
+			anim2 = (anim2 + 1) % 5;
+			if (anim2 == 0) anim = (anim + 1) % 9;
+			this->sprite = { size_sprite_x * anim, size_sprite_y * 0, size_sprite_x, size_sprite_y };
+		}
+		else
+		{
+			anim2 = (anim2 + 1) % 5;
+			if (anim2 == 0) anim = (anim + 1) % 9;
+			this->sprite = { size_sprite_x * anim, size_sprite_y * 3, size_sprite_x, size_sprite_y };
+		}
 	}
 
-	set_gravity_vecteurAcceleration();
+	//set_gravity_vecteurAcceleration();
 	calc_vecteurVitesse();
-	this->isMovePossible();
 	calc_position();
 }
 
@@ -119,7 +148,6 @@ void Mobile::calc_position()
 	POSY += VY;
 
 	//debug("x : " + to_string(POSX) + " || y : " + to_string(POSY));
-
 }
 
 void Mobile::moveTop(bool run, int distance)

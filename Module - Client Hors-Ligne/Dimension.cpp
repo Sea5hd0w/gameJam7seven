@@ -28,6 +28,12 @@ Dimension::~Dimension()
 	}
 }
 
+void Dimension::addElementsToView(Element* element)
+{
+	this->elementsToView.push_front(element->getElementToView());
+	this->sortElementsToView();
+}
+
 void Dimension::loadElementsToView()
 {
 	for (map<tuple<long, long>, Area*>::const_iterator area = this->getAreas().begin(); area != this->getAreas().end(); area++)
@@ -43,6 +49,11 @@ void Dimension::loadElementsToView()
 		this->elementsToView.push_front(elementsList->second->getElementToView());
 	}
 
+	for (map<long, Monster*>::const_iterator elementsList = this->monsters.begin(); elementsList != this->monsters.end(); elementsList++)
+	{
+		this->elementsToView.push_front(elementsList->second->getElementToView());
+	}
+	
 	this->sortElementsToView();
 }
 
@@ -175,6 +186,46 @@ map<long, Hero*>& Dimension::getHeroes()
 {
 	return this->heroes;
 }
+
+void Dimension::addMonster(Monster* monster, long iDMonster)
+{
+	if (this->monsters.find(iDMonster) == this->monsters.end())
+	{
+		this->monsters.insert(std::pair<long, Monster*>(iDMonster, monster));
+	}
+	else
+	{
+		err("Conflict Hero [" + to_string(iDMonster) + "] already exist in Dimension [" + to_string(iDDimension) + "]");
+	}
+}
+
+void Dimension::deleteMonster(long iDMonster)
+{
+	if (this->monsters.find(iDMonster) != this->monsters.end())
+	{
+		//delete this->heroes.find(iDHero)->second;
+		this->monsters.erase(iDMonster);
+	}
+}
+
+Monster * Dimension::getMonster(long iDMonster)
+{
+	if (this->monsters.find(iDMonster) != this->monsters.end())
+	{
+		return this->monsters.find(iDMonster)->second;
+	}
+	else
+	{
+		err("Dimension : No Monster[" + to_string(iDMonster) + "] found");
+		return NULL;
+	}
+}
+
+map<long, Monster*>& Dimension::getMonsters()
+{
+	return this->monsters;
+}
+
 
 SDL_Texture* Dimension::getBackground()
 {

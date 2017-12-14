@@ -134,18 +134,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Ammo.cpp" />
     <ClCompile Include="Area.cpp" />
+    <ClCompile Include="armes.cpp" />
+    <ClCompile Include="Balle.cpp" />
     <ClCompile Include="Connector.cpp" />
     <ClCompile Include="Controler.cpp" />
     <ClCompile Include="Dimension.cpp" />
     <ClCompile Include="Element.cpp" />
     <ClCompile Include="GUIControler.cpp" />
+    <ClCompile Include="HellWolf.cpp" />
     <ClCompile Include="Hero.cpp" />
     <ClCompile Include="Island.cpp" />
     <ClCompile Include="LibraryCommunication.cpp" />
     <ClCompile Include="LoadingScreen.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mobile.cpp" />
+    <ClCompile Include="Monster.cpp" />
     <ClCompile Include="MotionLess.cpp" />
     <ClCompile Include="Sprites.cpp" />
     <ClCompile Include="View.cpp" />
@@ -153,18 +158,23 @@
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Ammo.h" />
     <ClInclude Include="Area.h" />
+    <ClInclude Include="armes.h" />
+    <ClInclude Include="Balle.h" />
     <ClInclude Include="Connector.h" />
     <ClInclude Include="Controler.h" />
     <ClInclude Include="Dimension.h" />
     <ClInclude Include="Element.h" />
     <ClInclude Include="GlobalVariable.h" />
     <ClInclude Include="GUIControler.h" />
+    <ClInclude Include="HellWolf.h" />
     <ClInclude Include="Hero.h" />
     <ClInclude Include="Island.h" />
     <ClInclude Include="LibraryCommunication.h" />
     <ClInclude Include="LoadingScreen.h" />
     <ClInclude Include="Mobile.h" />
+    <ClInclude Include="Monster.h" />
     <ClInclude Include="MotionLess.h" />
     <ClInclude Include="Sprites.h" />
     <ClInclude Include="variable_static.h" />
