@@ -3,7 +3,7 @@
 #include "LibraryCommunication.h"
 
 #include "View.h"
-
+#include "variable_static.h"
 
 ViewMap::ViewMap(SDL_Window* pWindow, World* world)
 	: pWindow(pWindow), world(world)
@@ -75,8 +75,9 @@ long ViewMap::convertXHero(long x, long y, long z, int xS, int yS, int xSize, in
 	SDL_GetWindowSize(this->pWindow, &xF, &yF);
 
 
-	long t = ((x - this->world->getMainHero()->getX()) / 100)*xSize + xW / 2 - xSize/2 ;
-	t = ((x - this->world->getMainHero()->getX()))*xSize + xW / 2 - xSize / 2;
+	long t = ((x - this->world->getMainHero()->getX()) / 100)*variable::SIZE_CASE_X + xW / 2 - variable::SIZE_CASE_X /2 ;
+	t = ((x - this->world->getMainHero()->getX()))*variable::SIZE_CASE_X + xW / 2 - variable::SIZE_CASE_X / 2;
+	//debug("fff : " + to_string(x) + " || " + to_string(this->world->getMainHero()->getX()) + " || " + to_string(xF));
 	t = x - this->world->getMainHero()->getX() + xF / 2;
 	return t;
 	//return (0.5 * xF) - (0.5 * xS) + (0.5 * xS * (x - this->world->getMainHero()->getX()) / 100) - (0.5 * xS * (y - this->world->getMainHero()->getY()) / 100) - ((xSize - 128) / 2) - positionCasesSide;
@@ -89,8 +90,7 @@ long ViewMap::convertYHero(long x, long y, long z, int xS, int yS, int xSize, in
 	int yF;
 	SDL_GetWindowSize(this->pWindow, &xF, &yF);
 	
-	long t = (y / 100) * xSize;
-	t = y;
+	long t = y+variable::SIZE_CASE_Y/2;
 	return t;
 	//return 0.5 * yS * (x - this->world->getMainHero()->getX()) / 100 + 0.5 * yS * (y - this->world->getMainHero()->getY()) / 100 - z / 100.0 * 30 - (ySize - 128) + ((yW/2) - ySize/2);
 }

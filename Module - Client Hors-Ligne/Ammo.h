@@ -16,6 +16,7 @@ protected:
 	int degat;
 	int vitesse;
 private:
+	int idBullet;
 
 	int ySize;
 	int xSize;

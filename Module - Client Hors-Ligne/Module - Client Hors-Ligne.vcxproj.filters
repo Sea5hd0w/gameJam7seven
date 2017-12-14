@@ -73,6 +73,12 @@
     <Filter Include="Fichiers d%27en-tête\Model\Arme">
       <UniqueIdentifier>{76e5a3e8-58e0-4a70-aae3-ee83a4c08d7c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\Model\Elements\Mobiles\Monster">
+      <UniqueIdentifier>{27567c4c-1a85-4dbd-a136-cfe01785aa30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Model\Elements\Monster">
+      <UniqueIdentifier>{0084a8e4-12f1-4797-a028-00756e4c2a00}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -136,7 +142,10 @@
       <Filter>Fichiers sources\Model\Elements\Armes</Filter>
     </ClCompile>
     <ClCompile Include="Monster.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Model\Elements\Mobiles\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="HellWolf.cpp">
+      <Filter>Fichiers sources\Model\Elements\Mobiles\Monster</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -200,8 +209,11 @@
     <ClInclude Include="Balle.h">
       <Filter>Fichiers d%27en-tête\Model\Arme</Filter>
     </ClInclude>
+    <ClInclude Include="HellWolf.h">
+      <Filter>Fichiers d%27en-tête\Model\Elements\Monster</Filter>
+    </ClInclude>
     <ClInclude Include="Monster.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Model\Elements\Monster</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
