@@ -60,6 +60,8 @@ protected:
 
 	virtual bool isMovePossible();
 
+	bool affectedByGravity = true;
+
 private:
 	AStar* path;
 	clock_t t = 0;
@@ -71,6 +73,6 @@ private:
 	void set_gravity_vecteurAcceleration();
 	void calc_vecteurVitesse();
 	void calc_position();
-	
+
 };
 

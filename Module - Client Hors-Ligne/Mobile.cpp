@@ -58,7 +58,7 @@ void Mobile::move()
 	anim_sprite();
 	work();
 
-	set_gravity_vecteurAcceleration();
+	if(this->affectedByGravity) set_gravity_vecteurAcceleration();
 	calc_vecteurVitesse();
 	this->isMovePossible();
 	calc_position();
