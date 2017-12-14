@@ -57,7 +57,7 @@ void Mobile::move()
 	anim_sprite();
 	//work();
 
-	//set_gravity_vecteurAcceleration();
+	set_gravity_vecteurAcceleration();
 	calc_vecteurVitesse();
 	calc_position();
 }
