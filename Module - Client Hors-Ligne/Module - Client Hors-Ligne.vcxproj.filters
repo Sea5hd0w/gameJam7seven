@@ -67,6 +67,9 @@
     <Filter Include="levels">
       <UniqueIdentifier>{5b261679-3c38-4166-959a-92257a0378e6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\Model\Elements\Mobiles\Monster">
+      <UniqueIdentifier>{17552780-0374-491e-b8a0-6dd6ec954fc0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -120,6 +123,9 @@
     <ClCompile Include="Connector.cpp">
       <Filter>Fichiers sources\Model\Elements\MotionLess\Connector</Filter>
     </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>Fichiers sources\Model\Elements\Mobiles\Monster</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Area.h">
@@ -171,6 +177,9 @@
       <Filter>Fichiers d%27en-tête\Model\Elements</Filter>
     </ClInclude>
     <ClInclude Include="Connector.h">
+      <Filter>Fichiers d%27en-tête\Model\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
       <Filter>Fichiers d%27en-tête\Model\Elements</Filter>
     </ClInclude>
   </ItemGroup>

@@ -146,6 +146,7 @@
     <ClCompile Include="LoadingScreen.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mobile.cpp" />
+    <ClCompile Include="Monster.cpp" />
     <ClCompile Include="MotionLess.cpp" />
     <ClCompile Include="Sprites.cpp" />
     <ClCompile Include="View.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="LibraryCommunication.h" />
     <ClInclude Include="LoadingScreen.h" />
     <ClInclude Include="Mobile.h" />
+    <ClInclude Include="Monster.h" />
     <ClInclude Include="MotionLess.h" />
     <ClInclude Include="Sprites.h" />
     <ClInclude Include="View.h" />

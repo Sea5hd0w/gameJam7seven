@@ -1,5 +1,6 @@
 ressources/graphics/background/background-lvl1.bmp
 1:1:0:0:200:500:0:0:ressources/graphics/motionless/Hero_Debug_Type1.bmp:0>
+1:2:0:0:200:100:0:0:ressources/graphics/motionless/Enemi_Debug_Type2.bmp:0>
 1:0:0:0:100:600:0:1:ressources/graphics/motionless/Bloc_Debug_Type1.bmp>
 1:0:0:0:200:600:0:1:ressources/graphics/motionless/Bloc_Debug_Type1.bmp>
 1:0:0:0:300:600:0:1:ressources/graphics/motionless/Bloc_Debug_Type1.bmp>

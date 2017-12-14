@@ -9,7 +9,7 @@
 #include <vector>
 
 #include "Hero.h"
-
+#include "Monster.h"
 
 using namespace std;
 
@@ -22,6 +22,7 @@ public:
 	Dimension(World* world, long iDIsland, long iDDimension);
 	~Dimension();
 
+	void addElementsToView(Element* element);
 	void loadElementsToView(); //Load all the element of map (MotionLess & Mobiles) in list for the view
 	void sortElementsToView(); //Sort element for the view : by position & type (Mobile, MotionLess)
 	list<pair<tuple<long*, long, long*, long*>, Element*>> getElementsToView(); // Getter
@@ -40,12 +41,14 @@ public:
 	Hero* getHero(long iDHero); // Get Hero by ID
 	map<long, Hero*> &getHeroes(); // Get Hero's list
 
-	/*
+	
 	void addMonster(Monster* monster, long iDMonster); // Add Monster in Dimension
 	void deleteMonster(long iDMonster); // Delete Monster in Dimension
 	Monster* getMonster(long iDMonster); // Get Monster by ID
 	map<long, Monster*> &getMonsters(); // Get Monster's list
 
+
+	/*
 	void addNPC(NPC* npc, long iDNPC); // Add NPC in Dimension
 	void deleteNPC(long iDNPC); // Delete NPC in Dimension
 	NPC* getNPC(long iDNPC); // Get NPC by ID
@@ -63,7 +66,7 @@ private:
 	long areaSize = 25; // Number of element per side
 
 	map<long, Hero*> heroes; // Hero's List of the Dimension
-	//map<long, Monster*> monsters; // Monster's List of the Dimension
+	map<long, Monster*> monsters; // Monster's List of the Dimension
 	//map<long, NPC*> npcs; // NPC's List of the Dimension
 
 
