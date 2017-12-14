@@ -1,6 +1,12 @@
 ressources/graphics/background/background-lvl1.bmp
-1:1:0:0:200:900:0:0:ressources/graphics/motionless/Hero_Debug_Type1.bmp:0>
-1:0:0:0:100:1000:0:1:ressources/graphics/motionless/Bloc_Debug_Type1.bmp>
-1:0:0:0:200:1000:0:1:ressources/graphics/motionless/Bloc_Debug_Type1.bmp>
-1:0:0:0:300:1000:0:1:ressources/graphics/motionless/Bloc_Debug_Type1.bmp>
+1:1:0:0:0:9:0:0:ressources/graphics/motionless/Hero_Debug_Type1.bmp:0>
+1:0:0:0:1:10:0:1:ressources/graphics/motionless/Bloc_Debug_Type1.bmp>
+1:0:0:0:2:10:0:1:ressources/graphics/motionless/Bloc_Debug_Type1.bmp>
+1:0:0:0:3:10:0:1:ressources/graphics/motionless/Bloc_Debug_Type1.bmp>
+1:0:0:0:4:10:0:1:ressources/graphics/motionless/Bloc_Debug_Type1.bmp>
+1:0:0:0:5:10:0:1:ressources/graphics/motionless/Bloc_Debug_Type1.bmp>
+1:0:0:0:6:10:0:1:ressources/graphics/motionless/Bloc_Debug_Type1.bmp>
+1:0:0:0:7:10:0:1:ressources/graphics/motionless/Bloc_Debug_Type1.bmp>
+1:0:0:0:8:10:0:1:ressources/graphics/motionless/Bloc_Debug_Type1.bmp>
+1:0:0:0:9:10:0:1:ressources/graphics/motionless/Bloc_Debug_Type1.bmp>
 3:MainLoadEnd:0:0>

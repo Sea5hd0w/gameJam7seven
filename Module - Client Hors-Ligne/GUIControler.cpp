@@ -5,6 +5,8 @@
 #include <iostream>
 #include <fstream>
 
+#include "variable_static.h"
+
 GUIControler::GUIControler(World* world, View* view)
 	: world(world), view(view), run(true)
 {
@@ -241,7 +243,7 @@ void GUIControler::loadingMotionLess(string rowData)
 	//Create element : ID 0 to 12 : basic, 13 & 14 Connector, 15 : Gate
 	if ((stol(data[7])) < 12) //If motionLess is a basic
 	{
-		areaBuffer->addElement(make_tuple(stol(data[4]), stol(data[5]), stol(data[6])), MotionLess::getMotionLess(stol(data[7]), this->world, stol(data[2]), stol(data[3]), make_tuple(stol(data[4]), stol(data[5]), stol(data[6])), data[8]));
+		areaBuffer->addElement(make_tuple(stol(data[4])*variable::SIZE_CASE_X, stol(data[5])*variable::SIZE_CASE_Y, stol(data[6])), MotionLess::getMotionLess(stol(data[7]), this->world, stol(data[2]), stol(data[3]), make_tuple(stol(data[4])*variable::SIZE_CASE_X, stol(data[5])*variable::SIZE_CASE_Y, stol(data[6])), data[8]));
 	}
 	else if ((stol(data[7])) < 15)
 	{
@@ -260,7 +262,7 @@ void GUIControler::loadingHero(string rowData)
 	vector<string> data = (this->split_1(rowData, ':'));
 
 	if (this->world->getMainHero()) debug("Loading hero");
-	Hero* hero = new Hero(this->world, stol(data[2]), stol(data[3]), make_tuple(stol(data[4]), stol(data[5]), stol(data[6])), false, data[8], stoi(data[7]), stol(data[9]));
+	Hero* hero = new Hero(this->world, stol(data[2]), stol(data[3]), make_tuple(stol(data[4])*variable::SIZE_CASE_X, stol(data[5])*variable::SIZE_CASE_Y, stol(data[6])), false, data[8], stoi(data[7]), stol(data[9]));
 
 	//Check if MainHero exist : else create it
 	if (this->world->getMainHero() == NULL)

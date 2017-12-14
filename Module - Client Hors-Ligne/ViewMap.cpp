@@ -17,7 +17,8 @@ ViewMap::~ViewMap()
 
 int ViewMap::getScreen()
 {
-	SDL_Rect dest = { 0, 0, 600, 224 };
+	SDL_Rect dest = { 0 + this->world->getMainHero()->getX() , 0, 600, 224 };
+
 	SDL_RenderCopy(View::renderer, this->world->getIsland()->getDimension(0)->getBackground(), &dest, NULL);
 
 	//i = number of spirte print by the loop. Initialise to 0
@@ -76,6 +77,7 @@ long ViewMap::convertXHero(long x, long y, long z, int xS, int yS, int xSize, in
 
 	long t = ((x - this->world->getMainHero()->getX()) / 100)*xSize + xW / 2 - xSize/2 ;
 	t = ((x - this->world->getMainHero()->getX()))*xSize + xW / 2 - xSize / 2;
+	debug("fff : " + to_string(x) + " || " + to_string(this->world->getMainHero()->getX()) + " || " + to_string(xF));
 	t = x - this->world->getMainHero()->getX() + xF / 2;
 	return t;
 	//return (0.5 * xF) - (0.5 * xS) + (0.5 * xS * (x - this->world->getMainHero()->getX()) / 100) - (0.5 * xS * (y - this->world->getMainHero()->getY()) / 100) - ((xSize - 128) / 2) - positionCasesSide;

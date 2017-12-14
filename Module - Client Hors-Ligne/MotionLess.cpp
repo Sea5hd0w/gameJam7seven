@@ -1,13 +1,14 @@
 
 
 #include "Mobile.h"
+#include "variable_static.h"
 
 MotionLess::MotionLess(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation, long iDMotionLess)
 	: Element(world, iDIsland, iDDimension, point, permeability, sprite, orientation, 0), iDMotionLess(iDMotionLess)
 {
 	this->sprite = { 0,0, 16 , 16 };
-	this->xSize = 64;
-	this->ySize = 64;
+	this->xSize = variable::SIZE_CASE_X;
+	this->ySize = variable::SIZE_CASE_Y;
 }
 
 
