@@ -289,7 +289,27 @@ void GUIControler::loadingHero(string rowData)
 
 void GUIControler::loadingMonster(string rowData)
 {
+	Area* areaBuffer = NULL;
 
+	vector<string> data = (this->split_1(rowData, ':'));
+
+	Monster* monster = new Monster(this->world, stol(data[2]), stol(data[3]), make_tuple(stol(data[4]), stol(data[5]), stol(data[6])), false, data[8], stoi(data[7]), stol(data[9]));
+
+	//Check if Island exist : else create it
+	if (this->world->getIsland() == NULL /* || Recive data of an other island*/)
+	{
+		this->world->setIsland(new Island(this->world, stol(data[2])));
+	}
+
+	//Check if Dimension exist : else create it
+	if (!this->world->getIsland()->isDimension(stol(data[3])))
+	{
+		this->world->getIsland()->addDimension(stol(data[3]), new Dimension(this->world, stol(data[2]), stol(data[3])));
+	}
+
+	//Add Hero to the dimension
+	this->world->getIsland()->getDimension(stol(data[3]))->addMonster(monster, stol(data[9]));
+	debug("AddHEro");
 }
 
 void GUIControler::loadingNPC(string rowData)
