@@ -138,7 +138,7 @@ void Mobile::moveUnsafe(bool run, int x_move, int y_move, int z_move, bool walkO
 void Mobile::move()
 {
 	anim_sprite();
-	work();
+	//work();
 
 	//set_gravity_vecteurAcceleration();
 	calc_vecteurVitesse();
