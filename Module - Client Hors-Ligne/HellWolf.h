@@ -9,5 +9,7 @@ public:
 
 protected:
 	void anim_sprite() override;
+	void work() override;
+
 };
 

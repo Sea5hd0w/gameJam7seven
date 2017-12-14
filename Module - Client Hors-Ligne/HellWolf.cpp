@@ -1,6 +1,8 @@
 #include "HellWolf.h"
 
-
+#include "World.h"
+#include "LibraryCommunication.h"
+#include "Dimension.h"
 
 HellWolf::HellWolf(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation, long iDMonster)
 	: Monster(world, iDIsland, iDDimension, point, permeability, sprite, orientation, iDMonster)
@@ -59,6 +61,18 @@ void HellWolf::anim_sprite()
 	else
 	{
 		this->sprite = { 0, 0, size_sprite_x, size_sprite_y };
+	}
+}
+
+void HellWolf::work()
+{
+	long x = this->world->getMainHero()->getX() - this->getX();
+	long y = this->world->getMainHero()->getY() - this->getY();
+
+
+	if (x > 1400 || x < -1400 || y > 1400 || y < -1400)
+	{
+		this->world->getIsland()->getDimension(0)->deleteMonster(this->getIDMonster());
 	}
 }
 

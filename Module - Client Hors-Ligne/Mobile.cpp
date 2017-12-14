@@ -54,6 +54,7 @@ void Mobile::teleportHere(long iDDimension, tuple<long, long, long> point_finish
 
 void Mobile::move()
 {
+	debug(to_string(POSX) + " || " + to_string(POSY));
 	anim_sprite();
 	work();
 
@@ -211,7 +212,7 @@ bool Mobile::isMovePossible()
 		{
 			x = get<0>(pos);
 			y = get<1>(pos);
-			debug(to_string(y) + " || " + to_string(x) + " || " + to_string(POSY / variable::SIZE_CASE_Y) + " || " + to_string(POSX / variable::SIZE_CASE_X));
+			//debug(to_string(y) + " || " + to_string(x) + " || " + to_string(POSY / variable::SIZE_CASE_Y) + " || " + to_string(POSX / variable::SIZE_CASE_X));
 			for (tuple<long, long> other : casePos)
 			{
 				if (other != make_tuple(x, y - 1))
@@ -235,14 +236,14 @@ bool Mobile::isMovePossible()
 		{
 			x = get<0>(pos);
 			y = get<1>(pos);
-			debug(to_string(y) + " || " + to_string(x) + " || " + to_string(POSY / variable::SIZE_CASE_Y) + " || " + to_string(POSX / variable::SIZE_CASE_X));
+			//debug(to_string(y) + " || " + to_string(x) + " || " + to_string(POSY / variable::SIZE_CASE_Y) + " || " + to_string(POSX / variable::SIZE_CASE_X));
 			for (tuple<long, long> other : casePos)
 			{
 				if (other != make_tuple(x, y + 1)) 
 				{
 					tuple<long, long> IDArea = dim->getIDArea(x, y);
 					Area* area = dim->getArea(get<0>(IDArea), get<1>(IDArea));
-					debug(to_string(y) + " || " + to_string(x) + " || " + to_string(POSY / variable::SIZE_CASE_Y) + " || " + to_string(POSX / variable::SIZE_CASE_X));
+					//debug(to_string(y) + " || " + to_string(x) + " || " + to_string(POSY / variable::SIZE_CASE_Y) + " || " + to_string(POSX / variable::SIZE_CASE_X));
 					if (area->isElement(make_tuple((x+1)*variable::SIZE_CASE_X, (y+1)*variable::SIZE_CASE_Y, 0)) || area->isElement(make_tuple((x)*variable::SIZE_CASE_X, (y + 1)*variable::SIZE_CASE_Y, 0)))
 					{
 						VY = 0;
@@ -259,7 +260,7 @@ bool Mobile::isMovePossible()
 		{
 			x = get<0>(pos);
 			y = get<1>(pos);
-			debug(to_string(y) + " || " + to_string(x) + " || " + to_string(POSY / variable::SIZE_CASE_Y) + " || " + to_string(POSX / variable::SIZE_CASE_X));
+			//debug(to_string(y) + " || " + to_string(x) + " || " + to_string(POSY / variable::SIZE_CASE_Y) + " || " + to_string(POSX / variable::SIZE_CASE_X));
 			for (tuple<long, long> other : casePos)
 			{
 				if (other != make_tuple(x + 1, y))
@@ -283,7 +284,7 @@ bool Mobile::isMovePossible()
 		{
 			x = get<0>(pos);
 			y = get<1>(pos);
-			debug(to_string(y) + " || " + to_string(x) + " || " + to_string(POSY / variable::SIZE_CASE_Y) + " || " + to_string(POSX / variable::SIZE_CASE_X));
+			//debug(to_string(y) + " || " + to_string(x) + " || " + to_string(POSY / variable::SIZE_CASE_Y) + " || " + to_string(POSX / variable::SIZE_CASE_X));
 			for (tuple<long, long> other : casePos)
 			{
 				if (other != make_tuple(x, y))

@@ -35,11 +35,12 @@ void Balle::anim_sprite()
 
 void Balle::work()
 {
-	long i = this->world->getMainHero()->getX() - this->getX();
-	if(i > 700 || i < -700)
+	long x = this->world->getMainHero()->getX() - this->getX();
+	long y = this->world->getMainHero()->getY() - this->getY();
+
+	if (x > 700 || x < -700 || y > 700 || y < -700)
 	{
-		VX = 0;
+		this->world->getIsland()->getDimension(0)->deleteMonster(this->getIDMonster());
 	}
-	this->world->getIsland()->getDimension(0)->deleteMonster(this->getIDMonster());
 }
 
