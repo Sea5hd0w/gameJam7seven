@@ -135,6 +135,9 @@
     <ClCompile Include="Balle.cpp">
       <Filter>Fichiers sources\Model\Elements\Armes</Filter>
     </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Area.h">
@@ -196,6 +199,9 @@
     </ClInclude>
     <ClInclude Include="Balle.h">
       <Filter>Fichiers d%27en-tête\Model\Arme</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
