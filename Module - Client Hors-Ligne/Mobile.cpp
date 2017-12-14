@@ -10,6 +10,11 @@ Mobile::Mobile(World* world, long iDIsland, long iDDimension, tuple<long, long, 
 {
 	this->speed_run = 200;
 	this->split = 10;
+	this->anim = 0;
+	this->anim2 = 0;
+
+	size_sprite_x = 16;
+	size_sprite_y = 28;
 }
 
 
@@ -131,6 +136,42 @@ void Mobile::moveUnsafe(bool run, int x_move, int y_move, int z_move, bool walkO
 
 void Mobile::move()
 {
+	if (VY > 0 && VX >= 0)
+	{
+		this->sprite = { size_sprite_x*2, size_sprite_y, size_sprite_x, size_sprite_y };
+		debug(to_string(size_sprite_y));
+	}
+	else if (VY < 0 && VX >= 0)
+	{
+		this->sprite = { size_sprite_x, size_sprite_y, size_sprite_x, size_sprite_y };
+	}
+	else if (VY > 0 && VX < 0)
+	{
+		this->sprite = { size_sprite_x*2, size_sprite_y*4, size_sprite_x, size_sprite_y };
+	}
+	else if (VY < 0 && VX < 0)
+	{
+		this->sprite = { size_sprite_x, size_sprite_y*4, size_sprite_x, size_sprite_y };
+	}
+	else if (VX > 0)
+	{
+		anim2 = (anim2 + 1) % 5;
+		if (anim2 == 0) anim = (anim + 1) % 9;
+		this->sprite = { size_sprite_x * anim, size_sprite_y*2, size_sprite_x, size_sprite_y };
+	}
+	else if (VX < 0)
+	{
+		anim2 = (anim2 + 1) % 5;
+		if (anim2 == 0) anim = (anim + 1) % 9;
+		this->sprite = { size_sprite_x * anim, size_sprite_y*5, size_sprite_x, size_sprite_y };
+	}
+	else
+	{
+		anim2 = (anim2 + 1) % 5;
+		if (anim2 == 0) anim = (anim + 1) % 9;
+		this->sprite = { size_sprite_x * anim, size_sprite_y*0, size_sprite_x, size_sprite_y };
+	}
+
 	//set_gravity_vecteurAcceleration();
 	calc_vecteurVitesse();
 	calc_position();
@@ -158,7 +199,7 @@ void Mobile::calc_position()
 	POSX += VX;
 	POSY += VY;
 
-	debug("x : " + to_string(POSX) + " || y : " + to_string(POSY));
+	//debug("x : " + to_string(POSX) + " || y : " + to_string(POSY));
 
 }
 
