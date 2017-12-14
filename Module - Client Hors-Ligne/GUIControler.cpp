@@ -5,6 +5,8 @@
 #include <iostream>
 #include <fstream>
 
+#include "HellWolf.h"
+
 #include "variable_static.h"
 
 GUIControler::GUIControler(World* world, View* view)
@@ -293,7 +295,18 @@ void GUIControler::loadingMonster(string rowData)
 
 	vector<string> data = (this->split_1(rowData, ':'));
 
-	Monster* monster = new Monster(this->world, stol(data[2]), stol(data[3]), make_tuple(stol(data[4]), stol(data[5]), stol(data[6])), false, data[8], stoi(data[7]), stol(data[9]));
+	Monster* monster = NULL;
+
+	if (stol(data[10]) == 1)
+	{
+		monster = new HellWolf(this->world, stol(data[2]), stol(data[3]), make_tuple(stol(data[4])*variable::SIZE_CASE_X, stol(data[5])*variable::SIZE_CASE_Y, stol(data[6])), false, "ressources/graphics/motionless/Enemi_Debug_Type1.bmp", stoi(data[7]), stol(data[9]));
+	}
+	else if (stol(data[10]) == 2)
+	{
+		monster = new Monster(this->world, stol(data[2]), stol(data[3]), make_tuple(stol(data[4])*variable::SIZE_CASE_X, stol(data[5])*variable::SIZE_CASE_Y, stol(data[6])), false, data[8], stoi(data[7]), stol(data[9]));
+	}
+
+
 
 	//Check if Island exist : else create it
 	if (this->world->getIsland() == NULL /* || Recive data of an other island*/)
@@ -309,7 +322,7 @@ void GUIControler::loadingMonster(string rowData)
 
 	//Add Hero to the dimension
 	this->world->getIsland()->getDimension(stol(data[3]))->addMonster(monster, stol(data[9]));
-	debug("AddHEro");
+	debug("AddMonster");
 }
 
 void GUIControler::loadingNPC(string rowData)
