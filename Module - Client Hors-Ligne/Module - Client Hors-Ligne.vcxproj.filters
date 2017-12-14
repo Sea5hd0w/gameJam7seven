@@ -173,5 +173,8 @@
     <ClInclude Include="Connector.h">
       <Filter>Fichiers d%27en-tête\Model\Elements</Filter>
     </ClInclude>
+    <ClInclude Include="variable_static.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
