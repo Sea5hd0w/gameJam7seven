@@ -23,8 +23,6 @@ public:
 
 	bool isMovePossible(long iDDimension_parameter, tuple<long, long, long> element, int orientation);
 
-	void moveDirection(bool run, int distance, int direction);
-
 	void moveTop(bool run, int distance);
 	void moveTopRight(bool run, int distance);
 	void moveTopLeft(bool run, int distance);
@@ -60,12 +58,7 @@ private:
 	int speed_run;
 	int split;
 	bool run;
-
-	bool move(bool run, int x_move, int y_move, int z_move, int direction);
-	void moveUnsafe(bool run, int x_move, int y_move, int z_move, bool walkOn, bool walkOff, int direction, int iDMove);
-
 	
-
 	void set_gravity_vecteurAcceleration();
 	void calc_vecteurVitesse();
 	void calc_position();

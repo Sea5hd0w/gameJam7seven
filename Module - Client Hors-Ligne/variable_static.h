@@ -10,5 +10,5 @@ public :
 	static const int SIZE_HERO_Y = 2; //en unité de block
 
 	static const int VITESSE_HERO_X = 3;
-	static const int VITESSE_HERO_JUMP = 10;
+	static const int VITESSE_HERO_JUMP = 8;
 };
