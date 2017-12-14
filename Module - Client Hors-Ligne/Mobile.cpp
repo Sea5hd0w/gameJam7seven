@@ -59,6 +59,7 @@ void Mobile::move()
 
 	set_gravity_vecteurAcceleration();
 	calc_vecteurVitesse();
+	this->isMovePossible();
 	calc_position();
 }
 
@@ -118,10 +119,6 @@ void Mobile::anim_sprite()
 			this->sprite = { size_sprite_x * anim, size_sprite_y * 3, size_sprite_x, size_sprite_y };
 		}
 	}
-
-	//set_gravity_vecteurAcceleration();
-	calc_vecteurVitesse();
-	calc_position();
 }
 
 void Mobile::set_gravity_vecteurAcceleration()
