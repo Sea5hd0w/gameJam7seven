@@ -71,7 +71,5 @@ private:
 	void calc_vecteurVitesse();
 	void calc_position();
 	
-	long anim;
-	int anim2;
 };
 
