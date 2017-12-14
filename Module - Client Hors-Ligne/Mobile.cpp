@@ -4,6 +4,7 @@
 #include "Dimension.h"
 
 #include "LibraryCommunication.h"
+#include "variable_static.h"
 
 Mobile::Mobile(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation)
 	: Element(world, iDIsland, iDDimension, point, permeability, sprite, orientation, 1)
@@ -15,6 +16,9 @@ Mobile::Mobile(World* world, long iDIsland, long iDDimension, tuple<long, long, 
 
 	size_sprite_x = 16;
 	size_sprite_y = 28;
+
+	this->sizeX = 1;
+	this->sizeY = 1;
 	orient = true;
 }
 
@@ -35,52 +39,6 @@ bool Mobile::isMovePossible(long iDDimension_parameter, tuple<long, long, long> 
 	}
 }
 
-void Mobile::moveDirection(bool run, int distance, int direction)
-{
-	int vitesseRun = 10;
-	int vitesseJump = 32*2;
-	switch (direction)
-	{
-	case 0:
-		//this->moveTop(run, distance);
-		VY -= vitesseJump;
-		break;
-	case 1:
-		//this->moveTopRight(run, distance);
-		VY -= vitesseJump;
-		VX += vitesseRun;
-		break;
-	case 2:
-		//this->moveRight(run, distance);
-		VX += vitesseRun;
-		break;
-	case 3:
-		//this->moveDownRight(run, distance);
-		//VY += vitesseJump;
-		VX += vitesseRun;
-		break;
-	case 4:
-		//this->moveDown(run, distance);
-		//VY -= vitesseJump;
-		break;
-	case 5:
-		VX -= vitesseRun;
-		//this->moveDownLeft(run, distance);
-		break;
-	case 6:
-		VX -= vitesseRun;
-		//this->moveLeft(run, distance);
-		break;
-	case 7:
-		VX -= vitesseRun;
-		VY -= vitesseJump;
-		//this->moveTopLeft(run, distance);
-		break;
-	default:
-		break;
-	}
-}
-
 void Mobile::teleportHere(long iDDimension, tuple<long, long, long> point_finish)
 {
 	if (this->getIDDimension() != iDDimension)
@@ -94,54 +52,14 @@ void Mobile::teleportHere(long iDDimension, tuple<long, long, long> point_finish
 	this->getWorld()->getIsland()->getDimension(this->getIDDimension())->loadElementsToView();
 }
 
-bool Mobile::move(bool run, int x_move, int y_move, int z_move, int direction)
-{
-	if (this->isMovePossible(this->getIDDimension(), make_tuple(this->getX() + x_move, this->getY() + y_move, this->getZ() + z_move), 0))
-	{
-		moveUnsafe(run, x_move, y_move, z_move, true, true, direction, 0);
-		return true;
-	}
-	else
-	{
-	}
-}
-
-void Mobile::moveUnsafe(bool run, int x_move, int y_move, int z_move, bool walkOn, bool walkOff, int direction, int iDMove)
-{
-	tuple<long, long, long> point_start = this->getPoint();
-	int wait_time = this->speed_run / split;
-	if (!run) wait_time = wait_time / 2;
-
-	for (int i = 0; i < split; i++)
-	{
-		std::this_thread::sleep_for(std::chrono::milliseconds(wait_time));
-
-		get<0>(this->point) = get<0>(this->point) + (x_move / split);
-		get<1>(this->point) = get<1>(this->point) + (y_move / split);
-		get<2>(this->point) = get<2>(this->point) + (z_move / split);
-
-		//this->sprite = { i*128,((direction+1 + (iDMove * (7-((direction-1)/2))))  * 128), 128,128 };
-
-		if (i == split / 2)
-		{
-			if(walkOff) this->getWorld()->getIsland()->getDimension(this->getIDDimension())->getElement(point_start)->walkOff(this);
-		}
-	}
-
-	if (walkOn)this->getWorld()->getIsland()->getDimension(this->getIDDimension())->getElement(this->point)->walkOn(this);
-
-	this->sprite = { 0, 0, 128,128 };
-
-	this->getWorld()->getIsland()->getDimension(this->getIDDimension())->sortElementsToView();
-}
-
 void Mobile::move()
 {
 	anim_sprite();
 	work();
 
-	//set_gravity_vecteurAcceleration();
+	set_gravity_vecteurAcceleration();
 	calc_vecteurVitesse();
+	this->isMovePossible();
 	calc_position();
 }
 
@@ -211,7 +129,8 @@ void Mobile::work()
 void Mobile::set_gravity_vecteurAcceleration()
 {
 	clock_t time = clock();
-	double accelerationGravitationnel = 9.0 * (clock() - this->t) / 1000.0;
+	double accelerationGravitationnel = 9.81 * (clock() - this->t) / 1000.0;
+	this->t = clock();
 
 	AY = accelerationGravitationnel;
 }
@@ -235,17 +154,17 @@ void Mobile::calc_position()
 
 void Mobile::moveTop(bool run, int distance)
 {
-	VY = -vitesse;
+	VY = (VY==0) ? -vitesseJump : VY;
 }
 void Mobile::moveTopRight(bool run, int distance)
 {
 	VX = vitesse;
-	VY = -vitesse;
+	VY = (VY == 0) ? -vitesseJump : VY;
 }
 void Mobile::moveTopLeft(bool run, int distance)
 {
 	VX = -vitesse;
-	VY = -vitesse;
+	VY = (VY == 0) ? -vitesseJump : VY;
 }
 void Mobile::moveRight(bool run, int distance)
 {
@@ -258,14 +177,128 @@ void Mobile::moveLeft(bool run, int distance)
 void Mobile::moveDownRight(bool run, int distance)
 {
 	VX = vitesse;
-	VY = vitesse;
+	VY += vitesse;
 }
 void Mobile::moveDownLeft(bool run, int distance)
 {
 	VX = -vitesse;
-	VY = vitesse;
+	VY += vitesse;
 }
 void Mobile::moveDown(bool run, int distance)
 {
-	VY = vitesse;
+	VY += vitesse;
+}
+
+bool Mobile::isMovePossible()
+{
+	long x, y;
+	//position de toute les case du mobile
+	list<tuple<long, long>> casePos;
+	for (int i = 0; i < sizeY; i++)
+	{
+		for(int j = 0; j < sizeX; j++)
+		{
+			casePos.push_back(make_tuple(POSX / variable::SIZE_CASE_X + j, POSY / variable::SIZE_CASE_Y - i));
+		}
+	}
+	
+	Dimension* dim = this->getWorld()->getIsland()->getDimension(0);
+
+	//sauter
+	if (VY < 0)
+	{
+		for (tuple<long, long> pos : casePos)
+		{
+			x = get<0>(pos);
+			y = get<1>(pos);
+			debug(to_string(y) + " || " + to_string(x) + " || " + to_string(POSY / variable::SIZE_CASE_Y) + " || " + to_string(POSX / variable::SIZE_CASE_X));
+			for (tuple<long, long> other : casePos)
+			{
+				if (other != make_tuple(x, y - 1))
+				{
+					tuple<long, long> IDArea = dim->getIDArea(x, y);
+					Area* area = dim->getArea(get<0>(IDArea), get<1>(IDArea));
+					if (area->isElement(make_tuple(x*variable::SIZE_CASE_X, (y-1)*variable::SIZE_CASE_Y, 0)))
+					{
+						VY = 0;
+						POSY = (y+1)*variable::SIZE_CASE_Y;
+					}
+				}
+			}
+		}
+	}
+
+	//tomber
+	if (VY > 0)
+	{
+		for (tuple<long, long> pos : casePos)
+		{
+			x = get<0>(pos);
+			y = get<1>(pos);
+			debug(to_string(y) + " || " + to_string(x) + " || " + to_string(POSY / variable::SIZE_CASE_Y) + " || " + to_string(POSX / variable::SIZE_CASE_X));
+			for (tuple<long, long> other : casePos)
+			{
+				if (other != make_tuple(x, y + 1)) 
+				{
+					tuple<long, long> IDArea = dim->getIDArea(x, y);
+					Area* area = dim->getArea(get<0>(IDArea), get<1>(IDArea));
+					debug(to_string(y) + " || " + to_string(x) + " || " + to_string(POSY / variable::SIZE_CASE_Y) + " || " + to_string(POSX / variable::SIZE_CASE_X));
+					if (area->isElement(make_tuple((x+1)*variable::SIZE_CASE_X, (y+1)*variable::SIZE_CASE_Y, 0)) || area->isElement(make_tuple((x)*variable::SIZE_CASE_X, (y + 1)*variable::SIZE_CASE_Y, 0)))
+					{
+						VY = 0;
+					}
+				}
+			}			
+		}
+	}
+
+	//droite
+	if (VX > 0)
+	{
+		for (tuple<long, long> pos : casePos)
+		{
+			x = get<0>(pos);
+			y = get<1>(pos);
+			debug(to_string(y) + " || " + to_string(x) + " || " + to_string(POSY / variable::SIZE_CASE_Y) + " || " + to_string(POSX / variable::SIZE_CASE_X));
+			for (tuple<long, long> other : casePos)
+			{
+				if (other != make_tuple(x + 1, y))
+				{
+					tuple<long, long> IDArea = dim->getIDArea(x, y);
+					Area* area = dim->getArea(get<0>(IDArea), get<1>(IDArea));
+					if (area->isElement(make_tuple((x+1)*variable::SIZE_CASE_X, y*variable::SIZE_CASE_Y, 0)))
+					{
+						VX = 0;
+						POSX = (x)*variable::SIZE_CASE_X;
+					}
+				}
+			}
+		}
+	}
+
+	//gauche
+	if (VX < 0)
+	{
+		for (tuple<long, long> pos : casePos)
+		{
+			x = get<0>(pos);
+			y = get<1>(pos);
+			debug(to_string(y) + " || " + to_string(x) + " || " + to_string(POSY / variable::SIZE_CASE_Y) + " || " + to_string(POSX / variable::SIZE_CASE_X));
+			for (tuple<long, long> other : casePos)
+			{
+				if (other != make_tuple(x, y))
+				{
+					tuple<long, long> IDArea = dim->getIDArea(x, y);
+					Area* area = dim->getArea(get<0>(IDArea), get<1>(IDArea));
+					if (area->isElement(make_tuple((x)*variable::SIZE_CASE_X, y*variable::SIZE_CASE_Y, 0)))
+					{
+						VX = 0;
+						POSX = (x+1)*variable::SIZE_CASE_X;
+					}
+				}
+			}
+		}
+	}
+	
+	return true;
 }

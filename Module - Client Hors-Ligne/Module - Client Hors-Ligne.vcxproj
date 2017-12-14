@@ -70,15 +70,15 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\dorba\Source\Repos\gameJam7seven\Module - Client Hors-Ligne\SDL2_ttf-2.0.14\include;C:\Users\wayzen\Source\Repos\gameJam7seven\Module - Client Hors-Ligne\SDL2_ttf-2.0.14\include;C:\Users\Alexandre\Source\Repos\gameJam7seven\Module - Client Hors-Ligne\SDL2_ttf-2.0.14\include;C:\Users\dorba\Source\Repos\gameJam7seven\Module - Client Hors-Ligne\SDL2-2.0.5\include;C:\Users\wayzen\Source\Repos\gameJam7seven\Module - Client Hors-Ligne\SDL2-2.0.5\include;C:\Users\Alexandre\Source\Repos\gameJam7seven\Module - Client Hors-Ligne\SDL2-2.0.5\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\dorba\Source\Repos\gameJam7seven\Module - Client Hors-Ligne\SDL2_ttf-2.0.14\lib\x86;C:\Users\wayzen\Source\Repos\gameJam7seven\Module - Client Hors-Ligne\SDL2_ttf-2.0.14\lib\x86;C:\Users\Alexandre\Source\Repos\gameJam7seven\Module - Client Hors-Ligne\SDL2_ttf-2.0.14\lib\x86;C:\Users\wayzen\Source\Repos\gameJam7seven\Module - Client Hors-Ligne\SDL2-2.0.5\lib\x86;C:\Users\dorba\Source\Repos\gameJam7seven\Module - Client Hors-Ligne\SDL2-2.0.5\lib\x86;C:\Users\Alexandre\Source\Repos\gameJam7seven\Module - Client Hors-Ligne\SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\dorba\Source\Repos\gameJam7seven2\Module - Client Hors-Ligne\SDL2-2.0.5\include;C:\Users\dorba\Source\Repos\gameJam7seven\Module - Client Hors-Ligne\SDL2_ttf-2.0.14\include;C:\Users\wayzen\Source\Repos\gameJam7seven\Module - Client Hors-Ligne\SDL2_ttf-2.0.14\include;C:\Users\Alexandre\Source\Repos\gameJam7seven\Module - Client Hors-Ligne\SDL2_ttf-2.0.14\include;C:\Users\dorba\Source\Repos\gameJam7seven\Module - Client Hors-Ligne\SDL2-2.0.5\include;C:\Users\wayzen\Source\Repos\gameJam7seven\Module - Client Hors-Ligne\SDL2-2.0.5\include;C:\Users\Alexandre\Source\Repos\gameJam7seven\Module - Client Hors-Ligne\SDL2-2.0.5\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\dorba\Source\Repos\gameJam7seven2\Module - Client Hors-Ligne\SDL2-2.0.5\lib\x86;C:\Users\dorba\Source\Repos\gameJam7seven\Module - Client Hors-Ligne\SDL2_ttf-2.0.14\lib\x86;C:\Users\wayzen\Source\Repos\gameJam7seven\Module - Client Hors-Ligne\SDL2_ttf-2.0.14\lib\x86;C:\Users\Alexandre\Source\Repos\gameJam7seven\Module - Client Hors-Ligne\SDL2_ttf-2.0.14\lib\x86;C:\Users\wayzen\Source\Repos\gameJam7seven\Module - Client Hors-Ligne\SDL2-2.0.5\lib\x86;C:\Users\dorba\Source\Repos\gameJam7seven\Module - Client Hors-Ligne\SDL2-2.0.5\lib\x86;C:\Users\Alexandre\Source\Repos\gameJam7seven\Module - Client Hors-Ligne\SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>C:\Users\Alexandre\Documents\Visual Studio 2017\Projects\Module - Client Hors-Ligne\Module - Client Hors-Ligne\SDL2-2.0.5\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\Alexandre\Documents\Visual Studio 2017\Projects\Module - Client Hors-Ligne\Module - Client Hors-Ligne\SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\wayzen\source\repos\gameJam7seven\Module - Client Hors-Ligne\SDL2-2.0.5\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\dorba\Source\Repos\gameJam7seven2\Module - Client Hors-Ligne\SDL2-2.0.5\include;C:\Users\wayzen\source\repos\gameJam7seven\Module - Client Hors-Ligne\SDL2-2.0.5\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\wayzen\source\repos\gameJam7seven\Module - Client Hors-Ligne\SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -177,6 +177,7 @@
     <ClInclude Include="Monster.h" />
     <ClInclude Include="MotionLess.h" />
     <ClInclude Include="Sprites.h" />
+    <ClInclude Include="variable_static.h" />
     <ClInclude Include="View.h" />
     <ClInclude Include="ViewMap.h" />
     <ClInclude Include="World.h" />

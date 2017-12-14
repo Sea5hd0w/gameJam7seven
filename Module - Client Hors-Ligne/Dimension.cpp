@@ -60,11 +60,13 @@ void Dimension::loadElementsToView()
 void Dimension::sortElementsToView()
 {
 	this->elementsToView.sort([](pair<tuple<long*, long, long*, long*>, Element*> & a, pair<tuple<long*, long, long*, long*>, Element*> & b) {
-		return *get<2>(a.first) < *get<2>(b.first) || 
-			*get<2>(a.first) == *get<2>(b.first) && (*get<3>(a.first) < *get<3>(b.first) || 
-			*get<3>(a.first) == *get<3>(b.first) && (*get<0>(a.first) < *get<0>(b.first) || 
-			*get<0>(a.first) == *get<0>(b.first) && get<1>(a.first) < get<1>(b.first)
-		)); });
+		long x1 = *get<2>(a.first);
+		long x2 = *get<2>(b.first);
+		long y1 = *get<3>(a.first);
+		long y2 = *get<3>(b.first);
+		return x1 < x2 ||
+			x1 == x2 && y1 < y2;
+		});
 }
 
 list<pair<tuple<long*, long, long*, long*>, Element*>> Dimension::getElementsToView()

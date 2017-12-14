@@ -245,7 +245,9 @@ void GUIControler::loadingMotionLess(string rowData)
 	//Create element : ID 0 to 12 : basic, 13 & 14 Connector, 15 : Gate
 	if ((stol(data[7])) < 12) //If motionLess is a basic
 	{
-		areaBuffer->addElement(make_tuple(stol(data[4])*variable::SIZE_CASE_X, stol(data[5])*variable::SIZE_CASE_Y, stol(data[6])), MotionLess::getMotionLess(stol(data[7]), this->world, stol(data[2]), stol(data[3]), make_tuple(stol(data[4])*variable::SIZE_CASE_X, stol(data[5])*variable::SIZE_CASE_Y, stol(data[6])), data[8]));
+		long x = stol(data[4])*variable::SIZE_CASE_X;
+		long y = stol(data[5])*variable::SIZE_CASE_Y;
+		areaBuffer->addElement(make_tuple(x, y, 0), MotionLess::getMotionLess(stol(data[7]), this->world, stol(data[2]), stol(data[3]), make_tuple(x, y, 0), data[8]));
 	}
 	else if ((stol(data[7])) < 15)
 	{

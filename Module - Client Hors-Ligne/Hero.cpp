@@ -1,4 +1,5 @@
 ﻿#include "Hero.h"
+#include "variable_static.h"
 #include <tuple>
 #include "LibraryCommunication.h"
 
@@ -9,6 +10,12 @@ Hero::Hero(World* world, long iDIsland, long iDDimension, tuple<long, long, long
 	this->sprite = { 0,0, 16, 28 };
 	this->xSize = 64;
 	this->ySize = 112;
+
+	this->vitesse = variable::VITESSE_HERO_X;
+	this->vitesseJump = variable::VITESSE_HERO_JUMP;
+
+	this->sizeX = 1;
+	this->sizeY = 2;
 	this->Arme = new Ammo(world, iDIsland, iDDimension, point, permeability, "ressources/graphics/motionless/Bullet_Debug_Type1.bmp", orientation, iDHero, 10, 50);
 	
 }
