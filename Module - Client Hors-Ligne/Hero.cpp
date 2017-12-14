@@ -13,7 +13,7 @@ Hero::Hero(World* world, long iDIsland, long iDDimension, tuple<long, long, long
 	this->vitesseJump = variable::VITESSE_HERO_JUMP;
 
 	this->sizeX = 1;
-	this->sizeY = 2;
+	this->sizeY = 1;
 }
 
 
