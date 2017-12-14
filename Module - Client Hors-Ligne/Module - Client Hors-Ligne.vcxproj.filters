@@ -67,6 +67,12 @@
     <Filter Include="levels">
       <UniqueIdentifier>{5b261679-3c38-4166-959a-92257a0378e6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\Model\Elements\Armes">
+      <UniqueIdentifier>{101c01f7-123e-46f1-ad12-61b13121f7ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Model\Arme">
+      <UniqueIdentifier>{76e5a3e8-58e0-4a70-aae3-ee83a4c08d7c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -120,6 +126,15 @@
     <ClCompile Include="Connector.cpp">
       <Filter>Fichiers sources\Model\Elements\MotionLess\Connector</Filter>
     </ClCompile>
+    <ClCompile Include="armes.cpp">
+      <Filter>Fichiers sources\Model\Elements\MotionLess</Filter>
+    </ClCompile>
+    <ClCompile Include="Ammo.cpp">
+      <Filter>Fichiers sources\Model\Elements\Armes</Filter>
+    </ClCompile>
+    <ClCompile Include="Balle.cpp">
+      <Filter>Fichiers sources\Model\Elements\Armes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Area.h">
@@ -172,6 +187,15 @@
     </ClInclude>
     <ClInclude Include="Connector.h">
       <Filter>Fichiers d%27en-tête\Model\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="armes.h">
+      <Filter>Fichiers d%27en-tête\Model\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="Ammo.h">
+      <Filter>Fichiers d%27en-tête\Model\Arme</Filter>
+    </ClInclude>
+    <ClInclude Include="Balle.h">
+      <Filter>Fichiers d%27en-tête\Model\Arme</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

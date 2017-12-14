@@ -1,5 +1,5 @@
 #include "Hero.h"
-
+#include <tuple>
 
 
 Hero::Hero(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation, long iDHero)
@@ -17,6 +17,11 @@ Hero::~Hero()
 
 void Hero::setAmmo(Ammo* Arme) {
 	this->Arme = Arme;
+}
+
+void Hero::shoot() {
+	
+	this->Arme->shoot(std::get<1>(point));
 }
 
 long Hero::getIDHero()

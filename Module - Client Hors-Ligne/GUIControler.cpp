@@ -133,6 +133,10 @@ void GUIControler::runGUIControler()
 						break;
 				}
 				break;
+			case SDL_MOUSEBUTTONDOWN:
+				this->world->getMainHero()->shoot();
+				break;
+
 				case SDL_QUIT:
 					this->run = false;
 				break;

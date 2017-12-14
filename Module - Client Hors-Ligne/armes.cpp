@@ -10,7 +10,6 @@ armes::armes(World* world, long iDIsland, long iDDimension, tuple<long, long, lo
 
 void armes::walkOn(Hero* hero) {
 	hero->setAmmo(this->getAmmo());
-	this
 
 }
 

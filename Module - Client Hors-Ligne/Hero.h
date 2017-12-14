@@ -10,6 +10,10 @@ public:
 	Ammo* Arme;
 	long getIDHero();
 	void setAmmo(Ammo* Arme);
+	void shoot();
+	void addX(double v);
+	void addY(double v);
+	void shoot(long y);
 private:
 	long iDHero;
 
