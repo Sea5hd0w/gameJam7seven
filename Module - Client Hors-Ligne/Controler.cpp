@@ -1,3 +1,6 @@
+#pragma comment(lib, "winmm.lib")
+#include <windows.h>
+#include <mmsystem.h>
 #include "Controler.h"
 
 #include <thread>
@@ -8,6 +11,7 @@
 
 Controler::Controler()
 {
+	PlaySound(TEXT("ressources/sounds/JumperBoy.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 	//Create empty world
 	this->world = new World();
 

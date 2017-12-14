@@ -12,7 +12,6 @@ PSTR lpCmdLine, INT nCmdShow)
 int main(int argc, char* args[])
 {
 	std::cout << "Module - Client Hors-Ligne" << std::endl;
-
 	if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
 	{
 		err("Error initializing SDL2");

@@ -9,7 +9,7 @@ Hero::Hero(World* world, long iDIsland, long iDDimension, tuple<long, long, long
 	this->sprite = { 0,0, 16, 28 };
 	this->xSize = 64;
 	this->ySize = 112;
-//	this->Arme = new Ammo(world, iDIsland, iDDimension, point, permeability, "C:/Users/wayzen/Desktop/ball.bmp", orientation, iDHero, 10, 50);
+	this->Arme = new Ammo(world, iDIsland, iDDimension, point, permeability, "C:/Users/wayzen/Desktop/ball.bmp", orientation, iDHero, 10, 50);
 }
 
 
