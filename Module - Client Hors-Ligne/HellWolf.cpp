@@ -79,5 +79,6 @@ void HellWolf::work()
 
 void HellWolf::underAttack(Mobile* e)
 {
-	err("chien");
+	if(!e->shotHero)
+		err("chien");
 }

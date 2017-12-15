@@ -14,7 +14,7 @@ public:
 	void addY(double v);
 	void underAttack(Mobile* e) override;
 
-	
+	int life = 1;
 
 private:
 	long iDMonster;
