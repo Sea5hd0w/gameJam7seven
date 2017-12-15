@@ -24,7 +24,7 @@ HellWolf::HellWolf(World* world, long iDIsland, long iDDimension, tuple<long, lo
 	this->soundsHellWolf = createAudio("ressources/sounds/hellwolf.wav", 0, SDL_MIX_MAXVOLUME / 2);
 	
 
-	this->life = 3;
+	this->life = 1;
 }
 
 
@@ -78,7 +78,7 @@ void HellWolf::work()
 {
 	if (startAI)
 	{
-		VX = -8;
+		VX = -0;
 	}
 
 	long x = this->world->getMainHero()->getX() - this->getX();
@@ -100,6 +100,11 @@ void HellWolf::work()
 			playSoundFromMemory(this->soundsHellWolf, SDL_MIX_MAXVOLUME);
 			started = true;
 		}
+	}
+
+	for (Hitbox* h : hits)
+	{
+		h->detect_collision();
 	}
 }
 

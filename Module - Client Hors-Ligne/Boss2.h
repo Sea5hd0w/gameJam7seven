@@ -2,6 +2,7 @@
 
 #include "Monster.h"
 #include "audio.h"
+#include <chrono>
 
 class Boss2 : public Monster
 {
@@ -10,6 +11,7 @@ public:
 	~Boss2();
 	string toString() override;
 	void shoot();
+	clock_t t;
 protected:
 	void anim_sprite() override;
 	void work() override;

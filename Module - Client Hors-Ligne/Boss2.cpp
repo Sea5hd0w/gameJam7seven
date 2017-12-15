@@ -3,6 +3,7 @@
 #include "World.h"
 #include "LibraryCommunication.h"
 #include "Dimension.h"
+#include "Ammo.h"
 
 Boss2::Boss2(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation, long iDMonster)
 	: Monster(world, iDIsland, iDDimension, point, permeability, sprite, orientation, iDMonster)
@@ -19,7 +20,7 @@ Boss2::Boss2(World* world, long iDIsland, long iDDimension, tuple<long, long, lo
 	this->sizeY = make_tuple(-2, 0);
 
 	VX =0;
-	attack_b =	false;
+	attack_b =	true;
 
 	started = false;
 
@@ -28,8 +29,9 @@ Boss2::Boss2(World* world, long iDIsland, long iDDimension, tuple<long, long, lo
 	// load WAV file
 
 	this->soundsBoss2 = createAudio("ressources/sounds/ghost.wav", 0, SDL_MIX_MAXVOLUME / 2);
-	//this->affectedByGravity = false;
+	this->affectedByGravity = false;
 	this->life =15;
+	t = clock();
 }
 
 
@@ -111,7 +113,7 @@ void Boss2::work()
 {
 	if (startAI)
 	{
-		VX = -5;
+		VX = -0;
 	}
 
 	long x = this->world->getMainHero()->getX() - this->getX();
@@ -134,10 +136,13 @@ void Boss2::work()
 			started = true;
 		}
 	}
+
+	//this->shoot();
 }
 
 void Boss2::attack()
 {
+	this->shoot();
 }
 
 string Boss2::toString()
@@ -147,5 +152,9 @@ string Boss2::toString()
 
 void Boss2::shoot()
 {
-
+	if (clock() - t > 100)
+	{
+		this->Arme->shoot(make_tuple(POSX, POSY - 64, 0), -10);
+		t = clock();
+	}
 }

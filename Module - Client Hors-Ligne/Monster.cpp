@@ -3,6 +3,7 @@
 #include "LibraryCommunication.h"
 #include "Dimension.h"
 #include "World.h"
+#include "Ammo.h"
 
 Monster::Monster(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation, long iDMonster)
 	: Mobile(world, iDIsland, iDDimension, point, permeability, sprite, orientation), iDMonster(iDMonster)
@@ -12,7 +13,7 @@ Monster::Monster(World* world, long iDIsland, long iDDimension, tuple<long, long
 	this->ySize = 112;
 
 	startAI = false;
-	//this->Arme = new Ammo(world, iDIsland, iDDimension, point, permeability, "ressources/graphics/motionless/Bullet_Debug_Type1.bmp", orientation, 0, 10, 50);
+	this->Arme = new Ammo(world, iDIsland, iDDimension, point, permeability, "ressources/graphics/motionless/Bullet_Debug_Type1.bmp", orientation, 0, 10, 50);
 }
 
 
@@ -67,6 +68,5 @@ void Monster::loosePV(int pv)
 
 void Monster::shoot()
 {
-	//this->Arme->shoot(point);
-	//this->Arme;
+	this->Arme->shoot(make_tuple(POSX,POSY-64,0), -10);
 }

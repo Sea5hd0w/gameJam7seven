@@ -7,7 +7,6 @@ class HellWolf : public Monster
 public:
 	HellWolf(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation, long iDMonster);
 	~HellWolf();
-	void underAttack(Mobile* e) override;
 
 	string toString() override;
 protected:

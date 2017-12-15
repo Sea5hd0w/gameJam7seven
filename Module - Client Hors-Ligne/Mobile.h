@@ -15,7 +15,7 @@ class World;
 class Dimension;
 class Area;
 class AStar;
-
+class Ammo;
 class Mobile : public Element {
 
 public:
@@ -50,7 +50,7 @@ public:
 	bool shotHero = true;
 	
 	int life = 1;
-	//Ammo* Arme;
+	Ammo* Arme;
 	virtual void shoot() = 0;
 	virtual string toString() = 0;
 protected:
