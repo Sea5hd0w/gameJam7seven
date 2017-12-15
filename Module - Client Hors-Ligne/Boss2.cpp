@@ -119,3 +119,8 @@ string Boss2::toString()
 {
 	return "boss2";
 }
+
+void Boss2::shoot()
+{
+
+}

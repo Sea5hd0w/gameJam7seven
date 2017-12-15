@@ -15,7 +15,7 @@ public:
 	void underAttack(Mobile* e) override;
 
 	
-
+	void shoot() override;
 	void loosePV(int pv);
 protected:
 	bool startAI;

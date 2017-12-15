@@ -50,7 +50,8 @@ public:
 	bool shotHero = true;
 	
 	int life = 1;
-
+	//Ammo* Arme;
+	virtual void shoot() = 0;
 	virtual string toString() = 0;
 protected:
 	tuple<double, double> vecteurVitesse;

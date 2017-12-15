@@ -12,6 +12,7 @@ Monster::Monster(World* world, long iDIsland, long iDDimension, tuple<long, long
 	this->ySize = 112;
 
 	startAI = false;
+	//this->Arme = new Ammo(world, iDIsland, iDDimension, point, permeability, "ressources/graphics/motionless/Bullet_Debug_Type1.bmp", orientation, 0, 10, 50);
 }
 
 
@@ -62,4 +63,10 @@ void Monster::loosePV(int pv)
 		}
 		this->world->getIsland()->getDimension(0)->deleteMonster(this->getIDMonster());
 	}
+}
+
+void Monster::shoot()
+{
+	//this->Arme->shoot(point);
+	//this->Arme;
 }
