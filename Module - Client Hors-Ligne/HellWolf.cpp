@@ -3,7 +3,7 @@
 #include "World.h"
 #include "LibraryCommunication.h"
 #include "Dimension.h"
-
+#include "balle.h"
 HellWolf::HellWolf(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation, long iDMonster)
 	: Monster(world, iDIsland, iDDimension, point, permeability, sprite, orientation, iDMonster)
 {
@@ -13,8 +13,9 @@ HellWolf::HellWolf(World* world, long iDIsland, long iDDimension, tuple<long, lo
 
 	size_sprite_x = 48;
 	size_sprite_y = 48;
-
-	VX = -10;
+	VX = -8;
+	this->produceHitBox(world->getIsland()->getDimension(this->world->getMainHero()->getIDDimension()));
+	
 }
 
 
@@ -76,3 +77,8 @@ void HellWolf::work()
 	}
 }
 
+void HellWolf::underAttack(Mobile* e)
+{
+	if(!e->shotHero)
+		err("chien");
+}

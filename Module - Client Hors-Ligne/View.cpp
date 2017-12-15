@@ -78,6 +78,14 @@ void View::refresh()
 	}
 	else
 	{
+		if (create)
+		{
+			for (pair<tuple<long*, long, long*, long*>, Element*> element : this->world->getIsland()->getDimension(this->world->getMainHero()->getIDDimension())->getElementsToView())
+			{
+				//element.second->produceHitBox(world->getIsland()->getDimension(this->world->getMainHero()->getIDDimension()));
+			}
+			create = false;
+		}
 		nbrObjectPrint = this->mapScreen->getScreen();
 	}
 

@@ -17,7 +17,7 @@ ViewMap::~ViewMap()
 
 int ViewMap::getScreen()
 {
-	SDL_Rect dest = { 0 + this->world->getMainHero()->getX() , 0, 600, 224 };
+	SDL_Rect dest = { 0 + this->world->getMainHero()->getX() , 0, 400, 224 };
 
 	SDL_RenderCopy(View::renderer, this->world->getIsland()->getDimension(0)->getBackground(), &dest, NULL);
 

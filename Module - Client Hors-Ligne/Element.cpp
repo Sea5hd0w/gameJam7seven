@@ -2,9 +2,8 @@
 
 #include "LibraryCommunication.h"
 #include "GlobalVariable.h"
-
+#include "variable_static.h"
 #include "View.h"
-
 
 
 Element::Element(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation, int priority)
@@ -15,6 +14,9 @@ Element::Element(World* world, long iDIsland, long iDDimension, tuple<long, long
 	this->xSize = 128;
 	this->ySize = 128;
 	gen("[(" + to_string(get<0>(point)) + "," + to_string(get<1>(point)) + "," + to_string(get<2>(point)) + ")] : " + __func__ + " : Create");
+
+	this->sizeX = 1;
+	this->sizeY = 1;
 }
 
 
