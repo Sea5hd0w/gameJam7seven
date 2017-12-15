@@ -242,5 +242,8 @@
     <ClInclude Include="Boss2.h">
       <Filter>Fichiers d%27en-tête\Model\Elements\Monster</Filter>
     </ClInclude>
+    <ClInclude Include="HittBox.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
