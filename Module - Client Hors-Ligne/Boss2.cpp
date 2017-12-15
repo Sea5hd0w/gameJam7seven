@@ -157,7 +157,7 @@ void Boss2::shoot()
 {
 	if (clock() - t > 100)
 	{
-		this->Arme->shoot(make_tuple(POSX, POSY - 64, 0), -10);
+		this->Arme->shoot(make_tuple(POSX, POSY - 64, 0), -10, this);
 		t = clock();
 	}
 }

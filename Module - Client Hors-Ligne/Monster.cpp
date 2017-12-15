@@ -68,5 +68,5 @@ void Monster::loosePV(int pv)
 
 void Monster::shoot()
 {
-	this->Arme->shoot(make_tuple(POSX,POSY-64,0), -10);
+	this->Arme->shoot(make_tuple(POSX,POSY-64,0), -10, this);
 }
