@@ -13,6 +13,11 @@ public:
 	void addX(double v);
 	void addY(double v);
 
+protected:
+	bool startAI;
+
 private:
 	long iDMonster;
+
+
 };

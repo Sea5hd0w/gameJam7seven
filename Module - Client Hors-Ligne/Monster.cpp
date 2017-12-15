@@ -8,6 +8,8 @@ Monster::Monster(World* world, long iDIsland, long iDDimension, tuple<long, long
 	this->sprite = { 0,0, 16, 28 };
 	this->xSize = 64;
 	this->ySize = 112;
+
+	startAI = false;
 }
 
 
