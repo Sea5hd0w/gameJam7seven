@@ -94,7 +94,7 @@ void HellWolf::work()
 		startAI = true;
 		if (!started)
 		{
-			playSoundFromMemory(this->soundsHellWolf, SDL_MIX_MAXVOLUME / 2);
+			playSoundFromMemory(this->soundsHellWolf, SDL_MIX_MAXVOLUME);
 			started = true;
 		}
 	}

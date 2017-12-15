@@ -20,6 +20,14 @@ Boss1::Boss1(World* world, long iDIsland, long iDDimension, tuple<long, long, lo
 
 	VX = 0;
 	attack_b = true;
+
+	started = false;
+
+	SDL_Init(SDL_INIT_AUDIO);
+	initAudio();
+	// load WAV file
+
+	this->soundsBoss1 = createAudio("ressources/sounds/hellwolf.wav", 0, SDL_MIX_MAXVOLUME / 2);
 }
 
 
@@ -102,13 +110,30 @@ void Boss1::anim_sprite()
 
 void Boss1::work()
 {
+	if (startAI)
+	{
+		VX = -4;
+	}
+
 	long x = this->world->getMainHero()->getX() - this->getX();
 	long y = this->world->getMainHero()->getY() - this->getY();
 
 
 	if (x > 1400 || x < -1400 || y > 1400 || y < -1400)
 	{
-		this->world->getIsland()->getDimension(0)->deleteMonster(this->getIDMonster());
+		if (startAI)
+		{
+			this->world->getIsland()->getDimension(0)->deleteMonster(this->getIDMonster());
+		}
+	}
+	else if (x < 1400 || x > -1400 || y < 1400 || y > -1400)
+	{
+		startAI = true;
+		if (!started)
+		{
+			playSoundFromMemory(this->soundsBoss1, SDL_MIX_MAXVOLUME / 2);
+			started = true;
+		}
 	}
 }
 

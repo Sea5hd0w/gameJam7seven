@@ -18,8 +18,16 @@ Boss2::Boss2(World* world, long iDIsland, long iDDimension, tuple<long, long, lo
 	this->sizeX = 1;
 	this->sizeY = 2;
 
-	VX =-1;
+	VX =0;
 	attack_b =	false;
+
+	started = false;
+
+	SDL_Init(SDL_INIT_AUDIO);
+	initAudio();
+	// load WAV file
+
+	this->soundsBoss2 = createAudio("ressources/sounds/ghost.wav", 0, SDL_MIX_MAXVOLUME / 2);
 }
 
 
@@ -99,13 +107,30 @@ void Boss2::anim_sprite()
 
 void Boss2::work()
 {
+	if (startAI)
+	{
+		VX = -5;
+	}
+
 	long x = this->world->getMainHero()->getX() - this->getX();
 	long y = this->world->getMainHero()->getY() - this->getY();
 
 
 	if (x > 1400 || x < -1400 || y > 1400 || y < -1400)
 	{
-		this->world->getIsland()->getDimension(0)->deleteMonster(this->getIDMonster());
+		if (startAI)
+		{
+			this->world->getIsland()->getDimension(0)->deleteMonster(this->getIDMonster());
+		}
+	}
+	else if (x < 1400 || x > -1400 || y < 1400 || y > -1400)
+	{
+		startAI = true;
+		if (!started)
+		{
+			playSoundFromMemory(this->soundsBoss2, SDL_MIX_MAXVOLUME);
+			started = true;
+		}
 	}
 }
 
