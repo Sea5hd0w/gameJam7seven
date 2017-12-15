@@ -70,9 +70,12 @@ void Ammo::shoot(tuple<long, long, long> pointH, int vitesse, Mobile* mob)
 	Monster* monst;
 	if (!mob->getOrient())
 	{
-		monst = new Balle(this->getWorld(), iDIsland, iDDimension, pointH, permeability, "ressources/graphics/motionless/Bullet_Debug_Type2.bmp", orientation, this->idBullet, vitesse, 50, false);
+		monst = new Balle(this->getWorld(), iDIsland, iDDimension, pointH, permeability, "ressources/graphics/motionless/Bullet_Debug_Type2.bmp", orientation, this->idBullet, vitesse, 50, true);
 	}
-	else monst = new Balle(this->getWorld(), iDIsland, iDDimension, make_tuple(get<0>(pointH) + 64 * 3, get<1>(pointH), 0), permeability, "ressources/graphics/motionless/Bullet_Debug_Type2.bmp", orientation, this->idBullet, -vitesse, 50, false);
+	else
+	{
+		monst = new Balle(this->getWorld(), iDIsland, iDDimension, make_tuple(get<0>(pointH) + 64 * 3, get<1>(pointH), 0), permeability, "ressources/graphics/motionless/Bullet_Debug_Type2.bmp", orientation, this->idBullet, -vitesse, 50, true);
+	}
 
 	this->world->getIsland()->getDimension(0)->addMonster(monst, this->idBullet);
 	this->world->getIsland()->getDimension(0)->addElementsToView(monst);
