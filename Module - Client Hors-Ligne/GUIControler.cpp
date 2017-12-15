@@ -18,7 +18,7 @@ GUIControler::GUIControler(World* world, View* view)
 {
 	this->load = true;
 
-	this->loadTXT("ressources/levels/map.txt");
+	this->loadTXT("ressources/levels/test.txt");
 	gen("GUIControler created : starting Listen & Process instruction");
 }
 
