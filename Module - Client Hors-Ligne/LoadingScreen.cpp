@@ -28,7 +28,7 @@ void LoadingScreen::getScreen()
 	SDL_GetWindowSize(this->pWindow, &wWindow, &hWindow);
 
 	//Create rectangle destination to print image
-	SDL_Rect dest = { wWindow/2 - 250, hWindow/2 - 250, 500, 500 };
+	SDL_Rect dest = { wWindow/2 - 400, hWindow/2 - 400, 800, 800 };
 	//Print image on renderer
 	SDL_RenderCopy(View::renderer, this->spritesLoadingScreen[gifCycle+1], NULL, &dest);
 }
