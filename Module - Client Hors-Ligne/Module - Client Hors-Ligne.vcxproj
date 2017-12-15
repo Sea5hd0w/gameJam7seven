@@ -87,10 +87,12 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <BrowseInformation>true</BrowseInformation>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Bscmake>
       <PreserveSbr>true</PreserveSbr>
@@ -137,6 +139,7 @@
     <ClCompile Include="Ammo.cpp" />
     <ClCompile Include="Area.cpp" />
     <ClCompile Include="armes.cpp" />
+    <ClCompile Include="audio.c" />
     <ClCompile Include="Balle.cpp" />
     <ClCompile Include="Connector.cpp" />
     <ClCompile Include="Controler.cpp" />
@@ -161,6 +164,7 @@
     <ClInclude Include="Ammo.h" />
     <ClInclude Include="Area.h" />
     <ClInclude Include="armes.h" />
+    <ClInclude Include="audio.h" />
     <ClInclude Include="Balle.h" />
     <ClInclude Include="Connector.h" />
     <ClInclude Include="Controler.h" />

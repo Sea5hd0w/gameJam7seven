@@ -11,7 +11,9 @@
 
 Controler::Controler()
 {
-	PlaySound(TEXT("ressources/sounds/JumperBoy.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
+	thread thread_1 = thread(play_music);
+
+
 	//Create empty world
 	this->world = new World();
 
@@ -27,6 +29,7 @@ Controler::Controler()
 	//If access to this code : stop process
 	this->view->stopProcess();
 
+	thread_1.join();
 	//runSOCKControlerListenActions.join();
 	runView.join();
 }
@@ -34,4 +37,10 @@ Controler::Controler()
 
 Controler::~Controler()
 {
+}
+
+void play_music()
+{
+	PlaySound(TEXT("ressources/sounds/JumperBoy.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
+	
 }

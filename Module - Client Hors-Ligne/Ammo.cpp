@@ -1,11 +1,19 @@
+#pragma comment(lib, "winmm.lib")
+#include <windows.h>
+#include <mmsystem.h>
 #include "Ammo.h"
 #include "View.h"
 #include "Balle.h"
 #include "variable_static.h"
+#include <thread>
+#include "LibraryCommunication.h"
+#include <iostream>
+
 
 Ammo::Ammo(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation, int priority, int vitesse, int degat)
 	: Element(world, iDIsland,  iDDimension,  point,  permeability,  sprite,orientation,priority)
 {
+	
 	this->world = world;
 	this->iDIsland = iDIsland;
 	this->iDDimension = iDDimension;
@@ -16,16 +24,31 @@ Ammo::Ammo(World* world, long iDIsland, long iDDimension, tuple<long, long, long
 	this->degat = degat;
 	this->vitesse = vitesse;
 	this->idBullet = 1000;
+	SDL_Init(SDL_INIT_AUDIO);
+	initAudio();
+	// load WAV file
+
+	this->sounds = createAudio("ressources/sounds/arme3.wav", 0, SDL_MIX_MAXVOLUME / 2);
+
+
 }
 
 
 Ammo::~Ammo()
 {
-
+	freeAudio(sounds);
 }
 
-void Ammo::shoot(tuple<long, long, long> pointH) 
+void Ammo::playSound()
 {
+	playSoundFromMemory(this->sounds, SDL_MIX_MAXVOLUME/2);
+}
+
+void Ammo::shoot(tuple<long, long, long> pointH)
+{	
+	
+	this->playSound();
+
 	Monster* monst;
 	if (this->world->getMainHero()->getOrient())
 	{
@@ -52,3 +75,4 @@ void Ammo::printSprite(int xPosition, int yPosition)
 	{
 	}
 }
+

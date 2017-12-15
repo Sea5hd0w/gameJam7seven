@@ -17,3 +17,5 @@ private:
 	View* view;
 };
 
+void play_music();
+

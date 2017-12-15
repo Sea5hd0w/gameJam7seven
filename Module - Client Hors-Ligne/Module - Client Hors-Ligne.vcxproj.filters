@@ -147,6 +147,9 @@
     <ClCompile Include="HellWolf.cpp">
       <Filter>Fichiers sources\Model\Elements\Mobiles\Monster</Filter>
     </ClCompile>
+    <ClCompile Include="audio.c">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Area.h">
@@ -214,6 +217,12 @@
     </ClInclude>
     <ClInclude Include="Monster.h">
       <Filter>Fichiers d%27en-tête\Model\Elements\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="variable_static.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="audio.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
