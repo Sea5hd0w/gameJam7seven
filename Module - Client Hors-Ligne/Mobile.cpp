@@ -20,6 +20,7 @@ Mobile::Mobile(World* world, long iDIsland, long iDDimension, tuple<long, long, 
 	this->sizeX = 1;
 	this->sizeY = 1;
 	orient = true;
+	attack_b = false;
 }
 
 
@@ -126,6 +127,10 @@ void Mobile::anim_sprite()
 void Mobile::work()
 {
 
+}
+
+void Mobile::attack()
+{
 }
 
 void Mobile::set_gravity_vecteurAcceleration()

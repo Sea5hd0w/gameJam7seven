@@ -150,6 +150,15 @@
     <ClCompile Include="HellWolf.cpp">
       <Filter>Fichiers sources\Model\Elements\Mobiles\Monster</Filter>
     </ClCompile>
+    <ClCompile Include="Nazi.cpp">
+      <Filter>Fichiers sources\Model\Elements\Mobiles\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss1.cpp">
+      <Filter>Fichiers sources\Model\Elements\Mobiles\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss2.cpp">
+      <Filter>Fichiers sources\Model\Elements\Mobiles\Monster</Filter>
+    </ClCompile>
     <ClCompile Include="Hitbox.cpp">
       <Filter>Fichiers sources\Model\Elements\Mobiles\HitBox</Filter>
     </ClCompile>
@@ -224,8 +233,14 @@
     <ClInclude Include="variable_static.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="HittBox.h">
-      <Filter>Fichiers d%27en-tête\Model\Elements</Filter>
+    <ClInclude Include="Nazi.h">
+      <Filter>Fichiers d%27en-tête\Model\Elements\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss1.h">
+      <Filter>Fichiers d%27en-tête\Model\Elements\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss2.h">
+      <Filter>Fichiers d%27en-tête\Model\Elements\Monster</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

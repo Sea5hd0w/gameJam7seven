@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{112B9FB7-72FE-4A73-8595-F75B3D328056}</ProjectGuid>
     <RootNamespace>ModuleClientHorsLigne</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -138,6 +138,8 @@
     <ClCompile Include="Area.cpp" />
     <ClCompile Include="armes.cpp" />
     <ClCompile Include="Balle.cpp" />
+    <ClCompile Include="Boss1.cpp" />
+    <ClCompile Include="Boss2.cpp" />
     <ClCompile Include="Connector.cpp" />
     <ClCompile Include="Controler.cpp" />
     <ClCompile Include="Dimension.cpp" />
@@ -153,6 +155,7 @@
     <ClCompile Include="Mobile.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="MotionLess.cpp" />
+    <ClCompile Include="Nazi.cpp" />
     <ClCompile Include="Sprites.cpp" />
     <ClCompile Include="View.cpp" />
     <ClCompile Include="ViewMap.cpp" />
@@ -163,6 +166,8 @@
     <ClInclude Include="Area.h" />
     <ClInclude Include="armes.h" />
     <ClInclude Include="Balle.h" />
+    <ClInclude Include="Boss1.h" />
+    <ClInclude Include="Boss2.h" />
     <ClInclude Include="Connector.h" />
     <ClInclude Include="Controler.h" />
     <ClInclude Include="Dimension.h" />
@@ -178,6 +183,7 @@
     <ClInclude Include="Mobile.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="MotionLess.h" />
+    <ClInclude Include="Nazi.h" />
     <ClInclude Include="Sprites.h" />
     <ClInclude Include="variable_static.h" />
     <ClInclude Include="View.h" />

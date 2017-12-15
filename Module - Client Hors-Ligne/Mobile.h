@@ -55,6 +55,7 @@ protected:
 
 	virtual void anim_sprite();
 	virtual void work();
+	virtual void attack();
 
 	int size_sprite_x;
 	int size_sprite_y;
@@ -65,6 +66,8 @@ protected:
 	virtual bool isMovePossible();
 
 	bool affectedByGravity = true;
+
+	bool attack_b;
 
 private:
 	AStar* path;

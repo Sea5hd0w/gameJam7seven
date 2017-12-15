@@ -16,6 +16,11 @@ public:
 
 	int life = 1;
 
+protected:
+	bool startAI;
+
 private:
 	long iDMonster;
+
+
 };

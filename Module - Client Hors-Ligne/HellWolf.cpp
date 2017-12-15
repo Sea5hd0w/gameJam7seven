@@ -13,9 +13,9 @@ HellWolf::HellWolf(World* world, long iDIsland, long iDDimension, tuple<long, lo
 
 	size_sprite_x = 48;
 	size_sprite_y = 48;
-
-	VX = 0;
+	VX = -8;
 	this->produceHitBox(world->getIsland()->getDimension(this->world->getMainHero()->getIDDimension()));
+	
 }
 
 
