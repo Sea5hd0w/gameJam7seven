@@ -17,7 +17,7 @@ View::View(World* world)
 {
 	// Create main windows and store it
 	this->pWindow = NULL;
-	this->pWindow = SDL_CreateWindow("Tale of Crysias - V 0.0.1", SDL_WINDOWPOS_UNDEFINED,
+	this->pWindow = SDL_CreateWindow("Hiller versus zombinazi", SDL_WINDOWPOS_UNDEFINED,
 		SDL_WINDOWPOS_UNDEFINED,
 		1200,
 		800, SDL_WINDOW_RESIZABLE

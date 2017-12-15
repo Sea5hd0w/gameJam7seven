@@ -3,6 +3,7 @@
 #include <tuple>
 #include "LibraryCommunication.h"
 #include "Ammo.h"
+#include <Windows.h>
 
 Hero::Hero(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation, long iDHero)
 	: Mobile(world, iDIsland, iDDimension, point, permeability, sprite, orientation), iDHero(iDHero)
@@ -17,6 +18,7 @@ Hero::Hero(World* world, long iDIsland, long iDDimension, tuple<long, long, long
 	this->sizeX = make_tuple(0,1);
 	this->sizeY = make_tuple(-1,1);
 	this->Arme = new Ammo(world, iDIsland, iDDimension, point, permeability, "ressources/graphics/motionless/Bullet_Debug_Type1.bmp", orientation, iDHero, 10, 50);
+	this->canHit = false;
 }
 
 
@@ -50,8 +52,12 @@ void Hero::addY(double v)
 
 void Hero::underAttack(Mobile* e)
 {
-	if(e->shotHero)
+	if (e->shotHero)
+	{
+		MessageBox(nullptr, TEXT("you loose, reload the game to play again!!"), TEXT("Message"), MB_OK);
 		err("attaque hero");
+		exit(0);
+	}
 }
 
 string Hero::toString()

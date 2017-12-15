@@ -64,6 +64,11 @@ void Mobile::move()
 	this->isMovePossible();
 	calc_position();
 	this->updateHitbox();
+	if(this->canHit)
+		for (Hitbox* h : hits)
+		{
+			h->detect_collision();
+		}
 }
 
 bool Mobile::getOrient()

@@ -4,7 +4,7 @@
 #include "LibraryCommunication.h"
 #include "Dimension.h"
 #include "Ammo.h"
-
+#include <Windows.h>
 Boss2::Boss2(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation, long iDMonster)
 	: Monster(world, iDIsland, iDDimension, point, permeability, sprite, orientation, iDMonster)
 {
@@ -157,7 +157,7 @@ void Boss2::shoot()
 {
 	if (clock() - t > 100)
 	{
-		this->Arme->shoot(make_tuple(POSX, POSY - 64, 0), -10);
+		this->Arme->shoot(make_tuple(POSX, POSY - 64, 0), -10, this);
 		t = clock();
 	}
 }
@@ -177,3 +177,19 @@ void Boss2::ai()
 
 
 
+
+void Boss2::loosePV(int pv)
+{
+	this->life -= pv;
+	debug(to_string(this->life) + " || " + to_string(pv));
+	if (life <= 0)
+	{
+		for (Hitbox* h : hits)
+		{
+			this->world->getIsland()->getDimension(0)->deleteHitbox(h);
+		}
+		this->world->getIsland()->getDimension(0)->deleteMonster(this->getIDMonster());
+		MessageBox(nullptr, TEXT("you win, reload the game to play again!!"), TEXT("Message"), MB_OK);
+		exit(0);
+	}
+}

@@ -43,7 +43,7 @@ public:
 	long anim;
 	int anim2;
 	bool orient;
-
+	bool canHit = true;
 	virtual void underAttack(Mobile* e);
 	void produceHitBox(Dimension* dim);
 
