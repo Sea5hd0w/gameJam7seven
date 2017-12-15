@@ -61,6 +61,8 @@ protected:
 
 	virtual bool isMovePossible();
 
+	bool affectedByGravity = true;
+
 	bool attack_b;
 
 private:
@@ -74,6 +76,6 @@ private:
 	void set_gravity_vecteurAcceleration();
 	void calc_vecteurVitesse();
 	void calc_position();
-	
+
 };
 
