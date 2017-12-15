@@ -11,6 +11,8 @@
 
 #include "SDL.h"
 #include "Sprites.h"
+#include "variable_static.h"
+#include "HittBox.h"
 
 #define POSX get<0>(point)
 #define POSY get<1>(point)
@@ -44,6 +46,8 @@ public:
 
 	virtual void move();
 
+
+	
 protected:
 	void setPoint(tuple<long, long, long> new_point);
 	void setPermeability(bool new_permeability);
@@ -64,7 +68,14 @@ protected:
 	SDL_Texture* p_sprite;
 	string pathSprite;
 	int orientation;
+
+	int sizeX; //en unité de block
+	int sizeY; //en unité de block
+
+	list<Hitbox*> hits;
 private:
+
+	
 	
 
 	

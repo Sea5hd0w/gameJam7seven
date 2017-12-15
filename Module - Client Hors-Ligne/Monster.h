@@ -12,6 +12,9 @@ public:
 	long getIDMonster();
 	void addX(double v);
 	void addY(double v);
+	void underAttack(Mobile* e) override;
+
+	
 
 private:
 	long iDMonster;

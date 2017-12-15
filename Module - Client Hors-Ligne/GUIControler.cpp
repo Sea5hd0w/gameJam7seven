@@ -181,6 +181,8 @@ void GUIControler::executeActions(string action)
 	case '3':
 		this->information(p_action);
 		break;
+	default:
+			break;
 	}
 }
 void GUIControler::information(string rowData)
@@ -288,6 +290,7 @@ void GUIControler::loadingHero(string rowData)
 
 	//Add Hero to the dimension
 	this->world->getIsland()->getDimension(stol(data[3]))->addHero(hero, stol(data[9]));
+	hero->produceHitBox(world->getIsland()->getDimension(this->world->getMainHero()->getIDDimension()));
 	debug("AddHEro");
 }
 
@@ -324,6 +327,7 @@ void GUIControler::loadingMonster(string rowData)
 
 	//Add Hero to the dimension
 	this->world->getIsland()->getDimension(stol(data[3]))->addMonster(monster, stol(data[9]));
+	monster->produceHitBox(world->getIsland()->getDimension(this->world->getMainHero()->getIDDimension()));
 	debug("AddMonster");
 }
 

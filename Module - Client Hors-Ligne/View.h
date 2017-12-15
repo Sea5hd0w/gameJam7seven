@@ -31,7 +31,7 @@ private:
 	SDL_Window* pWindow; //Pointer on main window
 
 	bool run; //Bool control the main view loop (while(run))
-
+	bool create = true;;
 	void refresh(); //Function refresh the main window
 };
 

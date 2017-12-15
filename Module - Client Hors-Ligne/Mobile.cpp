@@ -54,7 +54,7 @@ void Mobile::teleportHere(long iDDimension, tuple<long, long, long> point_finish
 
 void Mobile::move()
 {
-	debug(to_string(POSX) + " || " + to_string(POSY));
+	//debug(to_string(POSX) + " || " + to_string(POSY));
 	anim_sprite();
 	work();
 
@@ -62,6 +62,7 @@ void Mobile::move()
 	calc_vecteurVitesse();
 	this->isMovePossible();
 	calc_position();
+	this->updateHitbox();
 }
 
 bool Mobile::getOrient()
@@ -300,6 +301,31 @@ bool Mobile::isMovePossible()
 			}
 		}
 	}
-	
 	return true;
+}
+
+void Mobile::updateHitbox()
+{
+	for (Hitbox* h : hits)
+	{
+		h->updatePos();
+	}
+}
+
+void Mobile::produceHitBox(Dimension* dim)
+{
+	for (int i = 0; i < this->sizeX; i++)
+	{
+		for (int j = 0; j < this->sizeY; j++)
+		{
+			long a = POSX;
+			long b = POSY;
+			this->hits.push_back(new Hitbox(this, i*variable::SIZE_CASE_X, j*variable::SIZE_CASE_Y, dim, &POSX, &POSY));
+		}
+	}
+}
+
+void Mobile::underAttack(Mobile* e)
+{
+	err(to_string(e->getX()) + " ||" + to_string(e->getY()));
 }

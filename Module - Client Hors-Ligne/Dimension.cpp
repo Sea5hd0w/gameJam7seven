@@ -246,3 +246,24 @@ tuple<long, long> Dimension::getIDArea(long x, long y)
 
 	return make_tuple(x_id, y_id);
 }
+
+void Dimension::addHitbox(Hitbox* hitbox)
+{
+	this->hitbox.push_back(hitbox);
+}
+
+void Dimension::deleteHitbox(Hitbox* hitbox)
+{
+		this->hitbox.remove(hitbox);
+}
+
+Hitbox* Dimension::getHitbox(Hitbox* hitbox)
+{
+	//non utilisé
+	return __nullptr;
+}
+
+list<Hitbox*> Dimension::getHitboxs()
+{
+	return this->hitbox;
+}

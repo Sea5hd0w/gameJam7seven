@@ -15,6 +15,7 @@ using namespace std;
 
 class World;
 #include "Area.h"
+#include "HittBox.h"
 
 class Dimension
 {
@@ -47,8 +48,12 @@ public:
 	Monster* getMonster(long iDMonster); // Get Monster by ID
 	map<long, Monster*> &getMonsters(); // Get Monster's list
 
-
-	/*
+	void addHitbox(Hitbox* hitbox); // Add Hero in Dimension
+	void deleteHitbox(Hitbox* hitbox); // Delete Hero in Dimension
+	Hitbox* getHitbox(Hitbox* hitbox); // Get Hero by ID
+	list<Hitbox*> getHitboxs(); // Get Hero's list
+	
+								   /*
 	void addNPC(NPC* npc, long iDNPC); // Add NPC in Dimension
 	void deleteNPC(long iDNPC); // Delete NPC in Dimension
 	NPC* getNPC(long iDNPC); // Get NPC by ID
@@ -58,13 +63,15 @@ public:
 	SDL_Texture* getBackground();
 	void addBackground(string background);
 	tuple<long, long> getIDArea(long x, long y); // Calculate ID area by coordinate of an Element
+
+	
 private:
 	World* world; //Pointer to access to world
 	long iDIsland; //ID of the island
 	long iDDimension; //ID of the Dimension
 
 	long areaSize = 25; // Number of element per side
-
+	list<Hitbox*> hitbox;
 	map<long, Hero*> heroes; // Hero's List of the Dimension
 	map<long, Monster*> monsters; // Monster's List of the Dimension
 	//map<long, NPC*> npcs; // NPC's List of the Dimension

@@ -4,11 +4,13 @@
 #include "Dimension.h"
 #include <string>
 
-Balle::Balle(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation, long iDHero, int vitesse, int degat)
+Balle::Balle(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation, long iDHero, int vitesse, int degat, bool shotHero)
 	: Monster(world, iDIsland, iDDimension, point, permeability, sprite, orientation, iDHero)
 {
 	VX = vitesse;
 	this->affectedByGravity = false;
+	this->produceHitBox(world->getIsland()->getDimension(this->world->getMainHero()->getIDDimension()));
+	this->shotHero = shotHero;
 }
 
 
@@ -43,5 +45,14 @@ void Balle::work()
 	{
 		this->world->getIsland()->getDimension(0)->deleteMonster(this->getIDMonster());
 	}
+
+	for (Hitbox* h : hits)
+	{
+		h->detect_collision();
+	}
 }
 
+void Balle::underAttack(Mobile* e)
+{
+	
+}

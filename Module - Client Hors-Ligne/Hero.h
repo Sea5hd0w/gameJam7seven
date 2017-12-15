@@ -14,6 +14,7 @@ public:
 	void addX(double v);
 	void addY(double v);
 	void shoot(long y);
+	void underAttack(Mobile* e) override;
 private:
 	long iDHero;
 
