@@ -79,6 +79,9 @@
     <Filter Include="Fichiers d%27en-tête\Model\Elements\Monster">
       <UniqueIdentifier>{0084a8e4-12f1-4797-a028-00756e4c2a00}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\Model\Elements\Mobiles\HitBox">
+      <UniqueIdentifier>{20097ed9-5425-4901-befa-24ceb922e65a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -147,6 +150,9 @@
     <ClCompile Include="HellWolf.cpp">
       <Filter>Fichiers sources\Model\Elements\Mobiles\Monster</Filter>
     </ClCompile>
+    <ClCompile Include="Hitbox.cpp">
+      <Filter>Fichiers sources\Model\Elements\Mobiles\HitBox</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Area.h">
@@ -214,6 +220,12 @@
     </ClInclude>
     <ClInclude Include="Monster.h">
       <Filter>Fichiers d%27en-tête\Model\Elements\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="variable_static.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="HittBox.h">
+      <Filter>Fichiers d%27en-tête\Model\Elements</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

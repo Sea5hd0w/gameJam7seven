@@ -145,6 +145,7 @@
     <ClCompile Include="GUIControler.cpp" />
     <ClCompile Include="HellWolf.cpp" />
     <ClCompile Include="Hero.cpp" />
+    <ClCompile Include="Hitbox.cpp" />
     <ClCompile Include="Island.cpp" />
     <ClCompile Include="LibraryCommunication.cpp" />
     <ClCompile Include="LoadingScreen.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="GUIControler.h" />
     <ClInclude Include="HellWolf.h" />
     <ClInclude Include="Hero.h" />
+    <ClInclude Include="HittBox.h" />
     <ClInclude Include="Island.h" />
     <ClInclude Include="LibraryCommunication.h" />
     <ClInclude Include="LoadingScreen.h" />
