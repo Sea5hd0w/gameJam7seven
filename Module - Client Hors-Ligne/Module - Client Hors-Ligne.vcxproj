@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{112B9FB7-72FE-4A73-8595-F75B3D328056}</ProjectGuid>
     <RootNamespace>ModuleClientHorsLigne</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -78,8 +78,8 @@
     <LibraryPath>C:\Users\Alexandre\Documents\Visual Studio 2017\Projects\Module - Client Hors-Ligne\Module - Client Hors-Ligne\SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\dorba\Source\Repos\gameJam7seven2\Module - Client Hors-Ligne\SDL2-2.0.5\include;C:\Users\wayzen\source\repos\gameJam7seven\Module - Client Hors-Ligne\SDL2-2.0.5\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\wayzen\source\repos\gameJam7seven\Module - Client Hors-Ligne\SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Alexandre\Source\Repos\gameJam7seven2\Module - Client Hors-Ligne\SDL2-2.0.5\include;C:\Users\dorba\Source\Repos\gameJam7seven2\Module - Client Hors-Ligne\SDL2-2.0.5\include;C:\Users\wayzen\source\repos\gameJam7seven\Module - Client Hors-Ligne\SDL2-2.0.5\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Alexandre\Source\Repos\gameJam7seven2\Module - Client Hors-Ligne\SDL2-2.0.5\lib\x86;C:\Users\wayzen\source\repos\gameJam7seven\Module - Client Hors-Ligne\SDL2-2.0.5\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

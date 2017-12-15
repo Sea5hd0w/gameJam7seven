@@ -3,6 +3,7 @@
 #include "MotionLess.h"
 #include "Mobile.h"
 
+
 class Monster : public Mobile
 {
 public:
@@ -13,6 +14,7 @@ public:
 	void addX(double v);
 	void addY(double v);
 	void underAttack(Mobile* e) override;
+
 
 	int life = 1;
 

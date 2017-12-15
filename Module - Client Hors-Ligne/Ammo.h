@@ -13,7 +13,6 @@ public:
 	
 	void shoot(tuple<long, long, long> pointH);
 	void printSprite(int xPosition, int yPosition);
-	SDL_AudioDeviceID deviceId;
 protected: 
 	int degat;
 	int vitesse;
