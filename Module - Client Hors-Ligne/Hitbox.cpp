@@ -15,7 +15,8 @@ Hitbox::Hitbox(Mobile* mob, long dephaseX, long dephaseY, Dimension* d, long* mo
 	
 	this->dim->addHitbox(this);
 	this->updatePos();
-	gen("hit : " + to_string(this->posX) + " || " + to_string(this->posY));
+	//gen("hit : " + to_string(this->posX) + " || " + to_string(this->posY));
+	
 }
 
 bool Hitbox::detect_collision()

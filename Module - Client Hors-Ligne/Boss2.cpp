@@ -15,11 +15,13 @@ Boss2::Boss2(World* world, long iDIsland, long iDDimension, tuple<long, long, lo
 	size_sprite_x = 80;
 	size_sprite_y = 80;
 
-	this->sizeX = 1;
-	this->sizeY = 2;
+	this->sizeX = make_tuple(2,3);
+	this->sizeY = make_tuple(-2, 0);
 
-	VX =-1;
+	VX =0;
 	attack_b =	false;
+	//this->affectedByGravity = false;
+	this->life =15;
 }
 
 
@@ -113,3 +115,7 @@ void Boss2::attack()
 {
 }
 
+string Boss2::toString()
+{
+	return "boss2";
+}

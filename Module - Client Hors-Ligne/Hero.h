@@ -15,6 +15,7 @@ public:
 	void addY(double v);
 	void shoot(long y);
 	void underAttack(Mobile* e) override;
+	string toString() override;
 private:
 	long iDHero;
 

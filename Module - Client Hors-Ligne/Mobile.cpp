@@ -17,8 +17,8 @@ Mobile::Mobile(World* world, long iDIsland, long iDDimension, tuple<long, long, 
 	size_sprite_x = 16;
 	size_sprite_y = 28;
 
-	this->sizeX = 1;
-	this->sizeY = 1;
+	this->sizeX = make_tuple(0,1);
+	this->sizeY = make_tuple(0,1);
 	orient = true;
 	attack_b = false;
 }
@@ -199,13 +199,15 @@ void Mobile::moveDown(bool run, int distance)
 bool Mobile::isMovePossible()
 {
 	long x, y;
+	int a = POSX;
+	int b = POSY;
 	//position de toute les case du mobile
 	list<tuple<long, long>> casePos;
-	for (int i = 0; i < sizeY; i++)
+	for (int i = get<0>(this->sizeX); i < get<01>(this->sizeX); i++)
 	{
-		for(int j = 0; j < sizeX; j++)
+		for(int j = get<0>(this->sizeY); j < get<1>(this->sizeY); j++)
 		{
-			casePos.push_back(make_tuple(POSX / variable::SIZE_CASE_X + j, POSY / variable::SIZE_CASE_Y - i));
+			casePos.push_back(make_tuple(POSX / variable::SIZE_CASE_X + i, POSY / variable::SIZE_CASE_Y + j));
 		}
 	}
 	
@@ -319,9 +321,9 @@ void Mobile::updateHitbox()
 
 void Mobile::produceHitBox(Dimension* dim)
 {
-	for (int i = 0; i < this->sizeX; i++)
+	for (int i = get<0>(this->sizeX); i < get<1>(this->sizeX); i++)
 	{
-		for (int j = 0; j < this->sizeY; j++)
+		for (int j = get<0>(this->sizeY); j < get<1>(this->sizeY); j++)
 		{
 			long a = POSX;
 			long b = POSY;

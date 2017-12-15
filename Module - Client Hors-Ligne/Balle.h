@@ -9,6 +9,7 @@ public:
 
 	tuple<long, long, long> getPoint();
 	void Balle::underAttack(Mobile* e) override;
+	string toString() override;
 protected:
 	void anim_sprite() override;
 	void work() override;

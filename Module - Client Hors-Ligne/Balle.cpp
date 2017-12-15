@@ -54,6 +54,10 @@ void Balle::work()
 
 void Balle::underAttack(Mobile* e)
 {
-	
+	this->loosePV(e->life);
 }
 
+string Balle::toString()
+{
+	return "balle";
+}

@@ -15,8 +15,8 @@ Nazi::Nazi(World* world, long iDIsland, long iDDimension, tuple<long, long, long
 	size_sprite_x = 32;
 	size_sprite_y = 32;
 
-	this->sizeX = 1;
-	this->sizeY = 2;
+	this->sizeX = make_tuple(0,1);
+	this->sizeY = make_tuple(0,2);
 
 	VX = -1;
 }
@@ -92,3 +92,7 @@ void Nazi::work()
 	}
 }
 
+string Nazi::toString()
+{
+	return "nazi";
+}

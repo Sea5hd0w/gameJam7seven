@@ -16,6 +16,8 @@ HellWolf::HellWolf(World* world, long iDIsland, long iDDimension, tuple<long, lo
 	VX = 0;
 	this->produceHitBox(world->getIsland()->getDimension(this->world->getMainHero()->getIDDimension()));
 	
+
+	this->life = 3;
 }
 
 
@@ -75,10 +77,14 @@ void HellWolf::work()
 	{
 		this->world->getIsland()->getDimension(0)->deleteMonster(this->getIDMonster());
 	}
+
+	for (Hitbox* h : hits)
+	{
+		//h->detect_collision();
+	}
 }
 
-void HellWolf::underAttack(Mobile* e)
+string HellWolf::toString()
 {
-	if(!e->shotHero)
-		err("chien");
+	return "hellFire";
 }

@@ -69,8 +69,8 @@ protected:
 	string pathSprite;
 	int orientation;
 
-	int sizeX; //en unité de block
-	int sizeY; //en unité de block
+	tuple<int,int> sizeX; //en unité de block
+	tuple<int,int> sizeY; //en unité de block
 
 	list<Hitbox*> hits;
 private:
