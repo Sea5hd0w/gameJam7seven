@@ -52,55 +52,67 @@ void GUIControler::runGUIControler()
 					/*	fprintf(stdout, "Key Down :\n");
 					fprintf(stdout, "\trepetition ? : %d\n", event.key.repeat);
 					fprintf(stdout, "\tscancode : %d\n", event.key.keysym.scancode);
-					fprintf(stdout, "\tkey : %d\n", event.key.keysym.sym);*/
+					fprintf(stdout, "\tkey : %d\n", event.key.keysym.sym);*/					
 					switch (event.key.keysym.scancode)
 					{
-					case 89:
-						//sdl(to_string(event.key.keysym.scancode) + " : stop DownLeft");
+					//case 89:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : stop DownLeft");
+					//	this->world->getMainHero()->addX(0);
+					//	this->world->getMainHero()->addY(0);
+					//	//this->world->getMainHero()->moveDownLeft(false, 1);
+					//	break;
+					//case 90:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : stop Down");
+					//	this->world->getMainHero()->addY(0);
+					//	//this->world->getMainHero()->moveDown(false, 1);
+					//	break;
+					//case 91:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : stop DownRight");
+					//	this->world->getMainHero()->addX(0);
+					//	this->world->getMainHero()->addY(0);
+					//	//this->world->getMainHero()->moveDownRight(false, 1);
+					//	break;
+					//case 92:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : stop Left");
+					//	this->world->getMainHero()->addX(0);
+					//	//this->world->getMainHero()->moveLeft(false, 1);
+					//	break;
+					//case 93:
+					//	break;
+					//case 94:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : stop Right");
+					//	this->world->getMainHero()->addX(0);
+					//	//this->world->getMainHero()->moveRight(false, 1);
+					//	break;
+					//case 95:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : stop TopLeft");
+					//	this->world->getMainHero()->addX(0);
+					//	this->world->getMainHero()->addY(0);
+					//	//this->world->getMainHero()->moveTopLeft(false, 1);
+					//	break;
+					//case 96:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : stop Top");
+					//	this->world->getMainHero()->addY(0);
+					//	//this->world->getMainHero()->moveTop(false, 1);
+					//	break;
+					//case 97:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : stop TopRight");
+					//	this->world->getMainHero()->addX(0);
+					//	this->world->getMainHero()->addY(0);
+					//	//this->world->getMainHero()->moveTopRight(false, 1);
+					//	break;
+
+
+					case 4:
 						this->world->getMainHero()->addX(0);
-						this->world->getMainHero()->addY(0);
-						//this->world->getMainHero()->moveDownLeft(false, 1);
 						break;
-					case 90:
-						//sdl(to_string(event.key.keysym.scancode) + " : stop Down");
-						this->world->getMainHero()->addY(0);
-						//this->world->getMainHero()->moveDown(false, 1);
-						break;
-					case 91:
-						//sdl(to_string(event.key.keysym.scancode) + " : stop DownRight");
+					case 7:
 						this->world->getMainHero()->addX(0);
+						break;
+					case 44:
 						this->world->getMainHero()->addY(0);
-						//this->world->getMainHero()->moveDownRight(false, 1);
 						break;
-					case 92:
-						//sdl(to_string(event.key.keysym.scancode) + " : stop Left");
-						this->world->getMainHero()->addX(0);
-						//this->world->getMainHero()->moveLeft(false, 1);
-						break;
-					case 93:
-						break;
-					case 94:
-						//sdl(to_string(event.key.keysym.scancode) + " : stop Right");
-						this->world->getMainHero()->addX(0);
-						//this->world->getMainHero()->moveRight(false, 1);
-						break;
-					case 95:
-						//sdl(to_string(event.key.keysym.scancode) + " : stop TopLeft");
-						this->world->getMainHero()->addX(0);
-						this->world->getMainHero()->addY(0);
-						//this->world->getMainHero()->moveTopLeft(false, 1);
-						break;
-					case 96:
-						//sdl(to_string(event.key.keysym.scancode) + " : stop Top");
-						this->world->getMainHero()->addY(0);
-						//this->world->getMainHero()->moveTop(false, 1);
-						break;
-					case 97:
-						//sdl(to_string(event.key.keysym.scancode) + " : stop TopRight");
-						this->world->getMainHero()->addX(0);
-						this->world->getMainHero()->addY(0);
-						//this->world->getMainHero()->moveTopRight(false, 1);
-						break;
+
 					}
 					break;
 				}
@@ -114,41 +126,51 @@ void GUIControler::runGUIControler()
 
 					switch (event.key.keysym.scancode)
 					{
-					case 89:
-						//sdl(to_string(event.key.keysym.scancode) + " : Move DownLeft");
-						this->world->getMainHero()->moveDownLeft(false, 1);
-						break;
-					case 90:
-						//sdl(to_string(event.key.keysym.scancode) + " : Move Down");
-						//this->world->getMainHero()->addY(v);
-						this->world->getMainHero()->moveDown(false, 1);
-						break;
-					case 91:
-						//sdl(to_string(event.key.keysym.scancode) + " : Move DownRight");
-						this->world->getMainHero()->moveDownRight(false, 1);
-						break;
-					case 92:
-						//sdl(to_string(event.key.keysym.scancode) + " : Move Left");
+					//case 89:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : Move DownLeft");
+					//	this->world->getMainHero()->moveDownLeft(false, 1);
+					//	break;
+					//case 90:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : Move Down");
+					//	//this->world->getMainHero()->addY(v);
+					//	this->world->getMainHero()->moveDown(false, 1);
+					//	break;
+					//case 91:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : Move DownRight");
+					//	this->world->getMainHero()->moveDownRight(false, 1);
+					//	break;
+					//case 92:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : Move Left");
+					//	this->world->getMainHero()->moveLeft(false, 1);
+					//	break;
+					//case 93:
+					//	break;
+					//case 94:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : Move Right");
+					//	this->world->getMainHero()->moveRight(false, 1);
+					//	break;
+					//case 95:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : Move TopLeft");
+					//	this->world->getMainHero()->moveTopLeft(false, 1);
+					//	break;
+					//case 96:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : Move Top");
+					//	this->world->getMainHero()->moveTop(false, 1);
+					//	break;
+					//case 97:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : Move TopRight");
+
+					//	//this->world->getMainHero()->moveTopRight(false, 1);
+					//	break;
+
+					case 4:
 						this->world->getMainHero()->moveLeft(false, 1);
 						break;
-					case 93:
-						break;
-					case 94:
-						//sdl(to_string(event.key.keysym.scancode) + " : Move Right");
+					case 7:
 						this->world->getMainHero()->moveRight(false, 1);
 						break;
-					case 95:
-						//sdl(to_string(event.key.keysym.scancode) + " : Move TopLeft");
-						this->world->getMainHero()->moveTopLeft(false, 1);
-						break;
-					case 96:
-						//sdl(to_string(event.key.keysym.scancode) + " : Move Top");
+					case 44:
 						this->world->getMainHero()->moveTop(false, 1);
-						break;
-					case 97:
-						//sdl(to_string(event.key.keysym.scancode) + " : Move TopRight");
-
-						//this->world->getMainHero()->moveTopRight(false, 1);
 						break;
 					}
 				}
