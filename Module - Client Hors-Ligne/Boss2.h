@@ -12,6 +12,7 @@ public:
 	string toString() override;
 	void shoot();
 	clock_t t;
+	void loosePV(int pv) override;
 protected:
 	void anim_sprite() override;
 	void work() override;

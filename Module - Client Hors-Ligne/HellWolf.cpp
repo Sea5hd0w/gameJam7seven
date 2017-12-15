@@ -101,11 +101,6 @@ void HellWolf::work()
 			started = true;
 		}
 	}
-
-	for (Hitbox* h : hits)
-	{
-		h->detect_collision();
-	}
 }
 
 string HellWolf::toString()

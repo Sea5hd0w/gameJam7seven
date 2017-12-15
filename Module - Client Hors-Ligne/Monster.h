@@ -20,7 +20,7 @@ public:
 
 	
 	void shoot() override;
-	void loosePV(int pv);
+	virtual void loosePV(int pv);
 protected:
 	bool startAI;
 
