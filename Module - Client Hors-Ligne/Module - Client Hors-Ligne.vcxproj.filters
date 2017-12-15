@@ -1,255 +1,62 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Fichiers sources">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Fichiers de ressources">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Fichiers sources\Controler">
-      <UniqueIdentifier>{bda01148-2d1a-4706-bc00-a5e596b4820e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\View">
-      <UniqueIdentifier>{ffd96ddb-96ac-4fec-afca-ec6e3c465668}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\Controler">
-      <UniqueIdentifier>{2769e35f-9a36-4dfa-a8ee-c2964342e8dd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\Model">
-      <UniqueIdentifier>{1079ddb6-eeed-4139-b9a8-11c787cc5894}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\View">
-      <UniqueIdentifier>{8bbb396d-2c4b-47d5-b0d2-481474963472}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Model">
-      <UniqueIdentifier>{80b0bec6-199a-4331-9abf-23559862444d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Model\Elements">
-      <UniqueIdentifier>{eae2e186-cc58-481e-a3ae-36320638c26f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Model\Elements\Mobiles">
-      <UniqueIdentifier>{671319ec-d856-4a8b-93e5-f03170ff2095}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Model\Elements\MotionLess">
-      <UniqueIdentifier>{9d8f636c-4a92-4802-a9da-cc53c7a795cf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Model\World">
-      <UniqueIdentifier>{9547d2d3-16af-4db2-832c-2d74965c18f9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Model\World\Island">
-      <UniqueIdentifier>{e05d3eea-8511-432e-9178-1b96266b6b82}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Model\World\Island\Dimension">
-      <UniqueIdentifier>{d45df2ed-a7b8-440b-b238-7080ec6a9f5e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Model\World\Island\Dimension\Area">
-      <UniqueIdentifier>{c75d6c9a-a21d-477d-abeb-3c6a5ab9b61e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Model\Elements\Mobiles\Hero">
-      <UniqueIdentifier>{5c56baf4-3c18-4e21-b289-4b72be9357ec}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\Model\Elements">
-      <UniqueIdentifier>{d797b384-498d-4ebb-b12d-8e738f50aad0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\Library">
-      <UniqueIdentifier>{e2781440-e1af-4df9-8ce0-d892d7d0fee8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Model\Elements\MotionLess\Connector">
-      <UniqueIdentifier>{c62c57a3-53be-4ac6-b25e-f7e9e59242c4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="levels">
-      <UniqueIdentifier>{5b261679-3c38-4166-959a-92257a0378e6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Model\Elements\Armes">
-      <UniqueIdentifier>{101c01f7-123e-46f1-ad12-61b13121f7ab}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\Model\Arme">
-      <UniqueIdentifier>{76e5a3e8-58e0-4a70-aae3-ee83a4c08d7c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Model\Elements\Mobiles\Monster">
-      <UniqueIdentifier>{27567c4c-1a85-4dbd-a136-cfe01785aa30}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\Model\Elements\Monster">
-      <UniqueIdentifier>{0084a8e4-12f1-4797-a028-00756e4c2a00}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Model\Elements\Mobiles\HitBox">
-      <UniqueIdentifier>{20097ed9-5425-4901-befa-24ceb922e65a}</UniqueIdentifier>
-    </Filter>
+    <ClCompile Include="Ammo.cpp" />
+    <ClCompile Include="Area.cpp" />
+    <ClCompile Include="armes.cpp" />
+    <ClCompile Include="audio.c" />
+    <ClCompile Include="Balle.cpp" />
+    <ClCompile Include="Boss1.cpp" />
+    <ClCompile Include="Boss2.cpp" />
+    <ClCompile Include="Connector.cpp" />
+    <ClCompile Include="Controler.cpp" />
+    <ClCompile Include="Dimension.cpp" />
+    <ClCompile Include="Element.cpp" />
+    <ClCompile Include="GUIControler.cpp" />
+    <ClCompile Include="HellWolf.cpp" />
+    <ClCompile Include="Hero.cpp" />
+    <ClCompile Include="Hitbox.cpp" />
+    <ClCompile Include="Island.cpp" />
+    <ClCompile Include="LibraryCommunication.cpp" />
+    <ClCompile Include="LoadingScreen.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Mobile.cpp" />
+    <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="MotionLess.cpp" />
+    <ClCompile Include="Nazi.cpp" />
+    <ClCompile Include="Sprites.cpp" />
+    <ClCompile Include="View.cpp" />
+    <ClCompile Include="ViewMap.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Island.cpp">
-      <Filter>Fichiers sources\Model\World\Island</Filter>
-    </ClCompile>
-    <ClCompile Include="Area.cpp">
-      <Filter>Fichiers sources\Model\World\Island\Dimension\Area</Filter>
-    </ClCompile>
-    <ClCompile Include="Element.cpp">
-      <Filter>Fichiers sources\Model\Elements</Filter>
-    </ClCompile>
-    <ClCompile Include="Dimension.cpp">
-      <Filter>Fichiers sources\Model\World\Island\Dimension</Filter>
-    </ClCompile>
-    <ClCompile Include="MotionLess.cpp">
-      <Filter>Fichiers sources\Model\Elements\MotionLess</Filter>
-    </ClCompile>
-    <ClCompile Include="Mobile.cpp">
-      <Filter>Fichiers sources\Model\Elements\Mobiles</Filter>
-    </ClCompile>
-    <ClCompile Include="Controler.cpp">
-      <Filter>Fichiers sources\Controler</Filter>
-    </ClCompile>
-    <ClCompile Include="GUIControler.cpp">
-      <Filter>Fichiers sources\Controler</Filter>
-    </ClCompile>
-    <ClCompile Include="LibraryCommunication.cpp">
-      <Filter>Fichiers sources\Controler</Filter>
-    </ClCompile>
-    <ClCompile Include="World.cpp">
-      <Filter>Fichiers sources\Model\World</Filter>
-    </ClCompile>
-    <ClCompile Include="Hero.cpp">
-      <Filter>Fichiers sources\Model\Elements\Mobiles\Hero</Filter>
-    </ClCompile>
-    <ClCompile Include="View.cpp">
-      <Filter>Fichiers sources\View</Filter>
-    </ClCompile>
-    <ClCompile Include="LoadingScreen.cpp">
-      <Filter>Fichiers sources\View</Filter>
-    </ClCompile>
-    <ClCompile Include="ViewMap.cpp">
-      <Filter>Fichiers sources\View</Filter>
-    </ClCompile>
-    <ClCompile Include="Sprites.cpp">
-      <Filter>Fichiers sources\Model\Elements</Filter>
-    </ClCompile>
-    <ClCompile Include="Connector.cpp">
-      <Filter>Fichiers sources\Model\Elements\MotionLess\Connector</Filter>
-    </ClCompile>
-    <ClCompile Include="armes.cpp">
-      <Filter>Fichiers sources\Model\Elements\MotionLess</Filter>
-    </ClCompile>
-    <ClCompile Include="Ammo.cpp">
-      <Filter>Fichiers sources\Model\Elements\Armes</Filter>
-    </ClCompile>
-    <ClCompile Include="Balle.cpp">
-      <Filter>Fichiers sources\Model\Elements\Armes</Filter>
-    </ClCompile>
-    <ClCompile Include="Monster.cpp">
-      <Filter>Fichiers sources\Model\Elements\Mobiles\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="HellWolf.cpp">
-      <Filter>Fichiers sources\Model\Elements\Mobiles\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="Nazi.cpp">
-      <Filter>Fichiers sources\Model\Elements\Mobiles\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="Boss1.cpp">
-      <Filter>Fichiers sources\Model\Elements\Mobiles\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="Boss2.cpp">
-      <Filter>Fichiers sources\Model\Elements\Mobiles\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="Hitbox.cpp">
-      <Filter>Fichiers sources\Model\Elements\Mobiles\HitBox</Filter>
-    </ClCompile>
-    <ClCompile Include="audio.c">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Area.h">
-      <Filter>Fichiers d%27en-tête\Model</Filter>
-    </ClInclude>
-    <ClInclude Include="Island.h">
-      <Filter>Fichiers d%27en-tête\Model</Filter>
-    </ClInclude>
-    <ClInclude Include="Controler.h">
-      <Filter>Fichiers d%27en-tête\Controler</Filter>
-    </ClInclude>
-    <ClInclude Include="GUIControler.h">
-      <Filter>Fichiers d%27en-tête\Controler</Filter>
-    </ClInclude>
-    <ClInclude Include="World.h">
-      <Filter>Fichiers d%27en-tête\Model</Filter>
-    </ClInclude>
-    <ClInclude Include="Dimension.h">
-      <Filter>Fichiers d%27en-tête\Model</Filter>
-    </ClInclude>
-    <ClInclude Include="Element.h">
-      <Filter>Fichiers d%27en-tête\Model\Elements</Filter>
-    </ClInclude>
-    <ClInclude Include="Hero.h">
-      <Filter>Fichiers d%27en-tête\Model\Elements</Filter>
-    </ClInclude>
-    <ClInclude Include="Mobile.h">
-      <Filter>Fichiers d%27en-tête\Model\Elements</Filter>
-    </ClInclude>
-    <ClInclude Include="MotionLess.h">
-      <Filter>Fichiers d%27en-tête\Model\Elements</Filter>
-    </ClInclude>
-    <ClInclude Include="View.h">
-      <Filter>Fichiers d%27en-tête\View</Filter>
-    </ClInclude>
-    <ClInclude Include="LoadingScreen.h">
-      <Filter>Fichiers d%27en-tête\View</Filter>
-    </ClInclude>
-    <ClInclude Include="LibraryCommunication.h">
-      <Filter>Fichiers d%27en-tête\Library</Filter>
-    </ClInclude>
-    <ClInclude Include="GlobalVariable.h">
-      <Filter>Fichiers d%27en-tête\Library</Filter>
-    </ClInclude>
-    <ClInclude Include="ViewMap.h">
-      <Filter>Fichiers d%27en-tête\View</Filter>
-    </ClInclude>
-    <ClInclude Include="Sprites.h">
-      <Filter>Fichiers d%27en-tête\Model\Elements</Filter>
-    </ClInclude>
-    <ClInclude Include="Connector.h">
-      <Filter>Fichiers d%27en-tête\Model\Elements</Filter>
-    </ClInclude>
-    <ClInclude Include="armes.h">
-      <Filter>Fichiers d%27en-tête\Model\Elements</Filter>
-    </ClInclude>
-    <ClInclude Include="Ammo.h">
-      <Filter>Fichiers d%27en-tête\Model\Arme</Filter>
-    </ClInclude>
-    <ClInclude Include="Balle.h">
-      <Filter>Fichiers d%27en-tête\Model\Arme</Filter>
-    </ClInclude>
-    <ClInclude Include="HellWolf.h">
-      <Filter>Fichiers d%27en-tête\Model\Elements\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="Monster.h">
-      <Filter>Fichiers d%27en-tête\Model\Elements\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="variable_static.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Nazi.h">
-      <Filter>Fichiers d%27en-tête\Model\Elements\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="Boss1.h">
-      <Filter>Fichiers d%27en-tête\Model\Elements\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="Boss2.h">
-      <Filter>Fichiers d%27en-tête\Model\Elements\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="variable_static.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="audio.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
+    <ClInclude Include="Ammo.h" />
+    <ClInclude Include="Area.h" />
+    <ClInclude Include="armes.h" />
+    <ClInclude Include="audio.h" />
+    <ClInclude Include="Balle.h" />
+    <ClInclude Include="Boss1.h" />
+    <ClInclude Include="Boss2.h" />
+    <ClInclude Include="Connector.h" />
+    <ClInclude Include="Controler.h" />
+    <ClInclude Include="Dimension.h" />
+    <ClInclude Include="Element.h" />
+    <ClInclude Include="GlobalVariable.h" />
+    <ClInclude Include="GUIControler.h" />
+    <ClInclude Include="HellWolf.h" />
+    <ClInclude Include="Hero.h" />
+    <ClInclude Include="HittBox.h" />
+    <ClInclude Include="Island.h" />
+    <ClInclude Include="LibraryCommunication.h" />
+    <ClInclude Include="LoadingScreen.h" />
+    <ClInclude Include="Mobile.h" />
+    <ClInclude Include="Monster.h" />
+    <ClInclude Include="MotionLess.h" />
+    <ClInclude Include="Nazi.h" />
+    <ClInclude Include="Sprites.h" />
+    <ClInclude Include="variable_static.h" />
+    <ClInclude Include="View.h" />
+    <ClInclude Include="ViewMap.h" />
+    <ClInclude Include="World.h" />
   </ItemGroup>
 </Project>
