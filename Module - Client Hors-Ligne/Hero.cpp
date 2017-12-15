@@ -2,7 +2,7 @@
 #include "World.h"
 #include <tuple>
 #include "LibraryCommunication.h"
-
+#include "Ammo.h"
 
 Hero::Hero(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation, long iDHero)
 	: Mobile(world, iDIsland, iDDimension, point, permeability, sprite, orientation), iDHero(iDHero)
@@ -14,8 +14,8 @@ Hero::Hero(World* world, long iDIsland, long iDDimension, tuple<long, long, long
 	this->vitesse = variable::VITESSE_HERO_X;
 	this->vitesseJump = variable::VITESSE_HERO_JUMP;
 
-	this->sizeX = 1;
-	this->sizeY = 2;
+	this->sizeX = make_tuple(0,1);
+	this->sizeY = make_tuple(-1,1);
 	this->Arme = new Ammo(world, iDIsland, iDDimension, point, permeability, "ressources/graphics/motionless/Bullet_Debug_Type1.bmp", orientation, iDHero, 10, 50);
 }
 
@@ -52,4 +52,9 @@ void Hero::underAttack(Mobile* e)
 {
 	if(e->shotHero)
 		err("attaque hero");
+}
+
+string Hero::toString()
+{
+	return "hero";
 }

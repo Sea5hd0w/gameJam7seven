@@ -18,11 +18,14 @@ public:
 
 	int life = 1;
 
+	
+	void shoot() override;
+	void loosePV(int pv);
 protected:
 	bool startAI;
 
 private:
 	long iDMonster;
-
+	
 
 };

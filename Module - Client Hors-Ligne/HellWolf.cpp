@@ -22,6 +22,9 @@ HellWolf::HellWolf(World* world, long iDIsland, long iDDimension, tuple<long, lo
 	// load WAV file
 
 	this->soundsHellWolf = createAudio("ressources/sounds/hellwolf.wav", 0, SDL_MIX_MAXVOLUME / 2);
+	
+
+	this->life = 1;
 }
 
 
@@ -75,7 +78,7 @@ void HellWolf::work()
 {
 	if (startAI)
 	{
-		VX = -8;
+		VX = -0;
 	}
 
 	long x = this->world->getMainHero()->getX() - this->getX();
@@ -98,10 +101,14 @@ void HellWolf::work()
 			started = true;
 		}
 	}
+
+	for (Hitbox* h : hits)
+	{
+		h->detect_collision();
+	}
 }
 
-void HellWolf::underAttack(Mobile* e)
+string HellWolf::toString()
 {
-	if(!e->shotHero)
-		err("chien");
+	return "hellFire";
 }

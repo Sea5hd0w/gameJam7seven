@@ -62,6 +62,20 @@ void Ammo::shoot(tuple<long, long, long> pointH)
 	this->idBullet++;
 }
 
+void Ammo::shoot(tuple<long, long, long> pointH, int vitesse)
+{
+
+	this->playSound();
+
+	Monster* monst;
+	monst = new Balle(this->getWorld(), iDIsland, iDDimension, pointH, permeability, "ressources/graphics/motionless/Bullet_Debug_Type2.bmp", orientation, this->idBullet, vitesse, 50, true);
+
+	this->world->getIsland()->getDimension(0)->addMonster(monst, this->idBullet);
+	this->world->getIsland()->getDimension(0)->addElementsToView(monst);
+
+	this->idBullet++;
+}
+
 void Ammo::printSprite(int xPosition, int yPosition)
 {
 	int y = yPosition;

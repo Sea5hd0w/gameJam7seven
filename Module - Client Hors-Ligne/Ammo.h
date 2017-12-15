@@ -12,6 +12,7 @@ public:
 	~Ammo();
 	
 	void shoot(tuple<long, long, long> pointH);
+	void Ammo::shoot(tuple<long, long, long> pointH, int vitesse);
 	void printSprite(int xPosition, int yPosition);
 protected: 
 	int degat;

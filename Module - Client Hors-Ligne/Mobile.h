@@ -15,7 +15,7 @@ class World;
 class Dimension;
 class Area;
 class AStar;
-
+class Ammo;
 class Mobile : public Element {
 
 public:
@@ -48,7 +48,11 @@ public:
 	void produceHitBox(Dimension* dim);
 
 	bool shotHero = true;
-
+	
+	int life = 1;
+	Ammo* Arme;
+	virtual void shoot() = 0;
+	virtual string toString() = 0;
 protected:
 	tuple<double, double> vecteurVitesse;
 	tuple<double, double> vecteurAcceleration;
@@ -68,6 +72,8 @@ protected:
 	bool affectedByGravity = true;
 
 	bool attack_b;
+
+	//void loosePV(int pv);
 
 private:
 	AStar* path;
