@@ -16,8 +16,9 @@
 GUIControler::GUIControler(World* world, View* view)
 	: world(world), view(view), run(true)
 {
-	this->loadTXT("ressources/levels/test.txt");
+	this->load = true;
 
+	this->loadTXT("ressources/levels/map.txt");
 	gen("GUIControler created : starting Listen & Process instruction");
 }
 
@@ -41,108 +42,144 @@ void GUIControler::runGUIControler()
 			switch (event.type)
 			{
 			case SDL_KEYUP:
-				/*	fprintf(stdout, "Key Down :\n");
-				fprintf(stdout, "\trepetition ? : %d\n", event.key.repeat);
-				fprintf(stdout, "\tscancode : %d\n", event.key.keysym.scancode);
-				fprintf(stdout, "\tkey : %d\n", event.key.keysym.sym);*/
-				switch (event.key.keysym.scancode)
+
+				if (!load)
 				{
-				case 89:
-					//sdl(to_string(event.key.keysym.scancode) + " : stop DownLeft");
-					this->world->getMainHero()->addX(0);
-					this->world->getMainHero()->addY(0);
-					//this->world->getMainHero()->moveDownLeft(false, 1);
-					break;
-				case 90:
-					//sdl(to_string(event.key.keysym.scancode) + " : stop Down");
-					this->world->getMainHero()->addY(0);
-					//this->world->getMainHero()->moveDown(false, 1);
-					break;
-				case 91:
-					//sdl(to_string(event.key.keysym.scancode) + " : stop DownRight");
-					this->world->getMainHero()->addX(0);
-					this->world->getMainHero()->addY(0);
-					//this->world->getMainHero()->moveDownRight(false, 1);
-					break;
-				case 92:
-					//sdl(to_string(event.key.keysym.scancode) + " : stop Left");
-					this->world->getMainHero()->addX(0);
-					//this->world->getMainHero()->moveLeft(false, 1);
-					break;
-				case 93:
-					break;
-				case 94:
-					//sdl(to_string(event.key.keysym.scancode) + " : stop Right");
-					this->world->getMainHero()->addX(0);
-					//this->world->getMainHero()->moveRight(false, 1);
-					break;
-				case 95:
-					//sdl(to_string(event.key.keysym.scancode) + " : stop TopLeft");
-					this->world->getMainHero()->addX(0);
-					this->world->getMainHero()->addY(0);
-					//this->world->getMainHero()->moveTopLeft(false, 1);
-					break;
-				case 96:
-					//sdl(to_string(event.key.keysym.scancode) + " : stop Top");
-					this->world->getMainHero()->addY(0);
-					//this->world->getMainHero()->moveTop(false, 1);
-					break;
-				case 97:
-					//sdl(to_string(event.key.keysym.scancode) + " : stop TopRight");
-					this->world->getMainHero()->addX(0);
-					this->world->getMainHero()->addY(0);
-					//this->world->getMainHero()->moveTopRight(false, 1);
+					this->world->setLoading(false);
+				}
+				if (!this->world->isLoading())
+				{
+					/*	fprintf(stdout, "Key Down :\n");
+					fprintf(stdout, "\trepetition ? : %d\n", event.key.repeat);
+					fprintf(stdout, "\tscancode : %d\n", event.key.keysym.scancode);
+					fprintf(stdout, "\tkey : %d\n", event.key.keysym.sym);*/					
+					switch (event.key.keysym.scancode)
+					{
+					//case 89:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : stop DownLeft");
+					//	this->world->getMainHero()->addX(0);
+					//	this->world->getMainHero()->addY(0);
+					//	//this->world->getMainHero()->moveDownLeft(false, 1);
+					//	break;
+					//case 90:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : stop Down");
+					//	this->world->getMainHero()->addY(0);
+					//	//this->world->getMainHero()->moveDown(false, 1);
+					//	break;
+					//case 91:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : stop DownRight");
+					//	this->world->getMainHero()->addX(0);
+					//	this->world->getMainHero()->addY(0);
+					//	//this->world->getMainHero()->moveDownRight(false, 1);
+					//	break;
+					//case 92:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : stop Left");
+					//	this->world->getMainHero()->addX(0);
+					//	//this->world->getMainHero()->moveLeft(false, 1);
+					//	break;
+					//case 93:
+					//	break;
+					//case 94:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : stop Right");
+					//	this->world->getMainHero()->addX(0);
+					//	//this->world->getMainHero()->moveRight(false, 1);
+					//	break;
+					//case 95:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : stop TopLeft");
+					//	this->world->getMainHero()->addX(0);
+					//	this->world->getMainHero()->addY(0);
+					//	//this->world->getMainHero()->moveTopLeft(false, 1);
+					//	break;
+					//case 96:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : stop Top");
+					//	this->world->getMainHero()->addY(0);
+					//	//this->world->getMainHero()->moveTop(false, 1);
+					//	break;
+					//case 97:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : stop TopRight");
+					//	this->world->getMainHero()->addX(0);
+					//	this->world->getMainHero()->addY(0);
+					//	//this->world->getMainHero()->moveTopRight(false, 1);
+					//	break;
+
+
+					case 4:
+						this->world->getMainHero()->addX(0);
+						break;
+					case 7:
+						this->world->getMainHero()->addX(0);
+						break;
+					case 44:
+						this->world->getMainHero()->addY(0);
+						break;
+
+					}
 					break;
 				}
-				break;
 			case SDL_KEYDOWN:
-				/*fprintf(stdout, "Key Up :\n");
-				fprintf(stdout, "\trepetition ? : %d\n", event.key.repeat);
-				fprintf(stdout, "\tscancode : %d\n", event.key.keysym.scancode);
-				fprintf(stdout, "\tkey : %d\n", event.key.keysym.sym);*/
-				
-				switch (event.key.keysym.scancode)
+				if (!this->world->isLoading())
 				{
-					case 89:
-						//sdl(to_string(event.key.keysym.scancode) + " : Move DownLeft");
-						this->world->getMainHero()->moveDownLeft(false, 1);
-						break;
-					case 90:
-						//sdl(to_string(event.key.keysym.scancode) + " : Move Down");
-						//this->world->getMainHero()->addY(v);
-						this->world->getMainHero()->moveDown(false, 1);
-						break;
-					case 91:
-						//sdl(to_string(event.key.keysym.scancode) + " : Move DownRight");
-						this->world->getMainHero()->moveDownRight(false, 1);
-						break;
-					case 92:
-						//sdl(to_string(event.key.keysym.scancode) + " : Move Left");
+					/*fprintf(stdout, "Key Up :\n");
+					fprintf(stdout, "\trepetition ? : %d\n", event.key.repeat);
+					fprintf(stdout, "\tscancode : %d\n", event.key.keysym.scancode);
+					fprintf(stdout, "\tkey : %d\n", event.key.keysym.sym);*/
+
+					switch (event.key.keysym.scancode)
+					{
+					//case 89:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : Move DownLeft");
+					//	this->world->getMainHero()->moveDownLeft(false, 1);
+					//	break;
+					//case 90:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : Move Down");
+					//	//this->world->getMainHero()->addY(v);
+					//	this->world->getMainHero()->moveDown(false, 1);
+					//	break;
+					//case 91:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : Move DownRight");
+					//	this->world->getMainHero()->moveDownRight(false, 1);
+					//	break;
+					//case 92:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : Move Left");
+					//	this->world->getMainHero()->moveLeft(false, 1);
+					//	break;
+					//case 93:
+					//	break;
+					//case 94:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : Move Right");
+					//	this->world->getMainHero()->moveRight(false, 1);
+					//	break;
+					//case 95:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : Move TopLeft");
+					//	this->world->getMainHero()->moveTopLeft(false, 1);
+					//	break;
+					//case 96:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : Move Top");
+					//	this->world->getMainHero()->moveTop(false, 1);
+					//	break;
+					//case 97:
+					//	//sdl(to_string(event.key.keysym.scancode) + " : Move TopRight");
+
+					//	//this->world->getMainHero()->moveTopRight(false, 1);
+					//	break;
+
+					case 4:
 						this->world->getMainHero()->moveLeft(false, 1);
 						break;
-					case 93:
-						break;
-					case 94:
-						//sdl(to_string(event.key.keysym.scancode) + " : Move Right");
+					case 7:
 						this->world->getMainHero()->moveRight(false, 1);
 						break;
-					case 95:
-						//sdl(to_string(event.key.keysym.scancode) + " : Move TopLeft");
-						this->world->getMainHero()->moveTopLeft(false, 1);
-						break;
-					case 96:
-						//sdl(to_string(event.key.keysym.scancode) + " : Move Top");
+					case 44:
 						this->world->getMainHero()->moveTop(false, 1);
 						break;
-					case 97:
-						//sdl(to_string(event.key.keysym.scancode) + " : Move TopRight");
-						
-						//this->world->getMainHero()->moveTopRight(false, 1);
-						break;
+					}
 				}
 				break;
 			case SDL_MOUSEBUTTONDOWN:
-				this->world->getMainHero()->shoot();
+				if (!this->world->isLoading())
+				{
+					this->world->getMainHero()->shoot();
+				}
 				break;
 
 				case SDL_QUIT:
@@ -195,8 +232,9 @@ void GUIControler::information(string rowData)
 
 	if (data[1] == "MainLoadEnd") //End of the main load : Heros, Stuff, Map of the dimension of the MainHero
 	{
-		this->world->setLoading(false);
-		this->world->getIsland()->getDimension(stol(data[3]))->loadElementsToView();
+		this->world->getIsland()->getDimension(0)->loadElementsToView();
+
+		this->load = false;
 	}
 }
 

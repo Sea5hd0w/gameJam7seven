@@ -41,5 +41,7 @@ private:
 	int positionCaseHeight1 = 68; //Distance from image's top and case's top
 	int positionCaseHeight2 = 20; //Distance from image's bottom and case's bottom
 	int positionCasesSide = 24; //Distance from image's side and case's side
+
+	bool load;
 };
 

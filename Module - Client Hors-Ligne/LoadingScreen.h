@@ -26,6 +26,7 @@ private:
 	map<int, SDL_Texture*> spritesLoadingScreen; //List of image of the loading
 	
 	int gifCycle; //Curent position of the image to print
+	int gifCycle2; //Curent position of the image to print
 
 	void loadSprites(); //Load image of the loading animation
 };
