@@ -16,11 +16,12 @@ public:
 
 	int life = 1;
 
+	void loosePV(int pv);
 protected:
 	bool startAI;
 
 private:
 	long iDMonster;
-
+	
 
 };

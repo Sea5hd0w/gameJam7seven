@@ -37,3 +37,12 @@ void Monster::underAttack(Mobile* e)
 	if (!e->shotHero)
 		err("monster");
 }
+
+void Monster::loosePV(int pv)
+{
+	this->life -= pv;
+	if (life <= 0)
+	{
+
+	}
+}
