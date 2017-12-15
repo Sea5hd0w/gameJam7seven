@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Monster.h"
+#include "audio.h"
 
 class Nazi : public Monster
 {
@@ -9,7 +10,15 @@ public:
 	~Nazi();
 	string toString() override;
 protected:
+	int ai1;
+	int ai2;
 	void anim_sprite() override;
 	void work() override;
+
+	Audio *soundsBoss2;
+
+	bool started;
+
+	void ai();
 };
 

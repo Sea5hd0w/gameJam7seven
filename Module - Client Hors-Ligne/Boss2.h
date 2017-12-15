@@ -14,6 +14,9 @@ public:
 	clock_t t;
 	void loosePV(int pv) override;
 protected:
+	int ai1;
+	int ai2;
+
 	void anim_sprite() override;
 	void work() override;
 	void attack() override;
@@ -22,5 +25,6 @@ protected:
 
 	bool started;
 
+	void ai();
 };
 

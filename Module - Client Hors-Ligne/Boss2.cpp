@@ -8,6 +8,9 @@
 Boss2::Boss2(World* world, long iDIsland, long iDDimension, tuple<long, long, long> point, bool permeability, string sprite, int orientation, long iDMonster)
 	: Monster(world, iDIsland, iDDimension, point, permeability, sprite, orientation, iDMonster)
 {
+	ai1 = 0;
+	ai2 = 0;
+
 	this->sprite = { 0,0, 80, 80 };
 	this->xSize = 300;
 	this->ySize = 300;
@@ -113,7 +116,7 @@ void Boss2::work()
 {
 	if (startAI)
 	{
-		VX = -0;
+		this->ai();
 	}
 
 	long x = this->world->getMainHero()->getX() - this->getX();
@@ -158,6 +161,22 @@ void Boss2::shoot()
 		t = clock();
 	}
 }
+void Boss2::ai()
+{
+	ai1 = (ai1 + 1) % 200;
+	if (ai1 == 0) ai2 = (ai2 + 1) % 2;
+
+	if (ai2 == 0) VX = -3;
+	else VX = 3;
+
+	if ((ai1 > 0 && ai1 < 25) || (ai1 > 50 && ai1 < 75) || (ai1 > 100 && ai1 < 125) || (ai1 > 150 && ai1 < 175)) VY = -2;
+	else VY = 2;
+
+	if (ai1 % 70 == 0) attack_b = true;
+}
+
+
+
 
 void Boss2::loosePV(int pv)
 {
